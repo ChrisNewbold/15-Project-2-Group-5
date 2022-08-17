@@ -1,5 +1,5 @@
 require("dotenv").config();
-const express = require("expres s");
+const express = require("express");
 const exphbs = require("express-handlebars");
 const session = require("express-session");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);

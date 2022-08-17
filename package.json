@@ -9,7 +9,7 @@
     "watch": "nodemon server.js",
     "seed": "node seeds/index.js",
     "create_db": "node db/schema.js",
-    "lint": "eslint /"
+    "lint": "eslint ./"
   },
   "repository": {
     "type": "git",
