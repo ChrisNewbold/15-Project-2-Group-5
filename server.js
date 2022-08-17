@@ -1,0 +1,52 @@
+require("dotenv").config();
+const express = require("express");
+const exphbs = require("express-handlebars");
+const session = require("express-session");
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
+const routes = require("./routes");
+const { _SESSION_SECRET } = require("./config/config");
+const sequalize = require("./config/connection");
+
+const hbs = exphbs.create({});
+const app = express();
+
+const myStore = new SequelizeStore({
+  db: sequalize,
+});
+
+app.use(
+  session({
+    secret: _SESSION_SECRET,
+    store: myStore,
+    resave: false,
+    saveUninitialized: true,
+    cookie: { maxAge: 300000 },
+  })
+);
+
+myStore.sync();
+
+/*
+if (app.get("env") === "production") {
+  app.set("trust proxy", 1);
+  session.cookie.secure = true;
+}
+*/
+
+app.engine("handlebars", hbs.engine);
+app.set("view engine", "handlebars");
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use(express.static(`${__dirname}/routes/public/assets`));
+app.use(routes);
+
+const PORT = process.env.PORT || 3001;
+
+sequalize.sync({ force: false }).then(() => {
+  app.listen(PORT, () => {
+    // eslint-disable-next-line no-console
+    console.log(`App listening on port ${PORT}!`);
+  });
+});
