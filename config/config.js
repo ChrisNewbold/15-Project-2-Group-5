@@ -1,5 +1,5 @@
 module.exports = {
-  _NODE_ENV: process.env.NODE_ENV
+  _NODE_ENV: process.env.NODE_ENV,
   _PORT: process.env.PORT,
   _DB_USER: process.env.DB_USER,
   _DB_PASSWORD: process.env.DB_PASSWORD,
