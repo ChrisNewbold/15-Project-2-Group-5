@@ -6,6 +6,7 @@ const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const path = require("path");
 const { _SESSION_SECRET } = require("./config/config");
 const sequalize = require("./config/connection");
+const controllers = require("./controllers");
 
 const hbs = exphbs.create({});
 const app = express();
@@ -40,7 +41,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(`${__dirname}/public`));
-
+app.use(controllers);
 const PORT = process.env.PORT || 3001;
 
 // route to get plugin.js from public folder
