@@ -1,0 +1,7 @@
+.husky
+db/*
+.eslintignore
+.eslintrc.json
+.prettierrc
+package.json
+README.md
