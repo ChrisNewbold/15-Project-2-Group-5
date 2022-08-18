@@ -29,10 +29,11 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       throw new Error("Something went wrong");
     })
-    .then((responseJson) => {
+    .then(() => {
       // Do something with the response
     })
     .catch((error) => {
+      // eslint-disable-next-line no-console
       console.log(error);
     });
 });
