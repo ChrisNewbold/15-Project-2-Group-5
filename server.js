@@ -41,11 +41,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(`${__dirname}/public`));
-app.use(controllers);
+
 const PORT = process.env.PORT || 3001;
 
 // route to get plugin.js from public folder
 app.get("/", (req, res) => res.sendFile(path.join(__dirname, "plugin.js")));
+app.use(controllers);
 
 sequalize.sync({ force: false }).then(() => {
   app.listen(PORT, () => {
