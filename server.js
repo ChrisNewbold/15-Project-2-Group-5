@@ -71,6 +71,10 @@ app.post("/api/articleCheck", (req, res) => {
     console.log(err);
   }
 });
+
+app.get("/", (req, res) => {
+  res.sendFile(`${__dirname}/index.html`);
+});
 app.use(controllers);
 
 sequalize.sync({ force: false }).then(() => {
