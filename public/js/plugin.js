@@ -33,6 +33,7 @@ function myInitCode() {
       // Do something with the response
     })
     .catch((error) => {
+      // eslint-disable-next-line no-console
       console.log(error);
     });
 }
