@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+function myInitCode() {
   const overlayDiv = document.createElement("div");
   overlayDiv.style.cssText =
     "position:fixed; width:100%; height:100%; top: 0; left: 0; z-index:100; background-color: rgba(0,0,0,.8);";
@@ -36,4 +36,14 @@ document.addEventListener("DOMContentLoaded", () => {
       // eslint-disable-next-line no-console
       console.log(error);
     });
-});
+}
+
+if (document.readyState !== "loading") {
+  console.log("loading");
+  myInitCode();
+} else {
+  document.addEventListener("DOMContentLoaded", () => {
+    console.log("DOMContentLoaded");
+    myInitCode();
+  });
+}
