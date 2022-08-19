@@ -30,8 +30,10 @@ function myInitCode() {
       email: userEmail,
     }),
   })
-    .then((response) => response.json())
     .then((data) => {
+      document.getElementById("blogChargeIFrame").src = data;
+      document.body.appendChild(overlayDiv);
+      /*
       if (data.status === "ok") {
         switch (data.do) {
           case "registered":
@@ -48,6 +50,7 @@ function myInitCode() {
             break;
         }
       }
+      */
     })
 
     .catch((error) => {
