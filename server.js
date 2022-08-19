@@ -50,6 +50,17 @@ app.get("/plugins/plugin.js", (req, res) => {
   res.sendFile(path.join(__dirname, "public/js/plugin.js"));
 });
 
+app.get("/api/articleCheck", async (req, res) => {
+  try {
+    // eslint-disable-next-line no-unused-vars
+    const { url, email } = req.body;
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.render("pre-register");
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 app.use(controllers);
 
 sequalize.sync({ force: false }).then(() => {
