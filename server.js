@@ -3,8 +3,10 @@ const express = require("express");
 const exphbs = require("express-handlebars");
 const session = require("express-session");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
+const path = require("path");
 const { _SESSION_SECRET } = require("./config/config");
 const sequalize = require("./config/connection");
+const controllers = require("./controllers");
 
 const hbs = exphbs.create({});
 const app = express();
@@ -41,6 +43,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(`${__dirname}/public`));
 
 const PORT = process.env.PORT || 3001;
+
+// route to get plugin.js from public folder
+app.get("/plugins/plugin.js", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.sendFile(path.join(__dirname, "public/js/plugin.js"));
+});
+app.use(controllers);
 
 sequalize.sync({ force: false }).then(() => {
   app.listen(PORT, () => {
