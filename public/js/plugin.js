@@ -33,7 +33,8 @@ function myInitCode() {
     .then((data) => {
       console.log(data);
       document.body.appendChild(overlayDiv);
-      document.getElementById("blogChargeIFrame").innerHtml = data.body;
+      document.getElementById("blogChargeIFrame").document.body.innerHtml =
+        data;
       /*
       if (data.status === "ok") {
         switch (data.do) {
