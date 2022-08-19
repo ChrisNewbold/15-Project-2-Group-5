@@ -31,6 +31,7 @@ function myInitCode() {
     }),
   })
     .then((data) => {
+      console.log(data);
       document.body.appendChild(overlayDiv);
       document.getElementById("blogChargeIFrame").src = data.Response;
       /*
