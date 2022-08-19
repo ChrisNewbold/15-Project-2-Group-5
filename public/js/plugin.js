@@ -32,7 +32,7 @@ function myInitCode() {
   })
     .then((data) => {
       document.body.appendChild(overlayDiv);
-      document.getElementById("blogChargeIFrame").src = data;
+      document.getElementById("blogChargeIFrame").src = data.Response;
       /*
       if (data.status === "ok") {
         switch (data.do) {
