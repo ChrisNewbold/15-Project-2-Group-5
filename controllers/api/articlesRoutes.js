@@ -1,6 +1,6 @@
 const router = require("express").Router();
 
-router.post("/", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     // eslint-disable-next-line no-unused-vars
     const { url, email } = req.body;
