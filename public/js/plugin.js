@@ -11,27 +11,44 @@ function myInitCode() {
   const elemIFrame = document.createElement("iFrame");
   elemIFrame.style.cssText =
     "position:absolute; width:50%; height:50%; top: 50%; left: 50%; opacity:1; z-index:1000; background:#fff; margin: auto; transform: translate(-50%,-50%)";
+  elemIFrame.setAttribute("id", "blogChargeIFrame");
 
   wrapperDiv.appendChild(elemIFrame);
   overlayDiv.appendChild(wrapperDiv);
-  document.body.appendChild(overlayDiv);
-  fetch("https://app-techblog.herokuapp.com/api/articles", {
+
+  let userEmail = "";
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; blogChargeEmail=`);
+  if (parts.length === 2) {
+    userEmail = parts.pop().split(";").shift();
+  }
+  fetch("https://app-techblog.herokuapp.com/articleCheck", {
     method: "POST",
     body: JSON.stringify({
       url: window.location.href,
-      b: 2,
+      email: userEmail,
     }),
   })
-    .then((response) => {
-      document.body.appendChild(overlayDiv);
-      if (response.ok) {
-        return response.json();
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.status === "ok") {
+        switch (data.do) {
+          case "registered":
+            document.getElementById("blogChargeIFrame").src = data.html;
+            document.body.appendChild(overlayDiv);
+            break;
+          case "pre-register":
+            document.getElementById("blogChargeIFrame").src = data.html;
+            document.body.appendChild(overlayDiv);
+            break;
+          case "continue":
+            break;
+          default:
+            break;
+        }
       }
-      throw new Error("Something went wrong");
     })
-    .then(() => {
-      // Do something with the response
-    })
+
     .catch((error) => {
       // eslint-disable-next-line no-console
       console.log(error);
