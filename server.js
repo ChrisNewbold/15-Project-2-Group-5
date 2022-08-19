@@ -57,7 +57,7 @@ app.get("/api/articleCheck", (req, res) => {
   try {
     // eslint-disable-next-line no-unused-vars
     const { url, email } = req.body;
-    res.setHeader("Access-Control-Allow-Origin", "*").render("pre-register");
+    res.render("pre-register");
   } catch (err) {
     console.log(err);
   }
@@ -66,7 +66,7 @@ app.post("/api/articleCheck", (req, res) => {
   try {
     // eslint-disable-next-line no-unused-vars
     const { url, email } = req.body;
-    res.setHeader("Access-Control-Allow-Origin", "*").render("pre-register");
+    res.render("pre-register");
   } catch (err) {
     console.log(err);
   }
