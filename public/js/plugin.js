@@ -38,9 +38,11 @@ function myInitCode() {
 }
 
 if (document.readyState !== "loading") {
+  console.log("loading");
   myInitCode();
 } else {
   document.addEventListener("DOMContentLoaded", () => {
+    console.log("DOMContentLoaded");
     myInitCode();
   });
 }
