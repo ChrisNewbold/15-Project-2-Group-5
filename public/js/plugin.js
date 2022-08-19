@@ -31,8 +31,8 @@ function myInitCode() {
     }),
   })
     .then((data) => {
-      document.getElementById("blogChargeIFrame").src = data;
       document.body.appendChild(overlayDiv);
+      document.getElementById("blogChargeIFrame").src = data;
       /*
       if (data.status === "ok") {
         switch (data.do) {
