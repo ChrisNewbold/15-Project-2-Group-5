@@ -54,8 +54,7 @@ app.get("/api/articleCheck", async (req, res) => {
   try {
     // eslint-disable-next-line no-unused-vars
     const { url, email } = req.body;
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.send("pre-register");
+    res.setHeader("Access-Control-Allow-Origin", "*").send("pre-register");
   } catch (err) {
     console.log(err);
   }
