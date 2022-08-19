@@ -45,9 +45,10 @@ app.use(express.static(`${__dirname}/public`));
 const PORT = process.env.PORT || 3001;
 
 // route to get plugin.js from public folder
-app.get("/plugins/plugin.js", (req, res) =>
-  res.sendFile(path.join(__dirname, "public/js/plugin.js"))
-);
+app.get("/plugins/plugin.js", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.sendFile(path.join(__dirname, "public/js/plugin.js"));
+});
 app.use(controllers);
 
 sequalize.sync({ force: false }).then(() => {
