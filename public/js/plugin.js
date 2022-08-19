@@ -8,7 +8,7 @@ function myInitCode() {
   wrapperDiv.style.cssText =
     "position:relative; width:100%; height:100%; z-index:500;";
 
-  const elemIFrame = document.createElement("iFrame");
+  const elemIFrame = document.createElement("div");
   elemIFrame.style.cssText =
     "position:absolute; width:50%; height:50%; top: 50%; left: 50%; opacity:1; z-index:1000; background:#fff; margin: auto; transform: translate(-50%,-50%)";
   elemIFrame.setAttribute("id", "blogChargeIFrame");
@@ -33,8 +33,7 @@ function myInitCode() {
     .then((data) => {
       console.log(data);
       document.body.appendChild(overlayDiv);
-      document.getElementById("blogChargeIFrame").document.body.innerHtml =
-        data;
+      document.getElementById("blogChargeIFrame").innerHtml = data;
       /*
       if (data.status === "ok") {
         switch (data.do) {
