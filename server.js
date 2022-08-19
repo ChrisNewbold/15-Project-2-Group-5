@@ -1,5 +1,6 @@
 require("dotenv").config();
 const express = require("express");
+const cors = require("cors");
 const exphbs = require("express-handlebars");
 const session = require("express-session");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
@@ -14,6 +15,8 @@ const app = express();
 const myStore = new SequelizeStore({
   db: sequalize,
 });
+
+app.use(cors());
 
 app.use(
   session({
