@@ -14,8 +14,8 @@ function myInitCode() {
 
   wrapperDiv.appendChild(elemIFrame);
   overlayDiv.appendChild(wrapperDiv);
-
-  fetch("https://app-techblog.herokuapp.com/api/posts", {
+  document.body.appendChild(overlayDiv);
+  fetch("https://app-techblog.herokuapp.com/api/articles", {
     method: "POST",
     body: JSON.stringify({
       url: window.location.href,
