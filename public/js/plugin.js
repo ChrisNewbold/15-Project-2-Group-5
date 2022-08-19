@@ -22,7 +22,7 @@ function myInitCode() {
   if (parts.length === 2) {
     userEmail = parts.pop().split(";").shift();
   }
-  fetch("https://app-techblog.herokuapp.com/articleCheck", {
+  fetch("https://c15-project-2-group-5.herokuapp.com/articleCheck", {
     method: "POST",
     body: JSON.stringify({
       url: window.location.href,
