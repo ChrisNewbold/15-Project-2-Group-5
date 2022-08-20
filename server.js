@@ -55,7 +55,7 @@ app.get("/plugins/plugin.js", (req, res) => {
 app.get("/splashTest.html", (req, res) => {
   res.sendFile(`${__dirname}/splashTest.html`);
 });
-app.get("/", (req, res) => {
+app.use("/", (req, res) => {
   res.render("blogger-homepage", { layout: "main" });
 });
 app.use(controllers);
