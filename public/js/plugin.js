@@ -34,7 +34,6 @@ function myInitCode() {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       document.body.appendChild(overlayDiv);
       document.getElementById("blogChargeIFrame").srcdoc = data.html;
       document.getElementById("blogChargeIFrame").style.height = `${
@@ -61,9 +60,8 @@ function myInitCode() {
       */
     })
 
-    .catch((error) => {
+    .catch(() => {
       // eslint-disable-next-line no-console
-      console.log(error);
     });
 }
 
