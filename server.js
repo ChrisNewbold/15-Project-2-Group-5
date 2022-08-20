@@ -42,7 +42,7 @@ app.set("view engine", "handlebars");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
+app.get("/images", express.static(`${__dirname}/public/images`));
 app.use(express.static(`${__dirname}/public`));
 
 const PORT = process.env.PORT || 3001;
