@@ -1,7 +1,8 @@
 .card-header {
   background-color: #9acde0 !important;
   color: white !important;
-  font-size: 3rem;
+  font-size: 250%;
+  line-height: 100%;
 }
 
 .btn {
