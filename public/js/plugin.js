@@ -23,8 +23,8 @@ function myInitCode() {
   if (parts.length === 2) {
     userEmail = parts.pop().split(";").shift();
   }
-  // fetch("https://c15-project-2-group-5.herokuapp.com/api/articleCheck", {
-  fetch("/api/articleCheck", {
+  fetch("https://c15-project-2-group-5.herokuapp.com/api/articleCheck", {
+    // fetch("/api/articleCheck", {
     method: "POST",
     mode: "cors",
     body: JSON.stringify({
