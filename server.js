@@ -1,15 +1,15 @@
+/* eslint-disable no-console */
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-const exphbs = require("express-handlebars");
 const session = require("express-session");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const path = require("path");
+const hbs = require("express-handlebars").create({});
 const { _SESSION_SECRET } = require("./config/config");
 const sequalize = require("./config/connection");
 const controllers = require("./controllers");
 
-const hbs = exphbs.create({});
 const app = express();
 
 const myStore = new SequelizeStore({
@@ -53,22 +53,16 @@ app.get("/plugins/plugin.js", (req, res) => {
   res.sendFile(path.join(__dirname, "public/js/plugin.js"));
 });
 
-app.get("/api/articleCheck", (req, res) => {
-  try {
-    // eslint-disable-next-line no-unused-vars
-    const { url, email } = req.body;
-    res.render("pre-register");
-  } catch (err) {
-    console.log(err);
-  }
-});
 app.post("/api/articleCheck", (req, res) => {
   try {
-    // eslint-disable-next-line no-unused-vars
-    const { url, email } = req.body;
-    res.render("pre-register");
+    res.render("pre-register", (err, html) => {
+      if (err) {
+        console.log(err);
+      }
+      res.send({ html, id: 1 });
+    });
   } catch (err) {
-    console.log(err);
+    console.log(`ERROR: ${err}`);
   }
 });
 
