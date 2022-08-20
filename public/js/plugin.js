@@ -1,7 +1,11 @@
 function myInitCode() {
+  window.addEventListener("message", ({ data }) => {
+    document.getElementById("blogChargeIFrame").style.height = `${data}px`;
+    document.getElementById("overlay").style.opacity = "100";
+  });
   const overlayDiv = document.createElement("div");
   overlayDiv.style.cssText =
-    "position:fixed; width:100%; height:100%; top: 0; left: 0; z-index:100; background-color: rgba(0,0,0,.8); ";
+    "position:fixed; width:100%; height:100%; top: 0; left: 0; z-index:-100; background-color: rgba(0,0,0,.8); opacity: 0;";
   overlayDiv.setAttribute("id", "overlay");
 
   const wrapperDiv = document.createElement("div");
@@ -23,6 +27,7 @@ function myInitCode() {
   if (parts.length === 2) {
     userEmail = parts.pop().split(";").shift();
   }
+
   fetch("https://c15-project-2-group-5.herokuapp.com/api/articleCheck", {
     method: "POST",
     mode: "cors",
@@ -35,12 +40,7 @@ function myInitCode() {
     .then((data) => {
       document.body.appendChild(overlayDiv);
       document.getElementById("blogChargeIFrame").srcdoc = data.html;
-      setTimeout(() => {
-        document.getElementById("blogChargeIFrame").style.height = `${
-          document.getElementById("blogChargeIFrame").contentWindow.document
-            .body.offsetHeight + 50
-        }px`;
-      }, 1000);
+
       /*
       if (data.status === "ok") {
         switch (data.do) {

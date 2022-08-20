@@ -55,8 +55,12 @@
   </div>
   <button type="submit" id="submit-btn" class="btn btn-primary ml-5">Sign in</button>
 </form>
+
+
+
 <script>
-  function myInitCode() { 
+  function myInitCode() {
+    setTimeout(() => {window.parent.postMessage(document.getElementById("wrapper").offsetHeight+50);},1000)
     let emailElement = document.getElementById("inputEmail3"); 
     let passwordElement = document.getElementById("inputPassword3"); 
     let termsElement = document.getElementById("flexCheckDefault1"); 
