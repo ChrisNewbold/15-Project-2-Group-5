@@ -7,7 +7,7 @@ class Article extends Model {}
 Article.init(
   {
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.INTEGER(10),
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
@@ -16,9 +16,10 @@ Article.init(
       type: DataTypes.STRING(255),
       allowNull: false,
     },
-    credit: {
-      type: DataTypes.Integer(10),
+    credits: {
+      type: DataTypes.INTEGER(10),
       allowNull: false,
+      defaultValue: 40,
     },
   },
   {
