@@ -53,18 +53,7 @@ app.get("/plugins/plugin.js", (req, res) => {
   res.sendFile(path.join(__dirname, "public/js/plugin.js"));
 });
 
-app.post("/api/articleCheck", (req, res) => {
-  try {
-    res.render("pre-register", (err, html) => {
-      if (err) {
-        console.log(err);
-      }
-      res.send({ html, id: 1 });
-    });
-  } catch (err) {
-    console.log(`ERROR: ${err}`);
-  }
-});
+
 
 app.get("/", (req, res) => {
   res.sendFile(`${__dirname}/index.html`);
