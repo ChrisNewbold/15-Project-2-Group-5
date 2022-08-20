@@ -11,7 +11,7 @@ Blogger.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    credit: {
+    credits: {
       type: DataTypes.INTEGER(10),
       allowNUlls: false,
     },
