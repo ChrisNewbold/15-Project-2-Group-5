@@ -11,6 +11,7 @@ function myInitCode() {
   const elemIFrame = document.createElement("iFrame");
   elemIFrame.style.cssText =
     "position:absolute; width:50%; height:75%; top: 50%; left: 50%; opacity:1; z-index:1000; background:#fff; margin: auto; transform: translate(-50%,-50%)";
+
   elemIFrame.setAttribute("id", "blogChargeIFrame");
 
   wrapperDiv.appendChild(elemIFrame);
