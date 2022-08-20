@@ -32,6 +32,25 @@
           userEmail = parts.pop().split(";").shift();
         }
 
+
+  fetch("/api/articleCheck", {
+    method: "POST",
+    mode: "cors",
+    body: JSON.stringify({
+      url: window.location.href,
+      email: userEmail,
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      document.body.appendChild(overlayDiv);
+      document.getElementById("blogChargeIFrame").srcdoc = data.html;
+      document.getElementById("blogChargeIFrame").style.height = `${
+        document.getElementById("blogChargeIFrame").contentWindow.document.body
+          .scrollHeight
+      }px`;
+      /*
+
         fetch("/api/articleCheck", {
           method: "POST",
           mode: "cors",
@@ -49,6 +68,7 @@
                 .body.scrollHeight
             }px`;
             /*
+
       if (data.status === "ok") {
         switch (data.do) {
           case "registered":
