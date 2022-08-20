@@ -52,9 +52,11 @@ app.get("/plugins/plugin.js", (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.sendFile(path.join(__dirname, "public/js/plugin.js"));
 });
-
+app.get("/splashTest.html", (req, res) => {
+  res.sendFile(`${__dirname}/splashTest.html`);
+});
 app.get("/", (req, res) => {
-  res.sendFile(`${__dirname}/index.html`);
+  res.render("blogger-homepage", { layout: "main" });
 });
 app.use(controllers);
 
