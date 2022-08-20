@@ -5,7 +5,9 @@ router.get("/", async (req, res) => {
     // eslint-disable-next-line no-unused-vars
     const { url, email } = req.body;
     res.setHeader("Access-Control-Allow-Origin", "*");
-    res.render("pre-register");
+    res.render("pre-register", {
+      layout: "splash",
+    });
   } catch (err) {
     //
   }
