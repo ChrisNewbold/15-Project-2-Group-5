@@ -22,6 +22,7 @@ function myInitCode() {
   if (parts.length === 2) {
     userEmail = parts.pop().split(";").shift();
   }
+
   fetch("https://c15-project-2-group-5.herokuapp.com/api/articleCheck", {
     method: "POST",
     mode: "cors",
@@ -30,9 +31,15 @@ function myInitCode() {
       email: userEmail,
     }),
   })
+    .then((response) => response.json())
     .then((data) => {
+      console.log(data);
       document.body.appendChild(overlayDiv);
-      document.getElementById("blogChargeIFrame").src = data.url;
+      document.getElementById("blogChargeIFrame").srcdoc = data.html;
+      document.getElementById("blogChargeIFrame").style.height = `${
+        document.getElementById("blogChargeIFrame").contentWindow.document.body
+          .scrollHeight
+      }px`;
       /*
       if (data.status === "ok") {
         switch (data.do) {
@@ -60,11 +67,9 @@ function myInitCode() {
 }
 
 if (document.readyState !== "loading") {
-  console.log("loading");
   myInitCode();
 } else {
   document.addEventListener("DOMContentLoaded", () => {
-    console.log("DOMContentLoaded");
     myInitCode();
   });
 }

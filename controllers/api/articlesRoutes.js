@@ -7,7 +7,7 @@ router.get("/", async (req, res) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.render("pre-register");
   } catch (err) {
-    console.log(err);
+    //
   }
 });
 
