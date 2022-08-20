@@ -1,0 +1,13 @@
+.card-header {
+  background-color: #9acde0 !important;
+  color: white !important;
+  font-size: 3rem;
+}
+
+.btn {
+  background-color: #9acde0 !important;
+  border-color: #9acde0;
+  font-size: large;
+  height: 60px;
+  width: 150px;
+}
