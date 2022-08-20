@@ -53,8 +53,6 @@ app.get("/plugins/plugin.js", (req, res) => {
   res.sendFile(path.join(__dirname, "public/js/plugin.js"));
 });
 
-
-
 app.get("/", (req, res) => {
   res.sendFile(`${__dirname}/index.html`);
 });
