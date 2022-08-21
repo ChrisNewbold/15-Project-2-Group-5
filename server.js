@@ -43,7 +43,8 @@ app.set("view engine", "handlebars");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.get("/images", express.static(`${__dirname}/public/images`));
-app.use(express.static(`${__dirname}/public`));
+app.get("/css", express.static(`${__dirname}/public/css`));
+app.get("/js", express.static(`${__dirname}/public/js`));
 
 const PORT = process.env.PORT || 3001;
 
@@ -55,7 +56,7 @@ app.get("/plugins/plugin.js", (req, res) => {
 app.get("/splashTest.html", (req, res) => {
   res.sendFile(`${__dirname}/splashTest.html`);
 });
-app.use("/", (req, res) => {
+app.get("/", (req, res) => {
   res.render("blogger-homepage", { layout: "main" });
 });
 app.use(controllers);
