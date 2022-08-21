@@ -1,29 +1,52 @@
 {{!-- reader adds credit --}}
 {{!-- how many credits would you like to purchase i.e buy 100 receive bonus 10! --}}
-<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="..." alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+<div id="wrapper"></div>
+<div class="card">
+  <h5 class="gold-credit-header">GOLD MEMBER</h5>
+  <div class="credit-body">
+    <h5 class="credit-title">500 CREDITS FOR $50</h5>
+    <p class="credit-text"><ul><li>500 credits</li><li>bonus 50 credits</li><li>blogger interactions</li><li>new blog notifications</li><li>blog recommendations</li></ul></p>
+    <a href="#" class="btn btn-primary">Select Plan</a>
   </div>
 </div>
-<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="..." alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+<div class="card">
+  <h5 class="silver-credit-header">SILVER MEMBER</h5>
+  <div class="credit-body">
+    <h5 class="credit-title">250 CREDITS FOR $25</h5>
+    <p class="credit-text"><ul><li>250 credits</li><li>bonus 25 credits</li><li>blog recommendations</li></ul></p>
+    <a href="#" class="btn btn-primary">Select Plan</a>
   </div>
 </div>
-<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="..." alt="Card image cap">
+<div class="card">
+  <h5 class="bronze-credit-header">BRONZE MEMBER</h5>
   <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <h5 class="credit-title">150 CREDITS FOR $15</h5>
+    <p class="credit-text"><ul><li>150 credits</li><li>bonus 10 credits</li></li></ul></p>
+    <a href="#" class="btn btn-primary">Select Plan</a>
   </div>
 </div>
+  </div>
+</br>
 {{!-- paypal button to pay with paypal --}}
+    <!-- Set up a container element for the button -->
+    <div id="paypal-button-container"></div>
+
+    <!-- Include the PayPal JavaScript SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
+
+    <script>
+        // Render the PayPal button into #paypal-button-container
+        paypal.Buttons({
+
+            style: {
+                color:  'gold',
+                layout: 'vertical',
+                shape:  'rect',
+                label:  'pay',
+                height: 55
+            }
+
+        }).render('#paypal-button-container');
+    </script>
 {{!-- Buy Credits CTA (user will be taken to the article) --}}
 <button type="button" class="btn btn-primary btn-lg">Large button</button>
