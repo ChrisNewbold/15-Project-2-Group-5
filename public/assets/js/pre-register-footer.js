@@ -1,8 +1,9 @@
 function myInitCode() {
   setTimeout(() => {
-    window.parent.postMessage(
-      document.getElementById("wrapper").offsetHeight + 50
-    );
+    window.parent.postMessage({
+      splash: 1,
+      height: document.getElementById("wrapper").offsetHeight + 70,
+    });
   }, 1000);
   const emailElement = document.getElementById("inputEmail3");
   const passwordElement = document.getElementById("inputPassword3");
@@ -19,7 +20,10 @@ function myInitCode() {
       terms: termsElement.checked,
       privacy: privacyElement.checked,
     };
-    // console.log(formData);
+    window.parent.postMessage({
+      splash: 2,
+      formData,
+    });
   });
 }
 if (document.readyState !== "loading") {

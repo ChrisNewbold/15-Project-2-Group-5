@@ -27,9 +27,40 @@
 
     <script>
 function myInitCode() {
-  window.addEventListener("message", ({ data }) => {
-    document.getElementById("blogChargeIFrame").style.height = `${data}px`;
-    document.getElementById("overlay").style.opacity = "100";
+  let articleId = 0;
+  const fetchPath = "";
+  window.addEventListener("message", ({data}) => {
+    switch (data.splash) {
+      case 1:
+        document.getElementById(
+          "blogChargeIFrame"
+        ).style.height = `${data.height}px`;
+        document.getElementById("overlay").style.opacity = "100";
+        break;
+      case 2:
+        console.log(data.formData);
+        fetch(`${fetchPath}/api/reader/newReader`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: data.formData.email,
+            password: data.formData.password,
+            terms: data.formData.terms,
+            privacy: data.formData.privacy,
+            articleId: articleId,
+          }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            document.getElementById("blogChargeIFrame").srcdoc = data.html;
+          })
+          .catch(() => {});
+        break;
+      default:
+        break;
+    }
   });
   const overlayDiv = document.createElement("div");
   overlayDiv.style.cssText =
@@ -56,7 +87,7 @@ function myInitCode() {
     userEmail = parts.pop().split(";").shift();
   }
 
-  fetch("/api/articleCheck", {
+  fetch(`${fetchPath}/api/articleCheck`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -70,25 +101,7 @@ function myInitCode() {
     .then((data) => {
       document.body.appendChild(overlayDiv);
       document.getElementById("blogChargeIFrame").srcdoc = data.html;
-
-      /*
-      if (data.status === "ok") {
-        switch (data.do) {
-          case "registered":
-            document.getElementById("blogChargeIFrame").src = data.html;
-            document.body.appendChild(overlayDiv);
-            break;
-          case "pre-register":
-            document.getElementById("blogChargeIFrame").src = data.html;
-            document.body.appendChild(overlayDiv);
-            break;
-          case "continue":
-            break;
-          default:
-            break;
-        }
-      }
-      */
+      articleId = data.id;
     })
 
     .catch(() => {

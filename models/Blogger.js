@@ -32,7 +32,7 @@ Blogger.init(
       allowNull: false,
     },
     description: {
-      type: DataTypes.TEXT(1000),
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     url: {
