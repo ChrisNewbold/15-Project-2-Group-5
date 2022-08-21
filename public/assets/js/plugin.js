@@ -1,7 +1,21 @@
 function myInitCode() {
   window.addEventListener("message", ({ data }) => {
-    document.getElementById("blogChargeIFrame").style.height = `${data}px`;
-    document.getElementById("overlay").style.opacity = "100";
+    console.log(data);
+    switch (data.splash) {
+      case 1:
+        document.getElementById(
+          "blogChargeIFrame"
+        ).style.height = `${data.height}px`;
+
+        console.log(data.height);
+        document.getElementById("overlay").style.opacity = "100";
+        break;
+      case 2:
+        console.log(data.formData);
+        break;
+      default:
+        break;
+    }
   });
   const overlayDiv = document.createElement("div");
   overlayDiv.style.cssText =
