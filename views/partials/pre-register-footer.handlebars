@@ -62,30 +62,4 @@
 
 
 
-<script>
-  function myInitCode() {
-    setTimeout(() => {window.parent.postMessage(document.getElementById("wrapper").offsetHeight+50);},1000)
-    let emailElement = document.getElementById("inputEmail3"); 
-    let passwordElement = document.getElementById("inputPassword3"); 
-    let termsElement = document.getElementById("flexCheckDefault1"); 
-    let privacyElement = document.getElementById("flexCheckDefault2"); 
-    let buttonElement = document.getElementById("submit-btn"); 
-    buttonElement.addEventListener("click",
-    (e) => { 
-      e.preventDefault(); 
-      console.log(e);
-      const formData = {
-        email: emailElement.value,
-        password: passwordElement.value,
-        terms: termsElement.checked,
-        privacy: privacyElement.checked,
-      }
-      console.log(formData);
-    }); 
-  } 
-  if (document.readyState !== "loading") { 
-    myInitCode(); 
-  } else {
-    document.addEventListener("DOMContentLoaded", () => { myInitCode(); }); 
-  }
-</script>
+<script src="/assets/js/pre-register-footer.js"></script>

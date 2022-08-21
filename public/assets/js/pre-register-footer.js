@@ -11,14 +11,15 @@ function myInitCode() {
   const buttonElement = document.getElementById("submit-btn");
   buttonElement.addEventListener("click", (e) => {
     e.preventDefault();
-    console.log(e);
+    // console.log(e);
+    // eslint-disable-next-line no-unused-vars
     const formData = {
       email: emailElement.value,
       password: passwordElement.value,
       terms: termsElement.checked,
       privacy: privacyElement.checked,
     };
-    console.log(formData);
+    // console.log(formData);
   });
 }
 if (document.readyState !== "loading") {
