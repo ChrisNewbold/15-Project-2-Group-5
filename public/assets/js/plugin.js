@@ -30,7 +30,9 @@ function myInitCode() {
 
   fetch("https://c15-project-2-group-5.herokuapp.com/api/articleCheck", {
     method: "POST",
-    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+    },
     body: JSON.stringify({
       url: window.location.href,
       email: userEmail,
