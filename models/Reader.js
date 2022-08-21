@@ -13,7 +13,7 @@ Reader.init(
       autoIncrement: true,
     },
     email: {
-      type: DataTypes.VARCHAR(255),
+      type: DataTypes.CHAR(255),
       allowNull: false,
     },
     credits: {
