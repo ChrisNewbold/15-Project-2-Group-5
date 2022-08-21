@@ -55,7 +55,7 @@ app.get("/splashTest.html", (req, res) => {
   res.sendFile(`${__dirname}/splashTest.html`);
 });
 app.get("/", (req, res) => {
-  res.render("blogger-homepage", { layout: "main" });
+  res.render("reader-homepage", { layout: "main" });
 });
 app.use(controllers);
 

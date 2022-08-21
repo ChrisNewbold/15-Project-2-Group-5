@@ -1,4 +1,7 @@
-
+.card{
+  margin: 25px;
+  width:fit-content;
+}
 .card-header {
   background-color: #ffb81d !important;
   color: white !important;
@@ -17,32 +20,49 @@
   background-color: gold !important;
   color: white !important;
   font-weight: bolder;
+  padding: 15px;
+  margin: 0%;
 }
 .silver-credit-header {
   background-color: silver !important;
   color: white !important;
   font-weight: bolder;
+  padding: 15px;
+  margin: 0%;
 }
 .bronze-credit-header {
   background-color: #CD7F32 !important;
   color: white !important;
   font-weight: bolder;
+  padding: 15px;
+  margin: 0%;
 }
 .credit-title{
-font-size: larger;
+font-size: 200%;
   font-weight: bolder;
+  padding: 15px;
+  margin: 0%;
 }
 .credit-body {
   background-color: rgb(81, 81, 81);
-  color: white
+  color: white;
+  padding: 15px;
+  margin: 0%;
+}
+.credit-text{
+  background-color: white !important;
+  color: black !important;
 }
 .btn {
   background-color: #ffb81d !important;
   border-color: #ffb81d;
   border-radius: 15px;
   font-weight: bolder;
+  margin: 25px;
 }
-
+#paypal-button-container{
+margin: 25px;
+}
 #wrapper {
   overflow: hidden;
 }
