@@ -1,5 +1,8 @@
 .card{
-  margin: 25px;
+  display: inline-block;
+  margin: 15px;
+  height:fit-content;
+  width:fit-content;
 }
 .card-header {
   background-color: #ffb81d !important;
