@@ -1,0 +1,24 @@
+  .card-header {
+    background-color: #ffb81d !important;
+    color: white !important;
+    font-size: 250%;
+    font-weight: bolder;
+    line-height: 100%;
+  }
+  .card-title{
+    font-weight: bolder;
+  }
+  .card-body {
+    background-color: rgb(81, 81, 81);
+    color: white
+  }
+  .btn {
+    background-color: #ffb81d !important;
+    border-color: #ffb81d;
+    border-radius: 15px;
+    font-weight: bolder;
+    margin: 25px;
+  }
+  #wrapper {
+    overflow: hidden;
+  }
