@@ -1,59 +1,63 @@
 {{! first name, email address and "sign up CTA" }}
 <form>
-  <div class="d-flex col-12 flex-wrap">
-    <div class="col-6 mb-3">
-      <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-      <div class="row-sm-6">
-        <input type="email" class="form-control" id="inputEmail3" />
+  <div class="d-flex justify-content-center">
+    <div class="d-flex col-10 flex-wrap justify-content-between">
+      <div class="col-5 mb-3">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+        <div class="row-sm-6">
+          <input type="email" class="form-control" id="inputEmail3" />
+        </div>
       </div>
-    </div>
-    <div class="col-6 mb-3">
-      <label
-        for="inputPassword3"
-        class="col-sm-2 col-form-label"
-      >Password</label>
-      <div class="row-sm-6">
-        <input type="password" class="form-control" id="inputPassword3" />
+      <div class="col-5 mb-3">
+        <label
+          for="inputPassword3"
+          class="col-sm-2 col-form-label"
+        >Password</label>
+        <div class="row-sm-6">
+          <input type="password" class="form-control" id="inputPassword3" />
+        </div>
       </div>
     </div>
   </div>
-  <fieldset class="d-flex col-12 m-2 flex-wrap">
-    <div class="col-sm-6">
-      <div class="form-check">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          name="gridRadios"
-          id="flexCheckDefault1"
-          value="option1"
-        />
-        <label class="form-check-label" for="flexCheckDefault1">
-          I agree to the
-          <a href="url">Terms & Conditions</a>
-        </label>
+  <div class="d-flex justify-content-center">
+    <fieldset class="d-flex col-10 m-2 flex-wrap">
+      <div class="col-sm-6">
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="gridRadios"
+            id="flexCheckDefault1"
+            value="option1"
+          />
+          <label class="form-check-label" for="flexCheckDefault1">
+            I agree to the
+            <a href="url">Terms & Conditions</a>
+          </label>
+        </div>
       </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="form-check">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          name="gridRadios"
-          id="flexCheckDefault2"
-          value="option2"
-        />
-        <label class="form-check-label" for="flexCheckDefault2">
-          I agree to receive the latest blog reviews, exclusive offers, updates
-          and more from us.
-          <a href="url">Privacy Policy</a>.
-        </label>
-      </div>
-    </div>
-  </fieldset>
+      <div class="col-sm-6">
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="gridRadios"
+            id="flexCheckDefault2"
+            value="option2"
+          />
+          <label class="form-check-label" for="flexCheckDefault2">
+            I agree to receive the latest blog reviews, exclusive offers, updates
+            and more from us.
+            <a href="url">Privacy Policy</a>.
+          </label>
+        </div>
+    </fieldset>
+  </div>
   <div class="row mb-3">
     <div class="col-sm-10 offset-sm-2"></div>
   </div>
   <button type="submit" id="submit-btn" class="btn btn-primary btn-lg ml-5">Sign in</button>
+  </div>
 </form>
 
 
