@@ -1,36 +1,39 @@
 {{!-- reader adds credit --}}
 {{!-- how many credits would you like to purchase i.e buy 100 receive bonus 10! --}}
+{{!-- <div class="container"> --}}
 <div id="wrapper" class="d-flex flex-wrap flex-row">
   <div class="col-10 d-flex flex-row flex-wrap">
     <div class="col-3 card">
-      <h5 class="gold-credit-header">GOLD MEMBER</h5>
+      <h5 class="gold-credit-header">GOLD OFFER</h5>
       <div class="credit-body">
         <h5 class="credit-title">500 CREDITS FOR $50</h5>
-        <p class="credit-text"><ul><li>500 credits</li><li>bonus 50 credits</li><li>blogger interactions</li><li>new blog notifications</li><li>blog recommendations</li></ul></p>
-        </br><a href="#" class="ml-5 btn btn-primary">Select Plan</a>
+        <ul><li>500 credits</li><li>bonus 50 credits</li><li>blogger interactions</li><li>new blog notifications</li><li>blog recommendations</li></ul>
+        </br><a href="#" class="ml-5 btn btn-primary">Select Offer</a>
       </div>
     </div>
     <div class="col-3 card">
-      <h5 class="silver-credit-header">SILVER MEMBER</h5>
+      <h5 class="silver-credit-header">SILVER OFFER</h5>
       <div class="credit-body">
         <h5 class="credit-title">250 CREDITS FOR $25</h5>
         <p class="credit-text"><ul><li>250 credits</li><li>bonus 25 credits</li><li>blog recommendations</li></ul></p>
-        <a href="#" class="ml-5 btn btn-primary">Select Plan</a>
+        <a href="#" class="ml-5 btn btn-primary">Select Offer</a>
       </div>
     </div>
     <div class="col-3 card">
-      <h5 class="bronze-credit-header">BRONZE MEMBER</h5>
+      <h5 class="bronze-credit-header">BRONZE OFFER</h5>
       <div class="credit-body">
         <h5 class="credit-title">150 CREDITS FOR $15</h5>
         <p class="credit-text"><ul><li>150 credits</li><li>bonus 10 credits</li></li></ul></p>
-        <a href="#" class="ml-5 btn btn-primary">Select Plan</a>
+        <a href="#" class="ml-5 btn btn-primary">Select Offer</a>
       </div>
     </div>
   </div>
 </div>
 {{!-- paypal button to pay with paypal --}}
     <div id="paypal-button-container"></div>
-
+    {{!-- Buy Credits CTA (user will be taken to the article) --}}
+<button type="button" class="btn-lg ml-5 btn btn-primary btn-lg">Checkout</button>
+{{!-- </div> --}}
 
     <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
 
@@ -47,5 +50,3 @@
 
         }).render('#paypal-button-container');
     </script>
-{{!-- Buy Credits CTA (user will be taken to the article) --}}
-<button type="button" class="btn-lg ml-5 btn btn-primary btn-lg">Checkout</button>
