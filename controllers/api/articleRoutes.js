@@ -1,19 +1,77 @@
 const router = require("express").Router();
 const { _NODE_ENV } = require("../../config/config");
+const { Article, Reader } = require("../../models");
+require("body-parser");
 
-router.post("/", (req, res) => {
+router.post("/", async (req, res) => {
+  const { url, email } = req.body;
+  console.log(req.body);
   try {
-    res.render(
-      "pre-register",
-      { layout: "splash", devPath: _NODE_ENV === "development" },
-      (err, html) => {
-        if (err) {
-          // eslint-disable-next-line no-console
-          console.log(`ERROR: ${err}`);
+    const articleRow = await Article.findOne({
+      where: { url },
+    });
+    if (!articleRow) {
+      /*
+      if req.body.url isn't in our article table:
+      -> send back a message to continue: { status: "ok", do: "continue" }
+      */
+      // eslint-disable-next-line no-console
+      console.log("not found");
+      res.send({ status: "ok", do: "continue" });
+    }
+    if (articleRow && !email) {
+      /*
+      If req.body doesn't include an email, then the reader has never seen this before,
+      -> send them the pre-register splash.
+      */
+      // eslint-disable-next-line no-console
+      console.log("url found, no email");
+      res.render(
+        "pre-register",
+        {
+          layout: "splash",
+          devPath: _NODE_ENV === "development",
+          credits: articleRow.credits,
+        },
+        (err, html) => {
+          if (err) {
+            // eslint-disable-next-line no-console
+            console.log(`ERROR: ${err}`);
+          }
+          res.send({
+            html,
+            credits: articleRow.credits,
+            id: articleRow.id,
+          });
         }
-        res.send({ html, id: 1 });
-      }
-    );
+      );
+    }
+
+    if (articleRow && email) {
+      // if req.body does include an email, this reader knows what this is about
+      const readerRow = await Reader.findOne({
+        where: { email },
+      });
+      // eslint-disable-next-line no-console
+      console.log(readerRow);
+    }
+
+    /*
+
+
+Otherwise:
+
+
+
+Check if the user has credit
+
+if user does have credit:
+-> send back splash with thank you message, cost to read article, and button
+
+If user does not have credit:
+-> send back splash with paypal link to top-up their credit.
+
+*/
   } catch (err) {
     // eslint-disable-next-line no-console
     console.log(`ERROR: ${err}`);
