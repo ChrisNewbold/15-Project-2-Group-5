@@ -49,7 +49,7 @@ const PORT = process.env.PORT || 3001;
 // route to get plugin.js from public folder
 app.get("/plugins/plugin.js", (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
-  res.sendFile(path.join(__dirname, "public/js/plugin.js"));
+  res.sendFile(path.join(__dirname, "public/assets/js/plugin.js"));
 });
 app.get("/splashTest.html", (req, res) => {
   res.sendFile(`${__dirname}/splashTest.html`);
