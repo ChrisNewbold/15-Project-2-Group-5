@@ -15,8 +15,32 @@ Blogger.init(
       type: DataTypes.INTEGER(10),
       allowNUlls: false,
     },
-    name: {
-      type: DataTypes.CHAR(255),
+    email: {
+      type: DataTypes.CHAR(50),
+      allowNull: false,
+    },
+    first_name: {
+      type: DataTypes.CHAR(50),
+      allowNull: false,
+    },
+    last_name: {
+      type: DataTypes.CHAR(50),
+      allowNull: false,
+    },
+    password: {
+      type: DataTypes.CHAR(50),
+      allowNull: false,
+    },
+    description: {
+      type: DataTypes.TEXT(1000),
+      allowNull: false,
+    },
+    url: {
+      type: DataTypes.CHAR(100),
+      allowNull: false,
+    },
+    image: {
+      type: DataTypes.CHAR(100),
       allowNull: false,
     },
   },
