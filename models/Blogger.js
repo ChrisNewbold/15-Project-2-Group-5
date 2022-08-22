@@ -5,6 +5,7 @@ class Blogger extends Model {}
 
 Blogger.init(
   {
+    // define columns
     id: {
       type: DataTypes.INTEGER(10),
       allowNull: false,
