@@ -12,9 +12,19 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
       crossorigin="anonymous">
 {{#if devPath}}
-        <link rel="stylesheet" href="/assets/css/splash.css" />
+        {{#if prereg}}
+        <link rel="stylesheet" href="/assets/css/pre-register.css" />
+        {{/if}}
+        {{#if justreg}}
+        <link rel="stylesheet" href="/assets/css/reader-registered.css" />
+        {{/if}}
 {{else}}
-        <link rel="stylesheet" href="https://c15-project-2-group-5.herokuapp.com/assets/css/splash.css" />
+        {{#if prereg}}
+        <link rel="stylesheet" href="https://c15-project-2-group-5.herokuapp.com/assets/css/pre-register.css" />
+        {{/if}}
+        {{#if justreg}}
+        <link rel="stylesheet" href="https://c15-project-2-group-5.herokuapp.com/assets/css/reader-registered.css" />
+        {{/if}}
 {{/if}}
 
 </head>
