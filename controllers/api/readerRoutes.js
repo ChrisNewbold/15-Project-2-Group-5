@@ -18,6 +18,7 @@ router.post("/", async (req, res) => {
       await Reader.create({
         email,
         password,
+        credits: 500,
         terms,
         privacy,
       });
