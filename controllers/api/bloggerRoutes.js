@@ -42,13 +42,13 @@ router.post("/logout", async (req, res) => {
 router.post("/join", async (req, res) => {
   const postedData = req.body;
   const bloggerData = {};
-  bloggerData.blogger_email = postedData.email;
-  bloggerData.blogger_first_name = postedData.firstName;
-  bloggerData.blogger_last_name = postedData.lastName;
-  bloggerData.blogger_password = postedData.password;
-  bloggerData.blogger_description = postedData.description;
-  bloggerData.blogger_url = postedData.url;
-  bloggerData.blogger_image = postedData.image;
+  bloggerData.email = postedData.email;
+  bloggerData.first_name = postedData.firstName;
+  bloggerData.last_name = postedData.lastName;
+  bloggerData.password = postedData.password;
+  bloggerData.description = postedData.description;
+  bloggerData.url = postedData.url;
+  bloggerData.image = postedData.image;
 
   try {
     const bloggerEmailCheck = await Blogger.count({
