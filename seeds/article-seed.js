@@ -6,7 +6,7 @@ const articleData = [
     credits: 50,
   },
   {
-    url: "http://localhost:3001/splashTest.html",
+    url: "http://localhost:3002/splashTest.html",
     credits: 30,
   },
 ];

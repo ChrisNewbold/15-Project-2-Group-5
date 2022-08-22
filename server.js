@@ -51,7 +51,7 @@ app.get("/plugins/plugin.js", (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.sendFile(path.join(__dirname, "public/assets/js/plugin.js"));
 });
-app.get("/splashTest.html", (req, res) => {
+app.get("/splashTest1", (req, res) => {
   res.sendFile(`${__dirname}/splashTest.html`);
 });
 app.get("/", (req, res) => {
