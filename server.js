@@ -51,7 +51,7 @@ app.get("/plugins/plugin.js", (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.sendFile(path.join(__dirname, "public/assets/js/plugin.js"));
 });
-app.get("/splashTest.html", (req, res) => {
+app.get("/splashTest1", (req, res) => {
   res.sendFile(`${__dirname}/splashTest.html`);
 });
 app.get("/", (req, res) => {
@@ -59,10 +59,10 @@ app.get("/", (req, res) => {
 });
 
 app.get("/splashTest2", (req, res) => {
-  res.render("reader-registered", { layout: "main" });
+  res.render("reader-registered", { layout: "splash", justreg: true });
 });
 app.get("/splashTest3", (req, res) => {
-  res.render("reader-outOfCredit", { layout: "main" });
+  res.render("reader-outOfCredit", { layout: "splash" });
 });
 app.use(controllers);
 
