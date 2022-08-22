@@ -8,6 +8,10 @@ Reader.hasMany(Article, {
   foreignKey: "article_id",
 });
 
+// blogger has many article
+
+// articles has one blogger
+
 module.exports = {
   Article,
   Blogger,
