@@ -16,9 +16,23 @@ Reader.init(
       type: DataTypes.CHAR(255),
       allowNull: false,
     },
+    password: {
+      type: DataTypes.CHAR(255),
+      allowNull: false,
+    },
     credits: {
       type: DataTypes.INTEGER(10),
       allowNull: false,
+    },
+    terms: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
+    },
+    privacy: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
     },
   },
   {
