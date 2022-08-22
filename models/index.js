@@ -2,6 +2,7 @@
 const Article = require("./Article");
 const Blogger = require("./Blogger");
 const Reader = require("./Reader");
+const Tag = require("./Tags");
 
 // Reader can have many Articles
 Reader.hasMany(Article, {
@@ -16,4 +17,5 @@ module.exports = {
   Article,
   Blogger,
   Reader,
+  Tag,
 };
