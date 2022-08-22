@@ -6,7 +6,7 @@ class Article extends Model {}
 
 Article.init(
   {
-     // define columns
+    // define columns
     id: {
       type: DataTypes.INTEGER(10),
       allowNull: false,
