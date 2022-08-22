@@ -54,3 +54,5 @@ router.post("/", async (req, res) => {
     console.log(`ERROR: ${err}`);
   }
 });
+
+module.exports = router;
