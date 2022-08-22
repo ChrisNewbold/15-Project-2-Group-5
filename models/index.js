@@ -2,6 +2,7 @@
 const Article = require("./Article");
 const Blogger = require("./Blogger");
 const Reader = require("./Reader");
+const ReaderArticle = require("./ReaderArticle");
 const Tag = require("./Tags");
 const BloggerTag = require("./BloggerTag");
 
@@ -19,6 +20,7 @@ module.exports = {
   Article,
   Blogger,
   Reader,
+  ReaderArticle,
   Tag,
   BloggerTag,
 };
