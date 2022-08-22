@@ -23,7 +23,12 @@
   <div id="wrapper">
     <div>{{{body}}}</div>
     <footer>
+        {{#if prereg}}
         {{> pre-register-footer}}
+        {{/if}}
+        {{#if justreg}}
+        {{> reader-registered-footer}}
+        {{/if}}
     </footer>
   </div>
 </body>

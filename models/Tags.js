@@ -2,25 +2,19 @@ const { Model, DataTypes } = require("sequelize");
 
 const sequelize = require("../config/connection");
 
-class Article extends Model {}
+class Tag extends Model {}
 
-Article.init(
+Tag.init(
   {
-     // define columns
     id: {
       type: DataTypes.INTEGER(10),
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
-    url: {
-      type: DataTypes.STRING(255),
+    tag_name: {
+      type: DataTypes.CHAR(255),
       allowNull: false,
-    },
-    credits: {
-      type: DataTypes.INTEGER(10),
-      allowNull: false,
-      defaultValue: 40,
     },
   },
   {
@@ -28,8 +22,8 @@ Article.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "article",
+    modelName: "tag_name",
   }
 );
 
-module.exports = Article;
+module.exports = Tag;

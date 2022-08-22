@@ -20,10 +20,12 @@ function myInitCode() {
       terms: termsElement.checked,
       privacy: privacyElement.checked,
     };
-    window.parent.postMessage({
-      splash: 2,
-      formData,
-    });
+    if (emailElement.value !== "" && passwordElement.value !== "") {
+      window.parent.postMessage({
+        splash: 2,
+        formData,
+      });
+    }
   });
 }
 if (document.readyState !== "loading") {
