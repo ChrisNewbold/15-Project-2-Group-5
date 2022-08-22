@@ -60,11 +60,8 @@ app.get("/", (req, res) => {
 
 app.get("/splashTest2", (req, res) => {
   res.render("reader-registered", { layout: "main" });
-
-app.get("/splashTest3", (req, res) => {
-  res.render("reader-outOfCredit", { layout: "main" });
-
 });
+
 app.use(controllers);
 
 sequalize.sync({ force: false }).then(() => {
