@@ -57,6 +57,9 @@ app.get("/splashTest.html", (req, res) => {
 app.get("/", (req, res) => {
   res.render("reader-homepage", { layout: "main" });
 });
+app.get("/splashTest3", (req, res) => {
+  res.render("reader-outOfCredit", { layout: "main" });
+});
 app.use(controllers);
 
 sequalize.sync({ force: false }).then(() => {
