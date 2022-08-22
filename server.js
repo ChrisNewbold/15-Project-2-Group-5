@@ -59,10 +59,10 @@ app.get("/", (req, res) => {
 });
 
 app.get("/splashTest2", (req, res) => {
-  res.render("reader-registered", { layout: "main" });
+  res.render("reader-registered", { layout: "splash", justreg: true });
 });
 app.get("/splashTest3", (req, res) => {
-  res.render("reader-outOfCredit", { layout: "main" });
+  res.render("reader-outOfCredit", { layout: "splash" });
 });
 app.use(controllers);
 
