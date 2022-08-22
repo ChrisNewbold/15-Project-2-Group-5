@@ -29,6 +29,7 @@ router.post("/", async (req, res) => {
       res.render(
         "pre-register",
         {
+          prereg: true,
           layout: "splash",
           devPath: _NODE_ENV === "development",
           credits: articleRow.credits,

@@ -20,7 +20,11 @@ function myInitCode() {
       terms: termsElement.checked,
       privacy: privacyElement.checked,
     };
-    if (emailElement.value !== "" && passwordElement.value !== "") {
+    if (
+      emailElement.value !== "" &&
+      passwordElement.value !== "" &&
+      termsElement.checked
+    ) {
       window.parent.postMessage({
         splash: 2,
         formData,

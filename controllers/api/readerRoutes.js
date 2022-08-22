@@ -28,6 +28,7 @@ router.post("/prereg", async (req, res) => {
       res.render(
         "reader-registered",
         {
+          justreg: true,
           layout: "splash",
           devPath: _NODE_ENV === "development",
           articleId,
