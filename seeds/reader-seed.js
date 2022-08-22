@@ -2,14 +2,18 @@ const { Reader } = require("../models");
 
 const readerData = [
   {
-    name: "Barry Hall",
-    credits: 500,
     email: "barry.hall@bazza.com",
+    password: "Password123",
+    credits: 500,
+    terms: true,
+    privacy: true,
   },
   {
-    name: "Shirley Smith",
-    credits: 500,
     email: "shirls@gmail.com",
+    password: "123456",
+    credits: 500,
+    terms: true,
+    privacy: true,
   },
 ];
 
