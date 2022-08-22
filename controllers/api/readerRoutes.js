@@ -4,12 +4,13 @@ const { _NODE_ENV } = require("../../config/config");
 const { Reader } = require("../../models");
 require("body-parser");
 
-router.post("/", async (req, res) => {
+router.post("/prereg", async (req, res) => {
   const { email, password, terms, privacy, articleId } = req.body;
   try {
     const readerRow = await Reader.findOne({
       where: { email },
     });
+    console.log(readerRow);
     if (!readerRow) {
       /*
         if req.body.email isn't in our reader table:
