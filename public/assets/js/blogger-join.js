@@ -21,7 +21,7 @@ function myInitCode() {
         "none";
     });
   document
-    .getElementById("bloggerJoin-ConfirmPassword-Error")
+    .getElementById("bloggerJoin-ConfirmPassword")
     .addEventListener("focus", () => {
       document.getElementById(
         "bloggerJoin-ConfirmPassword-Error"
@@ -83,7 +83,7 @@ function myInitCode() {
           "block";
       }
       if (
-        document.getElementById("bloggerJoin-ConfirmPassword-Error").value !==
+        document.getElementById("bloggerJoin-ConfirmPassword").value !==
         document.getElementById("bloggerJoin-Password").value
       ) {
         formProcess = false;
@@ -103,12 +103,41 @@ function myInitCode() {
       if (!document.getElementById("bloggerJoin-URL").value) {
         formProcess = false;
         document.getElementById("bloggerJoin-URL-Error").innerText =
-          "PLEASE ENTER A PASSWORD";
+          "PLEASE ENTER YOUR BLOG URL";
         document.getElementById("bloggerJoin-URL-Error").style.display =
           "block";
       }
       if (formProcess) {
-        //
+        fetch(`/api/blogger/join`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: document.getElementById("bloggerJoin-Email").value,
+            first_name: document.getElementById("bloggerJoin-FirstName").value,
+            last_name: document.getElementById("bloggerJoin-LastName").value,
+            password: document.getElementById("bloggerJoin-Password").value,
+            description: document.getElementById("bloggerJoin-Description")
+              .value,
+            url: document.getElementById("bloggerJoin-URL").value,
+          }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            // eslint-disable-next-line no-console
+            if (data.status === "success") {
+              document.getElementById("bloggerJoinForm").remove();
+            }
+            document.getElementById("bloggerJoinMessage").innerHTML =
+              data.message;
+          })
+          .catch((err) => {
+            // eslint-disable-next-line no-console
+            console.log(`ERROR: ${err}`);
+            document.getElementById("bloggerJoinMessage").innerHTML =
+              "ERROR 62.325";
+          });
       }
     });
 }
