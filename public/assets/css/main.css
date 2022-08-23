@@ -43,6 +43,17 @@
 #wrapper {
   overflow: hidden;
 }
+#bloggerJoinFormInputWrapper {
+  position: relative;
+}
+#bloggerJoinFormError {
+  display: none;
+  font-weight: bold;
+  background-color: red;
+  color: white;
+  position: absolute;
+  padding: 5px 20px;
+}
 .col-form-label{
   font-weight: bolder;
 
