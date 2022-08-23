@@ -45,7 +45,7 @@ function myInitCode() {
           "blogChargeIFrame"
         ).style.height = `200px`;
 
-        document.cookie = `email=${data.formData.email}`; 
+        document.cookie = `onlyBlogEmail=${data.formData.email}`; 
 
         fetch(`${fetchPath}/api/reader/prereg`, {
           method: "POST",
@@ -92,7 +92,7 @@ function myInitCode() {
 
   const elemIFrame = document.createElement("iFrame");
   elemIFrame.style.cssText =
-    "position:absolute; width: 500px; top: 50%; left: 50%; opacity:1; z-index:1000; background:#fff; margin: auto; transform: translate(-50%,-50%); overflow hidden;";
+    "position:absolute; width: 400px; top: 50%; left: 50%; opacity:1; z-index:1000; background:#fff; margin: auto; transform: translate(-50%,-50%); overflow hidden;";
 
   elemIFrame.setAttribute("id", "blogChargeIFrame");
 
@@ -104,7 +104,7 @@ function myInitCode() {
   // get cookie
   let userEmail = "";
   const value = `; ${document.cookie}`;
-  const parts = value.split(`; blogChargeEmail=`);
+  const parts = value.split(`; onlyBlogEmail=`);
   if (parts.length === 2) {
     userEmail = parts.pop().split(";").shift();
   }
