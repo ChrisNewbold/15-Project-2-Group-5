@@ -2,7 +2,7 @@ function myInitCode() {
   setTimeout(() => {
     window.parent.postMessage({
       splash: 1,
-      height: document.getElementById("wrapper").offsetHeight + 70,
+      height: document.getElementById("wrapper").offsetHeight + 20,
     });
   }, 1000);
   const emailElement = document.getElementById("inputEmail3");
