@@ -42,7 +42,8 @@ Blogger.init(
     },
     image: {
       type: DataTypes.CHAR(100),
-      allowNull: false,
+      allowNull: true,
+      defaultValue: "",
     },
   },
   {

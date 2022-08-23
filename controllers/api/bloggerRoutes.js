@@ -39,15 +39,13 @@ router.post("/logout", async (req, res) => {
   req.session.destroy();
   res.status(200).send({ status: "success" });
 });
-router.get("/join", (req, res) => {
-  res.render("blogger-join", { layout: "main" });
-});
+
 router.post("/join", async (req, res) => {
   const postedData = req.body;
   const bloggerData = {};
   bloggerData.email = postedData.email;
-  bloggerData.first_name = postedData.firstName;
-  bloggerData.last_name = postedData.lastName;
+  bloggerData.first_name = postedData.first_name;
+  bloggerData.last_name = postedData.last_name;
   bloggerData.password = postedData.password;
   bloggerData.description = postedData.description;
   bloggerData.url = postedData.url;
@@ -65,7 +63,11 @@ router.post("/join", async (req, res) => {
       bcrypt.genSalt(saltRounds, async (err, salt) => {
         bcrypt.hash(bloggerData.blogger_password, salt, async (_err, hash) => {
           bloggerData.blogger_password = hash;
-          await Blogger.create(bloggerData);
+          const thisBlogger = await Blogger.create(bloggerData);
+          req.session.blogger_id = thisBlogger.id;
+          req.session.bloggerFirstName = thisBlogger.first_name;
+          req.session.bloggerLastName = thisBlogger.last_name;
+          req.session.bloggerAuthenticated = true;
           res.status(200).send({
             status: "success",
             message:
