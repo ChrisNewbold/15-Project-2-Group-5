@@ -4,10 +4,12 @@ const articleData = [
   {
     url: "http://nateloudon.com/fake-blog",
     credits: 50,
+    blogger_id: 1,
   },
   {
-    url: "http://localhost:3002/splashTest.html",
+    url: "http://localhost:3001/splashTest1",
     credits: 30,
+    blogger_id: 1,
   },
 ];
 
