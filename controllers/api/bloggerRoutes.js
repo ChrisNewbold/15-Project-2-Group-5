@@ -39,6 +39,9 @@ router.post("/logout", async (req, res) => {
   req.session.destroy();
   res.status(200).send({ status: "success" });
 });
+router.get("/join", (req, res) => {
+  res.render("blogger-join", { layout: "main" });
+});
 router.post("/join", async (req, res) => {
   const postedData = req.body;
   const bloggerData = {};
