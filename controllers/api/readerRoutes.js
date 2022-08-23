@@ -10,6 +10,7 @@ router.post("/prereg", async (req, res) => {
     const readerRow = await Reader.findOne({
       where: { email },
     });
+    // eslint-disable-next-line no-console
     console.log(readerRow);
     if (!readerRow) {
       /*
