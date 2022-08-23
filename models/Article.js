@@ -22,6 +22,9 @@ Article.init(
       allowNull: false,
       defaultValue: 40,
     },
+    blogger_id: {
+      type: DataTypes.INTEGER(10),
+    },
   },
   {
     sequelize,
