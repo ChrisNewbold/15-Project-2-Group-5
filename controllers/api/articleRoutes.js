@@ -1,11 +1,10 @@
 const router = require("express").Router();
 const { _NODE_ENV } = require("../../config/config");
-const { Article, Reader } = require("../../models");
+const { Article, Reader, Blogger } = require("../../models");
 require("body-parser");
 
 router.post("/", async (req, res) => {
   const { url, email } = req.body;
-  console.log(req.body);
   try {
     const articleRow = await Article.findOne({
       where: { url },
@@ -16,7 +15,7 @@ router.post("/", async (req, res) => {
       -> send back a message to continue: { status: "ok", do: "continue" }
       */
       // eslint-disable-next-line no-console
-      console.log("not found");
+      // console.log("not found");
       res.send({ status: "ok", do: "continue" });
     }
     if (articleRow && !email) {
@@ -25,7 +24,7 @@ router.post("/", async (req, res) => {
       -> send them the pre-register splash.
       */
       // eslint-disable-next-line no-console
-      console.log("url found, no email");
+      // console.log("url found, no email");
       res.render(
         "pre-register",
         {
@@ -37,7 +36,7 @@ router.post("/", async (req, res) => {
         (err, html) => {
           if (err) {
             // eslint-disable-next-line no-console
-            console.log(`ERROR: ${err}`);
+            // console.log(`ERROR: ${err}`);
           }
           res.send({
             html,
@@ -50,29 +49,79 @@ router.post("/", async (req, res) => {
 
     if (articleRow && email) {
       // if req.body does include an email, this reader knows what this is about
+
+      // Check if the user has credit
+
+      // if user does have credit:
+      // -> send back splash with thank you message, cost to read article, and button
+
+      // If user does not have credit:
+      // -> send back splash with paypal link to top-up their credit.
+      console.log("Test message");
+
       const readerRow = await Reader.findOne({
         where: { email },
       });
+      const bloggerRow = await Blogger.findByPk(articleRow.blogger_id);
+
+      if (!readerRow) {
+        console.log("reader not found");
+        res.send({
+          status: "error",
+          errorMessage: "Reader not found",
+        });
+      }
+      if (readerRow.credits > 0) {
+        console.log("reader found, enough credits");
+        res.render(
+          "reader-hasCredit",
+          {
+            layout: "splash",
+            devPath: _NODE_ENV === "development",
+            articleCredits: articleRow.credits,
+            readerCredits: readerRow.credits,
+            bloggerName: bloggerRow.first_name,
+          },
+          (err, html) => {
+            if (err) {
+              // eslint-disable-next-line no-console
+              console.log(`ERROR: ${err}`);
+            }
+            res.send({
+              html,
+              credits: articleRow.credits,
+              id: articleRow.id,
+            });
+          }
+        );
+      }
+      if (readerRow.credits < 1) {
+        console.log("reader found, not enough credits");
+
+        res.render(
+          "reader-outOfCredit",
+          {
+            layout: "splash",
+            devPath: _NODE_ENV === "development",
+            credits: articleRow.credits,
+          },
+          (err, html) => {
+            if (err) {
+              // eslint-disable-next-line no-console
+              console.log(`ERROR: ${err}`);
+            }
+            res.send({
+              html,
+              credits: articleRow.credits,
+              id: articleRow.id,
+            });
+          }
+        );
+      }
+
       // eslint-disable-next-line no-console
-      console.log(readerRow);
+      // console.log(readerRow);
     }
-
-    /*
-
-
-Otherwise:
-
-
-
-Check if the user has credit
-
-if user does have credit:
--> send back splash with thank you message, cost to read article, and button
-
-If user does not have credit:
--> send back splash with paypal link to top-up their credit.
-
-*/
   } catch (err) {
     // eslint-disable-next-line no-console
     console.log(`ERROR: ${err}`);
