@@ -6,19 +6,28 @@ function myInitCode() {
     });
   }, 1000);
   const emailElement = document.getElementById("inputEmail3");
+  emailElement.addEventListener("focus", () => {
+    document.getElementById("inputEmail3-Error").style.display = "none";
+  });
   const passwordElement = document.getElementById("inputPassword3");
+  passwordElement.addEventListener("focus", () => {
+    document.getElementById("inputPassword3-Error").style.display = "none";
+  });
   const termsElement = document.getElementById("flexCheckDefault1");
+  termsElement.addEventListener("change", () => {
+    if (termsElement.checked) {
+      document.getElementById("flexCheckDefault1").style.color = "black";
+      document.getElementById("flexCheckDefault1").style.fontWeight = "normal";
+    }
+  });
   const privacyElement = document.getElementById("flexCheckDefault2");
   const buttonElement = document.getElementById("submit-btn");
   buttonElement.addEventListener("click", (e) => {
     e.preventDefault();
-    document.getElementById("inputEmail3Label").style.color = "black";
-    document.getElementById("inputEmail3Label").style.fontWeight = "normal";
-    document.getElementById("inputPassword3Label").style.color = "black";
-    document.getElementById("inputPassword3Label").style.fontWeight = "normal";
-    document.getElementById("flexCheckDefault1Label").style.color = "black";
-    document.getElementById("flexCheckDefault1Label").style.fontWeight =
-      "normal";
+    document.getElementById("inputEmail3-Error").style.display = "none";
+    document.getElementById("inputPassword3-Error").style.display = "none";
+    document.getElementById("flexCheckDefault1").style.color = "black";
+    document.getElementById("flexCheckDefault1").style.fontWeight = "normal";
     let formProcess = true;
     // console.log(e);
     // eslint-disable-next-line no-unused-vars
@@ -30,8 +39,9 @@ function myInitCode() {
         )
     ) {
       formProcess = false;
-      document.getElementById("inputEmail3Label").style.color = "red";
-      document.getElementById("inputEmail3Label").style.fontWeight = "bold";
+      document.getElementById("inputEmail3-Error").style.display = "block";
+      document.getElementById("inputEmail3-Error").innerText =
+        "PLEASE ENTER YOUR EMAIL ADDRESS";
     }
 
     /*
@@ -48,8 +58,9 @@ function myInitCode() {
       )
     ) {
       formProcess = false;
-      document.getElementById("inputPassword3Label").style.color = "red";
-      document.getElementById("inputPassword3Label").style.fontWeight = "bold";
+      document.getElementById("inputPassword3-Error").style.display = "block";
+      document.getElementById("inputPassword3-Error").innerText =
+        "PLEASE ENTER A PASSWORD";
     }
     if (!termsElement.checked) {
       formProcess = false;
