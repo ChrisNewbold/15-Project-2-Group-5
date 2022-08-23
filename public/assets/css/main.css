@@ -1,19 +1,16 @@
-.card{
-  box-shadow: 10px 10px 25px 1px;
-}
 .gold-credit-header {
-  background-color: gold !important;
-  color: black !important;
+  background-color: gold;
+  color: black;
   font-weight: bolder;
 }
 .silver-credit-header {
-  background-color: silver !important;
-  color: black !important;
+  background-color: silver;
+  color: black;
   font-weight: bolder;
 }
 .bronze-credit-header {
-  background-color: #CD7F32 !important;
-  color: black !important;
+  background-color: #CD7F32;
+  color: black;
   font-weight: bolder;
 }
 .credit-title{
@@ -24,12 +21,8 @@
   border: rgb(81, 81, 81);
   color: black;
 }
-.credit-text{
-  background-color: white !important;
-  color: black !important;
-}
 .btn {
-  background-color: #ffb81d !important;
+  background-color: #ffb81d;
   border-color: #ffb81d;
   border-radius: 15px;
   font-weight: bolder;

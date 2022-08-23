@@ -1,7 +1,7 @@
   .card-header {
-    background-color: #ffb81d !important;
-    color: white !important;
-    font-size: 250%;
+    background-color: #ffb81d;
+    color: white;
+    font-size: 200%;
     font-weight: bolder;
     line-height: 100%;
   }
@@ -13,7 +13,7 @@
     color: white
   }
   .btn {
-    background-color: #ffb81d !important;
+    background-color: #ffb81d;
     border-color: #ffb81d;
     border-radius: 15px;
     font-weight: bolder;
