@@ -43,10 +43,10 @@
 #wrapper {
   overflow: hidden;
 }
-#bloggerJoinFormInputWrapper {
+.bloggerJoinFormInputWrapper {
   position: relative;
 }
-#bloggerJoinFormError {
+.bloggerJoinFormError {
   display: none;
   font-weight: bold;
   background-color: red;
