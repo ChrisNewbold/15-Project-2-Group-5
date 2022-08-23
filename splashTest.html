@@ -39,7 +39,11 @@ function myInitCode() {
         break;
       case 2:
         console.log(data.formData);
+
+        document.getElementById("blogChargeIFrame").style.opacity = "0";
+
         document.cookie = `email=${data.formData.email}`; 
+
         fetch(`${fetchPath}/api/reader/prereg`, {
           method: "POST",
           headers: {
@@ -56,6 +60,7 @@ function myInitCode() {
           .then((response) => response.json())
           .then((data) => {
             document.getElementById("blogChargeIFrame").srcdoc = data.html;
+            
           })
           .catch(() => {});
         break;
@@ -63,6 +68,7 @@ function myInitCode() {
         document.getElementById(
           "blogChargeIFrame"
         ).style.height = `${data.height}px`;
+        document.getElementById("blogChargeIFrame").style.opacity = "100";
         break;
         case 4:
           document.getElementById("overlay").remove();
