@@ -17,6 +17,14 @@ Reader.init(
       type: DataTypes.CHAR(255),
       allowNull: false,
     },
+    first_name: {
+      type: DataTypes.CHAR(255),
+      allowNull: true,
+    },
+    last_name: {
+      type: DataTypes.CHAR(255),
+      allowNull: true,
+    },
     password: {
       type: DataTypes.CHAR(255),
       allowNull: false,

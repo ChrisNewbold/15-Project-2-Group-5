@@ -27,6 +27,11 @@ function myInitCode() {
         "readerJoin-ConfirmPassword-Error"
       ).style.display = "none";
     });
+  document.getElementById("readerJoin-Terms").addEventListener("focus", () => {
+    document.getElementById("readerJoin-Terms-Label").style.color = "black";
+    document.getElementById("readerJoin-Terms-Label").style.fontWeight =
+      "normal";
+  });
   document
     .getElementById("readerJoin-submit")
     .addEventListener("click", (e) => {
@@ -84,6 +89,12 @@ function myInitCode() {
           "readerJoin-ConfirmPassword-Error"
         ).style.display = "block";
       }
+      if (!document.getElementById("readerJoin-Terms").checked) {
+        formProcess = false;
+        document.getElementById("readerJoin-Terms-Label").style.color = "red";
+        document.getElementById("readerJoin-Terms-Label").style.fontWeight =
+          "bold";
+      }
       if (formProcess) {
         fetch(`/api/reader/join`, {
           method: "POST",
@@ -92,22 +103,19 @@ function myInitCode() {
           },
           body: JSON.stringify({
             email: document.getElementById("readerJoin-Email").value,
-            first_name: document.getElementById("readerJoin-FirstName").value,
-            last_name: document.getElementById("readerJoin-LastName").value,
+            firstName: document.getElementById("readerJoin-FirstName").value,
+            lastName: document.getElementById("readerJoin-LastName").value,
             password: document.getElementById("readerJoin-Password").value,
-            description: document.getElementById("readerJoin-Description")
-              .value,
-            url: document.getElementById("readerJoin-URL").value,
+            terms: document.getElementById("readerJoin-Terms").checked,
+            privacy: document.getElementById("readerJoin-Privacy").checked,
           }),
         })
           .then((response) => response.json())
           .then((data) => {
             // eslint-disable-next-line no-console
             if (data.status === "success") {
-              document.getElementById("readerJoinForm").remove();
+              window.location.href = "/dashboard";
             }
-            document.getElementById("readerJoinMessage").innerHTML =
-              data.message;
           })
           .catch((err) => {
             // eslint-disable-next-line no-console

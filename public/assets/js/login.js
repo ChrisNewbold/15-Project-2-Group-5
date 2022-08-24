@@ -5,7 +5,6 @@ function loginHbrsCode() {
   document.getElementById("login-Password").addEventListener("focus", () => {
     document.getElementById("login-Error").style.display = "none";
   });
-  document.getElementById("bloggerlogIn-Password");
   document.getElementById("login-login").addEventListener("click", (e) => {
     e.preventDefault();
     try {
@@ -15,14 +14,14 @@ function loginHbrsCode() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          loginEmail: document.getElementById("bloggerLogin-Email".value),
-          loginPassword: document.getElementById("bloggerLogin-Password".value),
+          loginEmail: document.getElementById("login-Email").value,
+          loginPassword: document.getElementById("login-Password").value,
         }),
       })
         .then((response) => response.json())
         .then((data) => {
           if (data.status === "success") {
-            window.location.href = "/homepage";
+            window.location.href = "/dashboard";
           } else {
             // eslint-disable-next-line no-console
             document.getElementById("login-Error").innerText = data.message;

@@ -12,32 +12,34 @@ router.post("/logout", (req, res) => {
   res.status(200).send({ status: "success" });
 });
 router.post("/login", async (req, res) => {
-  const { email, password } = req.body;
-  if (email && password) {
+  const { loginEmail, loginPassword } = req.body;
+  if (loginEmail && loginPassword) {
     // Check if this is a Blogger logging in
-    const thisBlogger = await Blogger.findOne({ where: { email } });
+    const thisBlogger = await Blogger.findOne({ where: { email: loginEmail } });
     if (thisBlogger) {
-      bcrypt.compare(password, thisBlogger.password).then((result) => {
+      bcrypt.compare(loginPassword, thisBlogger.password).then((result) => {
         if (result) {
           req.session.user_id = thisBlogger.id;
           req.session.userFirstName = thisBlogger.blogger_first_name;
           req.session.userLastName = thisBlogger.blogger_last_name;
           req.session.userAuthenticated = true;
-          req.session.userType = "blogger";
+          req.session.userTypeReader = false;
+          req.session.userTypeBlogger = true;
           res.status(200).send({ status: "success", data: thisBlogger });
         }
       });
     } else {
       // If not a blogger, is it a Reader?
-      const thisReader = await Reader.findOne({ where: { email } });
+      const thisReader = await Reader.findOne({ where: { email: loginEmail } });
       if (thisReader) {
-        bcrypt.compare(password, thisReader.password).then((result) => {
+        bcrypt.compare(loginPassword, thisReader.password).then((result) => {
           if (result) {
             req.session.user_id = thisReader.id;
             req.session.userFirstName = thisReader.blogger_first_name;
             req.session.userLastName = thisReader.blogger_last_name;
             req.session.userAuthenticated = true;
-            req.session.userType = "reader";
+            req.session.userTypeReader = true;
+            req.session.userTypeBlogger = false;
             res.status(200).send({ status: "success", data: thisReader });
           }
         });
