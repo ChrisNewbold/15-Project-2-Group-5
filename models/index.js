@@ -7,8 +7,9 @@ const Tag = require("./Tag");
 const BloggerTag = require("./BloggerTag");
 
 // Reader can have many Articles
-Article.hasOne(Blogger, {
+Article.belongsTo(Blogger, {
   foreignKey: "blogger_id",
+  onDelete: "CASCADE",
 });
 
 // blogger has many article

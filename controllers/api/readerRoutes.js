@@ -80,8 +80,7 @@ router.post("/join", async (req, res) => {
         terms,
         privacy,
       });
-      console.log(thisReader);
-      req.session.user_id = thisReader.id;
+      req.session.userId = thisReader.id;
       req.session.userFirstName = thisReader.first_name;
       req.session.userLastName = thisReader.last_name;
       req.session.userAuthenticated = true;

@@ -3,7 +3,7 @@ const { _NODE_ENV } = require("../../config/config");
 const { Article, Reader, Blogger } = require("../../models");
 require("body-parser");
 
-router.post("/", async (req, res) => {
+router.post("/check", async (req, res) => {
   const { url, email } = req.body;
   try {
     const articleRow = await Article.findOne({
@@ -57,7 +57,6 @@ router.post("/", async (req, res) => {
 
       // If user does not have credit:
       // -> send back splash with paypal link to top-up their credit.
-      console.log("Test message");
 
       const readerRow = await Reader.findOne({
         where: { email },
@@ -65,14 +64,12 @@ router.post("/", async (req, res) => {
       const bloggerRow = await Blogger.findByPk(articleRow.blogger_id);
 
       if (!readerRow) {
-        console.log("reader not found");
         res.send({
           status: "error",
           errorMessage: "Reader not found",
         });
       }
       if (readerRow.credits > 0) {
-        console.log("reader found, enough credits");
         res.render(
           "reader-hasCredit",
           {
@@ -96,8 +93,6 @@ router.post("/", async (req, res) => {
         );
       }
       if (readerRow.credits < 1) {
-        console.log("reader found, not enough credits");
-
         res.render(
           "reader-outOfCredit",
           {

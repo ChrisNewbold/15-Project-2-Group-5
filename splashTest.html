@@ -31,13 +31,13 @@ function myInitCode() {
   const fetchPath = "";
   window.addEventListener("message", ({data}) => {
     switch (data.splash) {
-      case 1:
+      case "pre-register":
         document.getElementById(
           "blogChargeIFrame"
         ).style.height = `${data.height}px`;
         document.getElementById("overlay").style.opacity = "100";
         break;
-      case 2:
+      case "pre-register2":
         console.log(data.formData);
 
         document.getElementById("blogChargeIFrame").srcdoc = "<span>Please wait...</span>";
@@ -62,20 +62,26 @@ function myInitCode() {
         })
           .then((response) => response.json())
           .then((data) => {
-            document.getElementById("blogChargeIFrame").style.opacity = "0";
+            //document.getElementById("blogChargeIFrame").style.opacity = "0";
             document.getElementById("blogChargeIFrame").srcdoc = data.html;
             
           })
           .catch(() => {});
         break;
-        case 3:
+        case "readerRegistered":
         document.getElementById(
           "blogChargeIFrame"
         ).style.height = `${data.height}px`;
-        document.getElementById("blogChargeIFrame").style.opacity = "100";
+        //document.getElementById("blogChargeIFrame").style.opacity = "100";
         break;
-        case 4:
+        case "readerRegistered2":
           document.getElementById("overlay").remove();
+          break;
+        case "reader-hasCredit":
+          document.getElementById("overlay").style.opacity = "100";
+          break;
+        case "reader-hasCredit2":
+          document.getElementById("overlay").style.opacity = "0";
           break;
       default:
         break;
@@ -110,7 +116,7 @@ function myInitCode() {
   }
   console.log("email from cookie",userEmail)
 
-  fetch(`${fetchPath}/api/articleCheck`, {
+  fetch(`${fetchPath}/api/article/check`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -122,6 +128,7 @@ function myInitCode() {
   })
     .then((response) => response.json())
     .then((data) => {
+      console.log(data);
       document.body.appendChild(overlayDiv);
       document.getElementById("blogChargeIFrame").srcdoc = data.html;
       articleId = data.id;

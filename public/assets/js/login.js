@@ -1,8 +1,8 @@
 function loginHbrsCode() {
-  document.getElementById("login-Email").addEventListener("focus", () => {
+  document.getElementById("loginEmail").addEventListener("focus", () => {
     document.getElementById("login-Error").style.display = "none";
   });
-  document.getElementById("login-Password").addEventListener("focus", () => {
+  document.getElementById("loginPassword").addEventListener("focus", () => {
     document.getElementById("login-Error").style.display = "none";
   });
   document.getElementById("login-login").addEventListener("click", (e) => {
@@ -14,8 +14,8 @@ function loginHbrsCode() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          loginEmail: document.getElementById("login-Email").value,
-          loginPassword: document.getElementById("login-Password").value,
+          loginEmail: document.getElementById("loginEmail").value,
+          loginPassword: document.getElementById("loginPassword").value,
         }),
       })
         .then((response) => response.json())

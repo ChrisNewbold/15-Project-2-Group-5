@@ -1,22 +1,21 @@
-function myInitCode() {
+function hasCreditHbrsCode() {
   setTimeout(() => {
     window.parent.postMessage({
-      splash: "readerRegistered",
+      splash: "reader-hasCredit",
       height: document.getElementById("wrapper").offsetHeight + 70,
     });
   }, 1000);
-  const buttonElement = document.getElementById("readArticle");
-  buttonElement.addEventListener("click", (e) => {
+  document.getElementById("readArticle").addEventListener("click", (e) => {
     e.preventDefault();
     window.parent.postMessage({
-      splash: "readerRegistered2",
+      splash: "reader-hasCredit2",
     });
   });
 }
 if (document.readyState !== "loading") {
-  myInitCode();
+  hasCreditHbrsCode();
 } else {
   document.addEventListener("DOMContentLoaded", () => {
-    myInitCode();
+    hasCreditHbrsCode();
   });
 }
