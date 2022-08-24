@@ -1,7 +1,7 @@
 function myInitCode() {
   setTimeout(() => {
     window.parent.postMessage({
-      splash: 3,
+      splash: "readerRegistered",
       height: document.getElementById("wrapper").offsetHeight + 70,
     });
   }, 1000);
@@ -9,7 +9,7 @@ function myInitCode() {
   buttonElement.addEventListener("click", (e) => {
     e.preventDefault();
     window.parent.postMessage({
-      splash: 4,
+      splash: "readerRegistered2",
       height: document.getElementById("wrapper").offsetHeight + 70,
     });
   });

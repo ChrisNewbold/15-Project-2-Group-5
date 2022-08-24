@@ -1,7 +1,7 @@
 function myInitCode() {
   setTimeout(() => {
     window.parent.postMessage({
-      splash: 1,
+      splash: "pre-register",
       height: document.getElementById("wrapper").offsetHeight + 20,
     });
   }, 1000);
@@ -77,7 +77,7 @@ function myInitCode() {
       };
 
       window.parent.postMessage({
-        splash: 2,
+        splash: "pre-register2",
         formData,
       });
     }

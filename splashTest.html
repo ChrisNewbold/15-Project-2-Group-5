@@ -31,13 +31,13 @@ function myInitCode() {
   const fetchPath = "";
   window.addEventListener("message", ({data}) => {
     switch (data.splash) {
-      case 1:
+      case "pre-register":
         document.getElementById(
           "blogChargeIFrame"
         ).style.height = `${data.height}px`;
         document.getElementById("overlay").style.opacity = "100";
         break;
-      case 2:
+      case "pre-register2":
         console.log(data.formData);
 
         document.getElementById("blogChargeIFrame").srcdoc = "<span>Please wait...</span>";
@@ -68,13 +68,13 @@ function myInitCode() {
           })
           .catch(() => {});
         break;
-        case 3:
+        case "readerRegistered":
         document.getElementById(
           "blogChargeIFrame"
         ).style.height = `${data.height}px`;
         document.getElementById("blogChargeIFrame").style.opacity = "100";
         break;
-        case 4:
+        case "readerRegistered2":
           document.getElementById("overlay").remove();
           break;
       default:
