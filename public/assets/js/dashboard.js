@@ -22,6 +22,7 @@ function dashboardHbrsCode() {
             }),
           });
         } catch (err) {
+          // eslint-disable-next-line no-console
           console.log(`ERROR 65.21986: ${err}`);
         }
       } else {
