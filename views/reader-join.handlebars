@@ -1,0 +1,58 @@
+<div class="container">
+  <img src="/assets/images/Credits-Page.png" class="img-fluid" alt="Typing on laptop">
+  {{> menu}}
+<div id="readerJoinMessage"></div>
+<fieldset id="readerJoinForm">
+  <!-- First Name -->
+  <label for="readerJoin-FirstName" id="readerJoin-FirstName-Label">First
+    Name:</label>
+  <div class="readerJoinFormInputWrapper">
+    <span id="readerJoin-FirstName-Error" class="readerJoinFormError"></span>
+    <input type="text" id="readerJoin-FirstName" />
+  </div>
+
+  <!-- Last Name -->
+  <label for="readerJoin-LastName" id="readerJoin-LastName-Label">Last Name:</label>
+  <div class="readerJoinFormInputWrapper">
+    <span id="readerJoin-LastName-Error" class="readerJoinFormError"></span>
+    <input type="text" id="readerJoin-LastName" />
+  </div>
+
+  <!-- Email -->
+  <label for="readerJoin-Email" id="readerJoin-Email-Label">Email:</label>
+  <div class="readerJoinFormInputWrapper">
+    <span id="readerJoin-Email-Error" class="readerJoinFormError"></span>
+    <input type="email" id="readerJoin-Email" />
+  </div>
+
+  <!-- Password -->
+  <label
+    for="readerJoin-Password"
+    id="readerJoin-Password-Label"
+  >Password:</label>
+  <div class="readerJoinFormInputWrapper">
+    <span id="readerJoin-Password-Error" class="readerJoinFormError"></span>
+    <input type="password" id="readerJoin-Password" />
+  </div>
+
+  <!-- Confirm Password -->
+  <label
+    for="readerJoin-ConfirmPassword"
+    id="readerJoin-ConfirmPassword-Label"
+  >Confirm Password:</label>
+  <div class="readerJoinFormInputWrapper">
+    <span
+      id="readerJoin-ConfirmPassword-Error"
+      class="readerJoinFormError"
+    ></span>
+    <input type="password" id="readerJoin-ConfirmPassword" />
+  </div>
+
+
+  <button id="readerJoin-submit">JOIN</button>
+</fieldset>
+
+</div>
+
+
+<script src="/assets/js/reader-join.js"></script>

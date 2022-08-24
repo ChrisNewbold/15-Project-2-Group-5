@@ -15,30 +15,6 @@ router.get("/:id", async (req, res) => {
   const bloggerData = Blogger.findOne({ where: { id: req.params.id } });
   res.send(bloggerData);
 });
-router.post("/login", async (req, res) => {
-  const { email, password } = req.body;
-  const thisBlogger = await Blogger.findOne({ where: { email } });
-  if (thisBlogger) {
-    bcrypt.compare(password, thisBlogger.password).then((result) => {
-      if (result) {
-        req.session.user_id = thisBlogger.id;
-        req.session.userFirstName = thisBlogger.blogger_first_name;
-        req.session.userLastName = thisBlogger.blogger_last_name;
-        req.session.userAuthenticated = true;
-        res.status(200).send({ status: "success", data: thisBlogger });
-      }
-    });
-  } else {
-    res.status(200).send({
-      status: "error",
-      message: "Username or Password Incorrect",
-    });
-  }
-});
-router.post("/logout", async (req, res) => {
-  req.session.destroy();
-  res.status(200).send({ status: "success" });
-});
 
 router.post("/join", async (req, res) => {
   const postedData = req.body;

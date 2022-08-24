@@ -1,0 +1,25 @@
+<div class="container">
+  <img src="/assets/images/Credits-Page.png" class="img-fluid" alt="Typing on laptop">
+  {{> menu}}
+<ul>
+<div id="loginMessage"></div>
+<fieldset id="loginForm">
+  <!-- Email -->
+  <label for="login-Email" id = "login-email-label">Email</label>
+  <div class="loginFormInputWrapper">
+    <span id="login-Error" class = "loginFormError"></span>
+    <input type="email" id="login-Email" />
+  </div> 
+
+  <!-- Password -->
+  <label for="logIn-Password" id ="login-Password-Label">Password</label>
+  
+  <div class="loginFormInputWrapper">
+    <input type="password" id="login-Password" />
+    </div> 
+  <button id="login-login">Log In</button>
+</fieldset>
+
+ </div>
+
+ <script src="/assets/js/login.js"></script>
