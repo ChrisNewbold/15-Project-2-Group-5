@@ -74,7 +74,7 @@ function myInitCode() {
       ) {
         formProcess = false;
         document.getElementById("readerJoin-Password-Error").innerText =
-          "PLEASE ENTER A PASSWORD";
+          "PLEASE ENTER A PASSWORD<br>MUST INCLUDE 1 UPPERCASE, ONE LOWERCASE, ONE DIGIT,ONE SPECIAL, 8+ CHARS";
         document.getElementById("readerJoin-Password-Error").style.display =
           "block";
       }
