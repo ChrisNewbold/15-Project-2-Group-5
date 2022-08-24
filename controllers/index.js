@@ -1,5 +1,5 @@
 const router = require("express").Router();
-
+const { Article } = require("../models");
 const apiRoutes = require("./api");
 
 router.use("/api", apiRoutes);
@@ -24,13 +24,29 @@ router.get("/blogger-join", (req, res) => {
 router.get("/reader-join", (req, res) => {
   res.render("reader-join", { layout: "main" });
 });
-router.get("/dashboard", (req, res) => {
+router.get("/dashboard", async (req, res) => {
+  let articleData;
+  if (req.session.userTypeBlogger) {
+    articleData = await Article.findAll({
+      where: { blogger_id: req.session.userId },
+    });
+  }
+  if (req.session.userTypeReader) {
+    articleData = await Article.findAll();
+  }
+
+  const serializedArticleData = articleData.map((article) =>
+    article.get({ plain: true })
+  );
+  console.log("serializedArticleData", serializedArticleData);
   res.render("dashboard", {
     layout: "main",
     data: {
+      userFirstName: req.session.userFirstName,
       userTypeReader: req.session.userTypeReader,
       userTypeBlogger: req.session.userTypeBlogger,
       userAuthenticated: req.session.userAuthenticated,
+      articleData: serializedArticleData,
     },
   });
 });

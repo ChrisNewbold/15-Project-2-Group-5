@@ -19,7 +19,7 @@ router.post("/login", async (req, res) => {
     if (thisBlogger) {
       bcrypt.compare(loginPassword, thisBlogger.password).then((result) => {
         if (result) {
-          req.session.user_id = thisBlogger.id;
+          req.session.userId = thisBlogger.id;
           req.session.userFirstName = thisBlogger.blogger_first_name;
           req.session.userLastName = thisBlogger.blogger_last_name;
           req.session.userAuthenticated = true;
@@ -34,14 +34,20 @@ router.post("/login", async (req, res) => {
       if (thisReader) {
         bcrypt.compare(loginPassword, thisReader.password).then((result) => {
           if (result) {
-            req.session.user_id = thisReader.id;
-            req.session.userFirstName = thisReader.blogger_first_name;
-            req.session.userLastName = thisReader.blogger_last_name;
+            req.session.userId = thisReader.id;
+            req.session.userFirstName = thisReader.first_name;
+            req.session.userLastName = thisReader.last_name;
             req.session.userAuthenticated = true;
             req.session.userTypeReader = true;
             req.session.userTypeBlogger = false;
             res.status(200).send({ status: "success", data: thisReader });
           }
+        });
+      } else {
+        // if no hits on either DB Table return error
+        res.status(200).send({
+          status: "error",
+          message: "LOGIN DETAILS INCORRECT",
         });
       }
     }
@@ -53,7 +59,7 @@ router.post("/login", async (req, res) => {
     });
   }
 });
-router.use("/articleCheck", articleRoutes);
+router.use("/article", articleRoutes);
 router.use("/blogger", bloggerRoutes);
 router.use("/reader", readerRoutes);
 router.use("/purchase", purchaseCreditsRoutes);

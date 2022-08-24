@@ -1,12 +1,21 @@
 <div class="container">
   <img src="/assets/images/Credits-Page.png" class="img-fluid" alt="Typing on laptop">
   {{> menu}}
-</div>
-{{#if userTypeBlogger}}
+
+  <p>Hello {{data.userFirstName}}</p>
+  {{#if data.userTypeBlogger}}
+  <div class="bloggerAddURLFormWrapper">
+    <span class="bloggerAddFormError" id="bloggerAddFormError-Span"></span>
+    ADD URL: <input type="text" id="bloggerAddUrlInput"><button id="bloggerAddUrlButton">SUBMIT</button>
+  </div>
   
-{{/if}}
+  {{/if}}
 
-{{#if userTypeReader}}
+  {{#if data.userTypeReader}}
+  {{/if}}
 
-{{/if}}
+  {{#each data.articleData as |article|}}
+    <p>{{article.url}}</p>
+  {{/each}}
+</div>
 <script src="/assets/js/dashboard.js"></script>

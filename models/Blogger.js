@@ -29,7 +29,7 @@ Blogger.init(
       allowNull: false,
     },
     password: {
-      type: DataTypes.CHAR(50),
+      type: DataTypes.CHAR(255),
       allowNull: false,
     },
     description: {

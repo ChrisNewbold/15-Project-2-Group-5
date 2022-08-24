@@ -127,10 +127,13 @@ function myInitCode() {
           .then((data) => {
             // eslint-disable-next-line no-console
             if (data.status === "success") {
+              window.location.href = "/dashboard";
+            } else {
               document.getElementById("bloggerJoinForm").remove();
+              document.getElementById(
+                "bloggerJoinMessage"
+              ).innerHTML = `ERROR 65.2134: ${data.message}`;
             }
-            document.getElementById("bloggerJoinMessage").innerHTML =
-              data.message;
           })
           .catch((err) => {
             // eslint-disable-next-line no-console

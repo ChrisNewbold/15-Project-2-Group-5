@@ -3,7 +3,7 @@ const { _NODE_ENV } = require("../../config/config");
 const { Article, Reader, Blogger } = require("../../models");
 require("body-parser");
 
-router.post("/", async (req, res) => {
+router.post("/check", async (req, res) => {
   const { url, email } = req.body;
   try {
     const articleRow = await Article.findOne({

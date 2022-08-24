@@ -26,6 +26,7 @@ router.post("/join", async (req, res) => {
   bloggerData.description = postedData.description;
   bloggerData.url = postedData.url;
   bloggerData.image = postedData.image;
+  bloggerData.credits = 0;
 
   try {
     const bloggerEmailCheck = await Blogger.count({
@@ -40,10 +41,12 @@ router.post("/join", async (req, res) => {
         bcrypt.hash(bloggerData.blogger_password, salt, async (_err, hash) => {
           bloggerData.blogger_password = hash;
           const thisBlogger = await Blogger.create(bloggerData);
-          req.session.blogger_id = thisBlogger.id;
-          req.session.bloggerFirstName = thisBlogger.first_name;
-          req.session.bloggerLastName = thisBlogger.last_name;
-          req.session.bloggerAuthenticated = true;
+          req.session.userId = thisBlogger.id;
+          req.session.userFirstName = thisBlogger.first_name;
+          req.session.userLastName = thisBlogger.last_name;
+          req.session.userAuthenticated = true;
+          req.session.userTypeReader = false;
+          req.session.userTypeBlogger = true;
           res.status(200).send({
             status: "success",
             message:
