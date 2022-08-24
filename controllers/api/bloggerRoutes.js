@@ -38,8 +38,8 @@ router.post("/join", async (req, res) => {
         .send({ status: "error", message: "User already exists." });
     } else {
       bcrypt.genSalt(saltRounds, async (err, salt) => {
-        bcrypt.hash(bloggerData.blogger_password, salt, async (_err, hash) => {
-          bloggerData.blogger_password = hash;
+        bcrypt.hash(bloggerData.password, salt, async (_err, hash) => {
+          bloggerData.password = hash;
           const thisBlogger = await Blogger.create(bloggerData);
           req.session.userId = thisBlogger.id;
           req.session.userFirstName = thisBlogger.first_name;
