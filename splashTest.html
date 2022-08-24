@@ -62,7 +62,7 @@ function myInitCode() {
         })
           .then((response) => response.json())
           .then((data) => {
-            document.getElementById("blogChargeIFrame").style.opacity = "0";
+            //document.getElementById("blogChargeIFrame").style.opacity = "0";
             document.getElementById("blogChargeIFrame").srcdoc = data.html;
             
           })
@@ -72,10 +72,13 @@ function myInitCode() {
         document.getElementById(
           "blogChargeIFrame"
         ).style.height = `${data.height}px`;
-        document.getElementById("blogChargeIFrame").style.opacity = "100";
+        //document.getElementById("blogChargeIFrame").style.opacity = "100";
         break;
         case "readerRegistered2":
           document.getElementById("overlay").remove();
+          break;
+        case "reader-hasCredit":
+          document.getElementById("overlay").style.opacity = "100";
           break;
       default:
         break;
@@ -122,6 +125,7 @@ function myInitCode() {
   })
     .then((response) => response.json())
     .then((data) => {
+      console.log(data);
       document.body.appendChild(overlayDiv);
       document.getElementById("blogChargeIFrame").srcdoc = data.html;
       articleId = data.id;

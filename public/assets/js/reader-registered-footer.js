@@ -10,7 +10,6 @@ function myInitCode() {
     e.preventDefault();
     window.parent.postMessage({
       splash: "readerRegistered2",
-      height: document.getElementById("wrapper").offsetHeight + 70,
     });
   });
 }
