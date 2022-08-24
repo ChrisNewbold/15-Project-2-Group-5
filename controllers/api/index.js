@@ -13,13 +13,10 @@ router.post("/logout", (req, res) => {
 });
 router.post("/login", async (req, res) => {
   const { loginEmail, loginPassword } = req.body;
-  
   if (loginEmail && loginPassword) {
-    
     // Check if this is a Blogger logging in
     const thisBlogger = await Blogger.findOne({ where: { email: loginEmail } });
     if (thisBlogger) {
-      console.log(req.body);
       bcrypt.compare(loginPassword, thisBlogger.password).then((result) => {
         if (result) {
           req.session.userId = thisBlogger.id;
