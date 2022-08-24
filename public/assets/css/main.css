@@ -45,7 +45,7 @@
 .bloggerJoinFormError,
 .loginFormError,
 .readerJoinFormError,
-.bloggerAddURLFormError {
+.bloggerAddFormError {
   display: none;
   font-weight: bold;
   background-color: red;

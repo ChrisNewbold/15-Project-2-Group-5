@@ -1,9 +1,12 @@
 function dashboardHbrsCode() {
   const bloggerAddUrlButton = document.getElementById("bloggerAddUrlButton");
   const bloggerAddUrlInput = document.getElementById("bloggerAddUrlInput");
-  bloggerAddUrlInput.addEventListener("focus", () => {
-    document.getElementById(")bloggerAddFormError-Span").style.display = "none";
-  });
+  if (bloggerAddUrlInput !== null) {
+    bloggerAddUrlInput.addEventListener("focus", () => {
+      document.getElementById(")bloggerAddFormError-Span").style.display =
+        "none";
+    });
+  }
   if (bloggerAddUrlButton !== null) {
     bloggerAddUrlButton.addEventListener("click", (e) => {
       e.preventDefault();
@@ -22,9 +25,9 @@ function dashboardHbrsCode() {
           console.log(`ERROR 65.21986: ${err}`);
         }
       } else {
-        document.getElementNyId("bloggerAddFormError-Span").innerText =
+        document.getElementById("bloggerAddFormError-Span").innerText =
           "PLEASE ENTER A URL";
-        document.getElementById(")bloggerAddFormError-Span").style.display =
+        document.getElementById("bloggerAddFormError-Span").style.display =
           "block";
       }
     });
