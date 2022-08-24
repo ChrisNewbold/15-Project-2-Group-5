@@ -26,6 +26,10 @@ router.post("/login", async (req, res) => {
           req.session.userTypeReader = false;
           req.session.userTypeBlogger = true;
           res.status(200).send({ status: "success", data: thisBlogger });
+        } else {
+          res
+            .status(200)
+            .send({ status: "error", message: "INCORRECT PASSWORD" });
         }
       });
     } else {
