@@ -16,10 +16,12 @@ function myInitCode() {
   const termsElement = document.getElementById("flexCheckDefault1");
   termsElement.addEventListener("change", () => {
     if (termsElement.checked) {
-      document.getElementById("flexCheckDefault1").style.color = "black";
-      document.getElementById("flexCheckDefault1").style.fontWeight = "normal";
+      document.getElementById("flexCheckDefault1Label").style.color = "black";
+      document.getElementById("flexCheckDefault1Label").style.fontWeight =
+        "normal";
     }
   });
+
   const privacyElement = document.getElementById("flexCheckDefault2");
   const buttonElement = document.getElementById("submit-btn");
   buttonElement.addEventListener("click", (e) => {
