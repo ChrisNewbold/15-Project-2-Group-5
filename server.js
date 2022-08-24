@@ -54,9 +54,6 @@ app.get("/plugins/plugin.js", (req, res) => {
 app.get("/splashTest1", (req, res) => {
   res.sendFile(`${__dirname}/splashTest.html`);
 });
-app.get("/", (req, res) => {
-  res.render("reader-homepage", { layout: "main" });
-});
 
 app.get("/splashTest2", (req, res) => {
   res.render("reader-registered", { layout: "splash", justreg: true });
