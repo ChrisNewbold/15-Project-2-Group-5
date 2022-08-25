@@ -10,7 +10,7 @@ const { _SESSION_SECRET, _NODE_ENV } = require("./config/config");
 const sequalize = require("./config/connection");
 const controllers = require("./controllers");
 
-const { Article } = require("./models");
+const { Article, Reader, Blogger } = require("./models");
 
 const app = express();
 
@@ -53,10 +53,13 @@ app.get("/plugins/plugin.js", (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.sendFile(path.join(__dirname, "public/assets/js/plugin.js"));
 });
+
+// sent when cookie is not on the users PC
 app.get("/splashTest1", (req, res) => {
   res.sendFile(`${__dirname}/splashTest.html`);
 });
 
+// sent when user just registered via splash 1
 app.get("/splashTest2", async (req, res) => {
   const thisArticle = await Article.findOne({ where: { id: 1 } });
   res.render("reader-registered", {
@@ -64,6 +67,35 @@ app.get("/splashTest2", async (req, res) => {
     layout: "splash",
     justreg: true,
     credits: thisArticle.credits,
+  });
+});
+
+// when cookie on users PC is received along with URL and user has credit
+app.get("/splashTest3", async (req, res) => {
+  const thisArticle = await Article.findOne({ where: { id: 1 } });
+  const thisReader = await Reader.findOne({ where: { id: 1 } });
+  const thisBlogger = await Blogger.findOne({
+    where: { id: thisArticle.blogger_id },
+  });
+  res.render("reader-hasCredit", {
+    devPath: _NODE_ENV === "development",
+    layout: "splash",
+    readerCredits: thisReader.credits,
+    readerName: thisReader.first_name.toUpperCase(),
+    bloggerName: thisBlogger.first_name,
+    articleCredits: thisArticle.credits,
+    hasCredit: true,
+  });
+});
+
+// when cookie on users PC is received along with URL and user has no credit
+app.get("/splashTest4", async (req, res) => {
+  const thisArticle = await Article.findOne({ where: { id: 1 } });
+  res.render("reader-outOfCredit", {
+    devPath: _NODE_ENV === "development",
+    layout: "splash",
+    credits: thisArticle.credits,
+    outOfCredit: true,
   });
 });
 
