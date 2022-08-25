@@ -15,6 +15,7 @@ Blogger.init(
     credits: {
       type: DataTypes.INTEGER(10),
       allowNUlls: false,
+      defaultValue: 0,
     },
     email: {
       type: DataTypes.CHAR(50),
