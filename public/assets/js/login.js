@@ -24,7 +24,7 @@ function loginHbrsCode() {
             window.location.href = "/dashboard";
           } else {
             // eslint-disable-next-line no-console
-            document.getElementById("login-Error").innerText = data.message;
+            document.getElementById("login-Error").innerHTML = data.message;
             document.getElementById("login-Error").style.display = "block";
           }
         });

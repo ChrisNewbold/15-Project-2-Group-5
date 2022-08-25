@@ -39,14 +39,14 @@ function myInitCode() {
       let formProcess = true;
       if (!document.getElementById("readerJoin-FirstName").value) {
         formProcess = false;
-        document.getElementById("readerJoin-FirstName-Error").innerText =
+        document.getElementById("readerJoin-FirstName-Error").innerHTML =
           "PLEASE ENTER YOUR FIRST NAME";
         document.getElementById("readerJoin-FirstName-Error").style.display =
           "block";
       }
       if (!document.getElementById("readerJoin-LastName").value) {
         formProcess = false;
-        document.getElementById("readerJoin-LastName-Error").innerText =
+        document.getElementById("readerJoin-LastName-Error").innerHTML =
           "PLEASE ENTER YOUR LAST NAME";
         document.getElementById("readerJoin-LastName-Error").style.display =
           "block";
@@ -60,7 +60,7 @@ function myInitCode() {
           )
       ) {
         formProcess = false;
-        document.getElementById("readerJoin-Email-Error").innerText =
+        document.getElementById("readerJoin-Email-Error").innerHTML =
           "PLEASE ENTER A VALID EMAIL ADDRESS";
         document.getElementById("readerJoin-Email-Error").style.display =
           "block";
@@ -73,7 +73,7 @@ function myInitCode() {
           )
       ) {
         formProcess = false;
-        document.getElementById("readerJoin-Password-Error").innerText =
+        document.getElementById("readerJoin-Password-Error").innerHTML =
           "PLEASE ENTER A PASSWORD<br>MUST INCLUDE 1 UPPERCASE, ONE LOWERCASE, ONE DIGIT,ONE SPECIAL, 8+ CHARS";
         document.getElementById("readerJoin-Password-Error").style.display =
           "block";
@@ -83,7 +83,7 @@ function myInitCode() {
         document.getElementById("readerJoin-Password").value
       ) {
         formProcess = false;
-        document.getElementById("readerJoin-ConfirmPassword-Error").innerText =
+        document.getElementById("readerJoin-ConfirmPassword-Error").innerHTML =
           "PLEASE CONFIRM YOUR PASSWORD";
         document.getElementById(
           "readerJoin-ConfirmPassword-Error"
