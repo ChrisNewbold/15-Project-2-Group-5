@@ -1,15 +1,16 @@
-{{!-- Call out of Claim your free 500 credits speak to the HOW and the WHY--}}
+{{!-- 500 free credits header section --}}
 <div class="card text-bg-primary m-4" style="max-width: 100%;">
 {{#if devPath}}
         <img src="/assets/images/Blogger.png" class="card-img-top" alt="Blogger writting on laptop">
 {{else}}
         <img src="https://c15-project-2-group-5.herokuapp.com/assets/images/Blogger.png" class="card-img-top" alt="Blogger writting on laptop">
 {{/if}}
-  
-  <div class="card-header">500 FREE CREDITS!</div>
+  {{!-- header --}}
+  <div class="card-header fs-1">500 FREE CREDITS!</div>
   <div class="card-body">
-    <h5 class="card-title">Change the way Blogs are valued!</h5>
-    <p class="card-text">At only bloggers, we want to help our community of creators grow in a way that allows them to continue to write and develop content for readers such as yourself.</p>
-    <p class="card-text"><strong>Read this article for {{credits}} credits!</strong></p>
+    {{!-- sub header --}}
+    <div class="card-title">Change the way Blogs are valued!</div>
+    {{!-- body copy --}}
+    <p class="card-text"><small>At only bloggers, we want to help our community of creators grow and continue to write content for readers such as yourself.</br><strong>This article for {{credits}} credits!</strong></small></p>
   </div>
 </div>
