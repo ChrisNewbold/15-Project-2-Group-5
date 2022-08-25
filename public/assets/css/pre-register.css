@@ -15,12 +15,40 @@
     color: white;
     font-size: 80%;
   }
-  .btn {
+  .btnCustomisations {
     background-color: #ffb81d;
     border-color: #ffb81d;
-    border-radius: 15px;
+    color: #fff;
     font-weight: bolder;
     margin: 25px;
+  }
+  .btnCustomisations:hover {
+    background-color: #ffae00;
+    border-color: #ffae00;
+    color: #fff;
+  }
+  
+  .btnCustomisations:active {
+    background-color: #ffb81d;
+    border-color: #ffb81d;
+    color: #fff;
+  }
+  input[type="text"]:focus,
+  input[type="password"]:focus,
+  input[type="email"]:focus,
+  input[type="checkbox"]:focus {
+    border-color: #ffb81d !important;
+    box-shadow: none;
+      outline: 0 none;
+  }
+  input[type="checkbox"]:checked {
+    background-color: #ffb81d !important;
+    border-color: #ffb81d !important;
+  }
+  textarea:focus {
+    border-color: #ffb81d !important;
+    box-shadow: none;
+      outline: 0 none;
   }
   .form-check-label {
     font-size: 80%;
