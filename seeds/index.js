@@ -16,7 +16,14 @@ const {
   _DB_NAME,
 } = require("../config/config");
 
-const con = mysql.createConnection({
+const con1 = mysql.createConnection({
+  host: _DB_HOST,
+  user: _DB_USER,
+  password: _DB_PASSWORD,
+  port: _DB_PORT,
+});
+
+const con2 = mysql.createConnection({
   host: _DB_HOST,
   user: _DB_USER,
   password: _DB_PASSWORD,
@@ -25,12 +32,21 @@ const con = mysql.createConnection({
 
 const databaseName = _DB_NAME;
 
-con.connect((err) => {
+con1.connect((err) => {
   if (err) throw err;
-  con.query(`CREATE DATABASE IF NOT EXISTS ${databaseName}`, (err2) => {
+  con1.query(`DROP DATABASE IF EXISTS ${databaseName}`, (err2) => {
     if (err2) throw err2;
   });
-  con.end();
+  con1.end();
+  console.log("DROPPED DATABASE");
+});
+
+con2.connect((err) => {
+  if (err) throw err;
+  con2.query(`CREATE DATABASE IF NOT EXISTS ${databaseName}`, (err2) => {
+    if (err2) throw err2;
+  });
+  con2.end();
   console.log("CREATED DATABASE");
 });
 
