@@ -19,10 +19,16 @@ router.get("/login", (req, res) => {
 });
 
 router.get("/blogger-join", (req, res) => {
-  res.render("blogger-join", { layout: "main" });
+  res.render("blogger-join", {
+    layout: "main",
+    title: "Only Blogs",
+  });
 });
 router.get("/reader-join", (req, res) => {
-  res.render("reader-join", { layout: "main" });
+  res.render("reader-join", {
+    layout: "main",
+    title: "Only Blogs",
+  });
 });
 router.get("/dashboard", async (req, res) => {
   if (!req.session.userAuthenticated) {
@@ -51,6 +57,7 @@ router.get("/dashboard", async (req, res) => {
         userAuthenticated: req.session.userAuthenticated,
         articleData: serializedArticleData,
       },
+      title: "Only Blogs",
     });
   }
 });
