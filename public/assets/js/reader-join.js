@@ -96,6 +96,9 @@ function myInitCode() {
           "bold";
       }
       if (formProcess) {
+        document.cookie = `onlyBlogEmail=${
+          document.getElementById("readerJoin-Email").value
+        }`;
         fetch(`/api/reader/join`, {
           method: "POST",
           headers: {

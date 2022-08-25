@@ -2,7 +2,7 @@ const router = require("express").Router();
 const bcrypt = require("bcrypt");
 // eslint-disable-next-line no-unused-vars
 const { _NODE_ENV } = require("../../config/config");
-const { Reader } = require("../../models");
+const { Reader, Article } = require("../../models");
 require("body-parser");
 
 const saltRounds = 10;
@@ -30,6 +30,7 @@ router.post("/prereg", async (req, res) => {
             terms,
             privacy,
           });
+          const thisArticle = Article.findOne({ where: { id: articleId } });
           // eslint-disable-next-line no-console
           console.log("Reader Added");
           res.render(
@@ -38,7 +39,7 @@ router.post("/prereg", async (req, res) => {
               justreg: true,
               layout: "splash",
               devPath: _NODE_ENV === "development",
-              articleId,
+              credits: thisArticle.credits,
             },
             (err3, html) => {
               if (err3) {

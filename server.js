@@ -6,9 +6,11 @@ const session = require("express-session");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const path = require("path");
 const hbs = require("express-handlebars").create({});
-const { _SESSION_SECRET } = require("./config/config");
+const { _SESSION_SECRET, _NODE_ENV } = require("./config/config");
 const sequalize = require("./config/connection");
 const controllers = require("./controllers");
+
+const { Article } = require("./models");
 
 const app = express();
 
@@ -55,8 +57,14 @@ app.get("/splashTest1", (req, res) => {
   res.sendFile(`${__dirname}/splashTest.html`);
 });
 
-app.get("/splashTest2", (req, res) => {
-  res.render("reader-registered", { layout: "splash", justreg: true });
+app.get("/splashTest2", async (req, res) => {
+  const thisArticle = await Article.findOne({ where: { id: 1 } });
+  res.render("reader-registered", {
+    devPath: _NODE_ENV === "development",
+    layout: "splash",
+    justreg: true,
+    credits: thisArticle.credits,
+  });
 });
 
 app.use(controllers);
