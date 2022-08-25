@@ -1,26 +1,37 @@
-<ul>
-<li><a href="/">HOME</a></li>
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid"></div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+<li class="nav-item"><a class="nav-link" aria-current="page" href="/">HOME</a></li>
 {{#unless data.userAuthenticated}}
 {{!-- only menu items for not logged in users goes here --}}
-<li><a href="/login">LOGIN</a></li><li>JOIN</li>
-  <ul>
-    <li><a href="/blogger-join">BLOGGER</a></li>
-    <li><a href="/reader-join">READER</a></li>
-  </ul>
+<li class="nav-item"><a class="nav-link" aria-current="page" href="/login">LOGIN</a></li>
+<li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            JOIN
+          </a>
+  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+    <li class="dropdown-item"><a href="/blogger-join">BLOGGER</a></li>
+    <li class="dropdown-item"><a href="/reader-join">READER</a></li>
+  </ul></li>
 {{/unless}}
 {{#if data.userAuthenticated}}
 {{!-- only menu items for logged in users goes here --}}
-<li><a href="/dashboard">DASHBOARD</a></li>
+<li class="nav-item"><a href="/dashboard">DASHBOARD</a></li>
   {{#if data.userTypeReader}}
   {{!-- only menu items for logged in reader go here --}}
-  <li id="creditButton">CREDIT</li> 
+  <li class="nav-item" id="creditButton">CREDIT</li> 
   {{/if}}
   {{#if data.userTypeBlogger}}
   {{!-- only menu items for logged in blogger go here --}}
   {{/if}}
-  <li id="logoutButton">LOGOUT</li>
+  <li class="nav-item" id="logoutButton">LOGOUT</li>
 {{/if}}
 
 
-</ul>
+</ul></nav>
 <script src="/assets/js/menu.js"></script>
