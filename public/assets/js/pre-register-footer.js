@@ -42,7 +42,7 @@ function myInitCode() {
     ) {
       formProcess = false;
       document.getElementById("inputEmail3-Error").style.display = "block";
-      document.getElementById("inputEmail3-Error").innerText =
+      document.getElementById("inputEmail3-Error").innerHTML =
         "PLEASE ENTER YOUR EMAIL ADDRESS";
     }
 
@@ -61,7 +61,7 @@ function myInitCode() {
     ) {
       formProcess = false;
       document.getElementById("inputPassword3-Error").style.display = "block";
-      document.getElementById("inputPassword3-Error").innerText =
+      document.getElementById("inputPassword3-Error").innerHTML =
         "PLEASE ENTER A PASSWORD<br>MUST INCLUDE 1 UPPERCASE, ONE LOWERCASE, ONE DIGIT,ONE SPECIAL, 8+ CHARS";
     }
     if (!termsElement.checked) {

@@ -19,13 +19,13 @@
       if (
         !document.getElementById("bloggerLogin-Email").value.toLowerCase().match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
         logInProcess = false;
-        document.getElementById("bloggerLogin-Email-Error").innerText = "INVALID EMAIL ADDRESS";
+        document.getElementById("bloggerLogin-Email-Error").innerHTML = "INVALID EMAIL ADDRESS";
         document.getElementById("bloggerJoin-Email-Error").style.display =
         "block";
         } if (
             !document.getElementById("bloggerLogin-Password").value.toLowerCase().match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
             logInProcess = false;
-            document.getElementById("bloggerLogin-Password-Error").innerText = "INVALID PASSWORD";
+            document.getElementById("bloggerLogin-Password-Error").innerHTML = "INVALID PASSWORD";
             document.getElementById("bloggerJoin-Password-Error").style.display =
             "block";
          }

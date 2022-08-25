@@ -43,14 +43,14 @@ function myInitCode() {
       let formProcess = true;
       if (!document.getElementById("bloggerJoin-FirstName").value) {
         formProcess = false;
-        document.getElementById("bloggerJoin-FirstName-Error").innerText =
+        document.getElementById("bloggerJoin-FirstName-Error").innerHTML =
           "PLEASE ENTER YOUR FIRST NAME";
         document.getElementById("bloggerJoin-FirstName-Error").style.display =
           "block";
       }
       if (!document.getElementById("bloggerJoin-LastName").value) {
         formProcess = false;
-        document.getElementById("bloggerJoin-LastName-Error").innerText =
+        document.getElementById("bloggerJoin-LastName-Error").innerHTML =
           "PLEASE ENTER YOUR LAST NAME";
         document.getElementById("bloggerJoin-LastName-Error").style.display =
           "block";
@@ -64,7 +64,7 @@ function myInitCode() {
           )
       ) {
         formProcess = false;
-        document.getElementById("bloggerJoin-Email-Error").innerText =
+        document.getElementById("bloggerJoin-Email-Error").innerHTML =
           "PLEASE ENTER A VALID EMAIL ADDRESS";
         document.getElementById("bloggerJoin-Email-Error").style.display =
           "block";
@@ -77,7 +77,7 @@ function myInitCode() {
           )
       ) {
         formProcess = false;
-        document.getElementById("bloggerJoin-Password-Error").innerText =
+        document.getElementById("bloggerJoin-Password-Error").innerHTML =
           "PLEASE ENTER A PASSWORD<br>MUST INCLUDE 1 UPPERCASE, ONE LOWERCASE, ONE DIGIT,ONE SPECIAL, 8+ CHARS";
         document.getElementById("bloggerJoin-Password-Error").style.display =
           "block";
@@ -87,7 +87,7 @@ function myInitCode() {
         document.getElementById("bloggerJoin-Password").value
       ) {
         formProcess = false;
-        document.getElementById("bloggerJoin-ConfirmPassword-Error").innerText =
+        document.getElementById("bloggerJoin-ConfirmPassword-Error").innerHTML =
           "PLEASE CONFIRM YOUR PASSWORD";
         document.getElementById(
           "bloggerJoin-ConfirmPassword-Error"
@@ -95,14 +95,14 @@ function myInitCode() {
       }
       if (!document.getElementById("bloggerJoin-Description").value) {
         formProcess = false;
-        document.getElementById("bloggerJoin-Description-Error").innerText =
+        document.getElementById("bloggerJoin-Description-Error").innerHTML =
           "PLEASE ENTER A DESCRIPTION OF YOU BLOG";
         document.getElementById("bloggerJoin-Description-Error").style.display =
           "block";
       }
       if (!document.getElementById("bloggerJoin-URL").value) {
         formProcess = false;
-        document.getElementById("bloggerJoin-URL-Error").innerText =
+        document.getElementById("bloggerJoin-URL-Error").innerHTML =
           "PLEASE ENTER YOUR BLOG URL";
         document.getElementById("bloggerJoin-URL-Error").style.display =
           "block";

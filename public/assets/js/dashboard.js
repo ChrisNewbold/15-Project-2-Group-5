@@ -26,7 +26,7 @@ function dashboardHbrsCode() {
           console.log(`ERROR 65.21986: ${err}`);
         }
       } else {
-        document.getElementById("bloggerAddFormError-Span").innerText =
+        document.getElementById("bloggerAddFormError-Span").innerHTML =
           "PLEASE ENTER A URL";
         document.getElementById("bloggerAddFormError-Span").style.display =
           "block";
