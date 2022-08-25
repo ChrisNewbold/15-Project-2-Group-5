@@ -1,10 +1,8 @@
 function myInitCode() {
-  setTimeout(() => {
-    window.parent.postMessage({
-      splash: "pre-register",
-      height: document.getElementById("wrapper").offsetHeight + 20,
-    });
-  }, 1000);
+  window.parent.postMessage({
+    splash: "pre-register",
+    height: document.getElementById("wrapper").offsetHeight + 20,
+  });
   const emailElement = document.getElementById("inputEmail3");
   emailElement.addEventListener("focus", () => {
     document.getElementById("inputEmail3-Error").style.display = "none";
