@@ -1,34 +1,29 @@
   .card-header {
     background-color: #ffb81d !important;
     color: white !important;
-    font-size: 150%;
-
     font-weight: bolder;
     line-height: 100%;
   }
   .card-title{
     font-weight: bolder;
-    font-size: 120%;
   }
   .card-body {
     background-color: rgb(81, 81, 81);
     color: white;
-    font-size: 80%;
   }
-  .btnCustomisations {
+  .btn {
     background-color: #ffb81d;
     border-color: #ffb81d;
     color: #fff;
     font-weight: bolder;
-    margin: 25px;
   }
-  .btnCustomisations:hover {
+  .btn:hover {
     background-color: #ffae00;
     border-color: #ffae00;
     color: #fff;
   }
   
-  .btnCustomisations:active {
+  .btn:active {
     background-color: #ffb81d;
     border-color: #ffb81d;
     color: #fff;
@@ -48,9 +43,6 @@
     background-color: #ffb81d !important;
     border-color: #ffb81d !important;
   }
-  .form-check-label {
-    font-size: 80%;
-  }
   #wrapper {
     overflow: hidden;
   }
@@ -66,6 +58,5 @@
     padding: 5px 20px;
     top: -5px;
     right: 0;
-    font-size: 10px;
     max-width: 80%;
   }

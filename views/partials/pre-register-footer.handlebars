@@ -1,14 +1,16 @@
-{{! first name, email address and "sign up CTA" }}
+{{! first name, email address and "join CTA" }}
 <form>
   <div class="d-flex justify-content-center">
     <div class="d-flex col-10 flex-wrap justify-content-between">
       <div class="col-12 col-sm-6 mb-3">
+        {{!-- email input field --}}
         <div class="row-sm-6 preRegFormInput">
           <span id="inputEmail3-Error" class="preRegFormInput-Error"></span>
           <input type="email" class="form-control" id="inputEmail3" placeholder="Email:"/>
         </div>
       </div>
-      <div class="col-12 col-sm-6 mb-3">
+      <div class="col-12 col-sm-6 mb-2">
+        {{!-- password input field --}}
         <div class="row-sm-6 preRegFormInput">
           <span id="inputPassword3-Error" class="preRegFormInput-Error"></span>
           <input type="password" class="form-control" id="inputPassword3" placeholder="Password:"/>
@@ -17,7 +19,7 @@
     </div>
   </div>
   <div class="d-flex justify-content-center">
-    <fieldset class="d-flex col-10 m-2 flex-wrap">
+    <fieldset class="d-flex col-10 flex-wrap">
       <div class="col-sm-6">
         <div class="form-check">
           <input
@@ -27,8 +29,11 @@
             id="flexCheckDefault1"
             value="option1"
           />
-          <label class="form-check-label" for="flexCheckDefault1" id="flexCheckDefault1Label">
+          {{!-- terms check boxes --}}
+          {{!-- terms & conditions section --}}
+          <label class="form-check-label" for="flexCheckDefault1" id="flexCheckDefault1Label"><small>
             I agree to the
+
             <a href="/views/terms-and-conditions.handlebars" target="_blank">Terms & Conditions</a>
           </label>
         </div>
@@ -42,7 +47,8 @@
             id="flexCheckDefault2"
             value="option2"
           />
-          <label class="form-check-label" for="flexCheckDefault2">
+          {{!-- agree to marketing terms of communication --}}
+          <label class="form-check-label" for="flexCheckDefault2"><small>
             I agree to receive the latest blog reviews, exclusive offers, updates
             and more from us.
             <a href="/views/privacy.handlebars" target="_blank">Privacy Policy</a>.
@@ -53,10 +59,11 @@
   <div class="row mb-1">
     <div class="col-sm-10 offset-sm-2"></div>
   </div>
-  <button type="submit" id="submit-btn" class="btn btnCustomisations ml-5">Join</button>
   </div>
+  {{!-- join button --}}
+  <button type="submit" id="submit-btn" class="d-grid gap-2 col-6 mx-auto m-3 btn btn-primary btn-lg btn-block">Join</button>
 </form>
 
 
-
+{{!-- link to javaScript file --}}
 <script src="/assets/js/pre-register.js"></script>
