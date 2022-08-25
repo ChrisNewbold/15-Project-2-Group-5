@@ -100,7 +100,12 @@ function myInitCode() {
         document.getElementById("bloggerJoin-Description-Error").style.display =
           "block";
       }
-      if (!document.getElementById("bloggerJoin-URL").value) {
+      if (
+        !document.getElementById("bloggerJoin-URL").value.match(
+          // eslint-disable-next-line no-useless-escape
+          /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/
+        )
+      ) {
         formProcess = false;
         document.getElementById("bloggerJoin-URL-Error").innerHTML =
           "PLEASE ENTER YOUR BLOG URL";

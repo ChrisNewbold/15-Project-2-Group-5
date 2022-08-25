@@ -28,6 +28,7 @@
     <script>
 function myInitCode() {
   let articleId = 0;
+  let readerId = 0;
   const fetchPath = "";
   window.addEventListener("message", ({data}) => {
     switch (data.splash) {
@@ -54,9 +55,9 @@ function myInitCode() {
         })
           .then((response) => response.json())
           .then((data) => {
-            //document.getElementById("blogChargeIFrame").style.opacity = "0";
             document.getElementById("blogChargeIFrame").srcdoc = data.html;
-            
+            articleId = data.articleId;
+            readerId = data.readerId;
           })
           .catch(() => {});
         break;
@@ -68,6 +69,16 @@ function myInitCode() {
         break;
         case "readerRegistered2":
           document.getElementById("overlay").remove();
+          fetch("/api/reader/charge", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            readerId: readerId,
+            articleId: articleId,
+            }),
+          });
           break;
         case "reader-hasCredit":
           document.getElementById(

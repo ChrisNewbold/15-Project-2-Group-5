@@ -22,7 +22,6 @@ const con1 = mysql.createConnection({
   password: _DB_PASSWORD,
   port: _DB_PORT,
 });
-
 const con2 = mysql.createConnection({
   host: _DB_HOST,
   user: _DB_USER,
