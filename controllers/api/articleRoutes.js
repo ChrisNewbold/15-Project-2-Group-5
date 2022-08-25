@@ -20,8 +20,8 @@ router.post("/check", async (req, res) => {
     }
     if (articleRow && !email) {
       /*
-      If req.body doesn't include an email, then the reader has never seen this before,
-      -> send them the pre-register splash.
+      If req.body doesn't include an email, then the reader has never seen this before
+      -> send them the pre-register splash
       */
       // eslint-disable-next-line no-console
       // console.log("url found, no email");
