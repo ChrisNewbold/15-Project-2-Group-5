@@ -7,9 +7,7 @@ function outOfCredits() {
   }, 1000);
   document.getElementById("addCredit").addEventListener("click", (e) => {
     e.preventDefault();
-    window.parent.postMessage({
-      splash: "reader-outOfCredit2",
-    });
+    window.location.href = "/credit";
   });
 }
 if (document.readyState !== "loading") {
