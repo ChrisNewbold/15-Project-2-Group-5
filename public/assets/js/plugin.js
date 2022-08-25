@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 function myInitCode() {
   window.addEventListener("message", ({ data }) => {
     console.log(data);
