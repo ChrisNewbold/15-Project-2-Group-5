@@ -48,7 +48,7 @@ router.post("/check", async (req, res) => {
     }
 
     if (articleRow && email) {
-      // if req.body does include an email, this reader knows what this is about
+      // if req.body does include an email, this reader probably what this is about. Check that this reader is in the DB
 
       // Check if the user has credit
 
@@ -64,10 +64,26 @@ router.post("/check", async (req, res) => {
       const bloggerRow = await Blogger.findByPk(articleRow.blogger_id);
 
       if (!readerRow) {
-        res.send({
-          status: "error",
-          errorMessage: "Reader not found",
-        });
+        res.render(
+          "pre-register",
+          {
+            prereg: true,
+            layout: "splash",
+            devPath: _NODE_ENV === "development",
+            credits: articleRow.credits,
+          },
+          (err, html) => {
+            if (err) {
+              // eslint-disable-next-line no-console
+              // console.log(`ERROR: ${err}`);
+            }
+            res.send({
+              html,
+              credits: articleRow.credits,
+              id: articleRow.id,
+            });
+          }
+        );
       }
       if (readerRow.credits > 0) {
         res.render(
