@@ -1,10 +1,8 @@
 function myInitCode() {
-  setTimeout(() => {
-    window.parent.postMessage({
-      splash: "readerRegistered",
-      height: document.getElementById("wrapper").offsetHeight + 70,
-    });
-  }, 1000);
+  window.parent.postMessage({
+    splash: "readerRegistered",
+    height: document.getElementById("wrapper").offsetHeight + 70,
+  });
   const buttonElement = document.getElementById("readArticle");
   buttonElement.addEventListener("click", (e) => {
     e.preventDefault();

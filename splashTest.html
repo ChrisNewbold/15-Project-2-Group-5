@@ -38,15 +38,7 @@ function myInitCode() {
         document.getElementById("overlay").style.opacity = "100";
         break;
       case "pre-register2":
-        console.log(data.formData);
-
-        document.getElementById("blogChargeIFrame").srcdoc = "<span>Please wait...</span>";
-        document.getElementById(
-          "blogChargeIFrame"
-        ).style.height = `200px`;
-
         document.cookie = `onlyBlogEmail=${data.formData.email}`; 
-
         fetch(`${fetchPath}/api/reader/prereg`, {
           method: "POST",
           headers: {
@@ -71,13 +63,16 @@ function myInitCode() {
         case "readerRegistered":
         document.getElementById(
           "blogChargeIFrame"
-        ).style.height = `${data.height}px`;
+        ).style.height = `720px`;
         //document.getElementById("blogChargeIFrame").style.opacity = "100";
         break;
         case "readerRegistered2":
           document.getElementById("overlay").remove();
           break;
         case "reader-hasCredit":
+          document.getElementById(
+          "blogChargeIFrame"
+        ).style.height = `620px`;
           document.getElementById("overlay").style.opacity = "100";
           break;
         case "reader-hasCredit2":

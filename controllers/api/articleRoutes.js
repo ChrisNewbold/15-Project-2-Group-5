@@ -76,7 +76,9 @@ router.post("/check", async (req, res) => {
             layout: "splash",
             devPath: _NODE_ENV === "development",
             readerCredits: readerRow.credits,
-            readerName: readerRow.first_name.toUpperCase(),
+            readerName: readerRow.first_name
+              ? readerRow.first_name.toUpperCase().toUpperCase()
+              : "",
             bloggerName: bloggerRow.first_name,
             articleCredits: articleRow.credits,
             hasCredit: true,

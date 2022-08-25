@@ -81,7 +81,9 @@ app.get("/splashTest3", async (req, res) => {
     devPath: _NODE_ENV === "development",
     layout: "splash",
     readerCredits: thisReader.credits,
-    readerName: thisReader.first_name.toUpperCase(),
+    readerName: thisReader.first_name
+      ? thisReader.first_name.toUpperCase().toUpperCase()
+      : "",
     bloggerName: thisBlogger.first_name,
     articleCredits: thisArticle.credits,
     hasCredit: true,

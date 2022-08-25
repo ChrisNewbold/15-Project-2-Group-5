@@ -30,7 +30,9 @@ router.post("/prereg", async (req, res) => {
             terms,
             privacy,
           });
-          const thisArticle = Article.findOne({ where: { id: articleId } });
+          const thisArticle = await Article.findOne({
+            where: { id: articleId },
+          });
           // eslint-disable-next-line no-console
           console.log("Reader Added");
           res.render(
