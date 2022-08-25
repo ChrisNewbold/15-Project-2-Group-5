@@ -6,6 +6,7 @@ const { Reader, Article, Blogger } = require("../../models");
 require("body-parser");
 
 const saltRounds = 10;
+
 router.post("/charge", async (req, res) => {
   const { articleId, readerId } = req.body;
   const articleRow = await Article.findByPk(articleId);
@@ -24,6 +25,7 @@ router.post("/charge", async (req, res) => {
   );
   res.status(200).send({ status: "success" });
 });
+
 router.post("/prereg", async (req, res) => {
   const { email, password, terms, privacy, articleId } = req.body;
   try {
