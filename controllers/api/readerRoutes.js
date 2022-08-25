@@ -6,7 +6,24 @@ const { Reader, Article, Blogger } = require("../../models");
 require("body-parser");
 
 const saltRounds = 10;
-
+router.post("/charge", async (req, res) => {
+  const { articleId, readerId } = req.body;
+  const articleRow = await Article.findByPk(articleId);
+  const readerRow = await Reader.findByPk(readerId);
+  const bloggerRow = await Blogger.findByPk(Article.blogger_id);
+  const articleCredits = articleRow.credits;
+  const readerCredits = readerRow.credits;
+  const bloggerCredits = bloggerRow.credits;
+  Reader.update(
+    { credits: readerCredits - articleCredits },
+    { where: { id: readerId } }
+  );
+  Blogger.update(
+    { credits: bloggerCredits + articleCredits },
+    { where: { id: bloggerRow.id } }
+  );
+  res.status(200).send({ status: "success" });
+});
 router.post("/prereg", async (req, res) => {
   const { email, password, terms, privacy, articleId } = req.body;
   try {
@@ -25,7 +42,7 @@ router.post("/prereg", async (req, res) => {
       bcrypt.genSalt(saltRounds, async (err, salt) => {
         bcrypt.hash(password, salt, async (err2, hash) => {
           const encryptedPassword = hash;
-          await Reader.create({
+          const newReader = await Reader.create({
             email,
             password: encryptedPassword,
             credits: 500,
@@ -50,6 +67,8 @@ router.post("/prereg", async (req, res) => {
               }
               res.send({
                 html,
+                articleId,
+                readerId: newReader.id,
               });
             }
           );
