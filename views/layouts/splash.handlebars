@@ -18,12 +18,24 @@
         {{#if justreg}}
         <link rel="stylesheet" href="/assets/css/reader-registered.css" />
         {{/if}}
+        {{#if hasCredit}}
+        <link rel="stylesheet" href="/assets/css/reader-hasCredit.css" />
+        {{/if}}
+        {{#if outOfCredit}}
+        <link rel="stylesheet" href="/assets/css/reader-outOfCredit.css" />
+        {{/if}}
 {{else}}
         {{#if prereg}}
         <link rel="stylesheet" href="https://c15-project-2-group-5.herokuapp.com/assets/css/pre-register.css" />
         {{/if}}
         {{#if justreg}}
         <link rel="stylesheet" href="https://c15-project-2-group-5.herokuapp.com/assets/css/reader-registered.css" />
+        {{/if}}
+        {{#if hasCredit}}
+        <link rel="stylesheet" href="https://c15-project-2-group-5.herokuapp.com/assets/css/reader-hasCredit.css" />
+        {{/if}}
+        {{#if outOfCredit}}
+        <link rel="stylesheet" href="https://c15-project-2-group-5.herokuapp.com/assets/css/reader-outOfCredit.css" />
         {{/if}}
 {{/if}}
 
@@ -38,6 +50,12 @@
         {{/if}}
         {{#if justreg}}
         {{> reader-registered-footer}}
+        {{/if}}
+        {{#if hasCredit}}
+        {{> reader-hasCredit-footer}}
+        {{/if}}
+        {{#if outOfCredit}}
+        {{> reader-outOfCredit-footer}}
         {{/if}}
     </footer>
   </div>
