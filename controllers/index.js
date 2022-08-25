@@ -21,15 +21,30 @@ router.get("/login", (req, res) => {
 router.get("/blogger-join", (req, res) => {
   res.render("blogger-join", {
     layout: "main",
-    title: "Only Blogs",
+    title: "OnlyBlogs",
   });
 });
 router.get("/reader-join", (req, res) => {
   res.render("reader-join", {
     layout: "main",
-    title: "Only Blogs",
+    title: "OnlyBlogs",
   });
 });
+
+router.get("/terms", (req, res) => {
+  res.render("terms-and-conditions", {
+    layout: "main",
+    title: "OnlyBlogs",
+  });
+});
+
+router.get("/privacy", (req, res) => {
+  res.render("privacy", {
+    layout: "main",
+    title: "OnlyBlogs",
+  });
+});
+
 router.get("/dashboard", async (req, res) => {
   if (!req.session.userAuthenticated) {
     res.redirect("/");
@@ -47,6 +62,7 @@ router.get("/dashboard", async (req, res) => {
     const serializedArticleData = articleData.map((article) =>
       article.get({ plain: true })
     );
+    // eslint-disable-next-line no-console
     console.log("serializedArticleData", serializedArticleData);
     res.render("dashboard", {
       layout: "main",
@@ -57,7 +73,7 @@ router.get("/dashboard", async (req, res) => {
         userAuthenticated: req.session.userAuthenticated,
         articleData: serializedArticleData,
       },
-      title: "Only Blogs",
+      title: "OnlyBlogs",
     });
   }
 });
