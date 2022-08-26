@@ -51,7 +51,7 @@ router.post("/check", async (req, res) => {
         (err, html) => {
           if (err) {
             // eslint-disable-next-line no-console
-            // console.log(`ERROR: ${err}`);
+            console.log(`ERROR 24.351: ${err}`);
           }
           res.send({
             html,
@@ -63,7 +63,7 @@ router.post("/check", async (req, res) => {
     }
 
     if (articleRow && email) {
-      // if req.body does include an email, this reader probably what this is about. Check that this reader is in the DB
+      // if req.body does include an email, this reader probably knows what this is about. Check that this reader is in the DB
 
       // Check if the user has credit
 
@@ -90,7 +90,7 @@ router.post("/check", async (req, res) => {
           (err, html) => {
             if (err) {
               // eslint-disable-next-line no-console
-              // console.log(`ERROR: ${err}`);
+              console.log(`ERROR 142.32: ${err}`);
             }
             res.send({
               html,
@@ -99,62 +99,63 @@ router.post("/check", async (req, res) => {
             });
           }
         );
-      }
-      if (readerRow.credits > 0) {
-        res.render(
-          "reader-hasCredit",
-          {
-            layout: "splash",
-            devPath: _NODE_ENV === "development",
-            readerCredits: readerRow.credits,
-            readerName: readerRow.first_name
-              ? readerRow.first_name.toUpperCase().toUpperCase()
-              : "",
-            bloggerName: bloggerRow.first_name,
-            articleCredits: articleRow.credits,
-            hasCredit: true,
-          },
-          (err, html) => {
-            if (err) {
-              // eslint-disable-next-line no-console
-              console.log(`ERROR: ${err}`);
+      } else {
+        if (readerRow.credits > 0) {
+          res.render(
+            "reader-hasCredit",
+            {
+              layout: "splash",
+              devPath: _NODE_ENV === "development",
+              readerCredits: readerRow.credits,
+              readerName: readerRow.first_name
+                ? readerRow.first_name.toUpperCase().toUpperCase()
+                : "",
+              bloggerName: bloggerRow.first_name,
+              articleCredits: articleRow.credits,
+              hasCredit: true,
+            },
+            (err, html) => {
+              if (err) {
+                // eslint-disable-next-line no-console
+                console.log(`ERROR 56.21: ${err}`);
+              }
+              res.send({
+                html,
+                credits: articleRow.credits,
+                readerId: readerRow.id,
+                articleId: articleRow.id,
+              });
             }
-            res.send({
-              html,
-              credits: articleRow.credits,
-              readerId: readerRow.id,
-              articleId: articleRow.id,
-            });
-          }
-        );
-      }
-      if (readerRow.credits < 1) {
-        res.render(
-          "reader-outOfCredit",
-          {
-            layout: "splash",
-            devPath: _NODE_ENV === "development",
-            readerCredits: readerRow.credits,
-            readerName: readerRow.first_name
-              ? readerRow.first_name.toUpperCase().toUpperCase()
-              : "",
-            bloggerName: bloggerRow.first_name,
-            articleCredits: articleRow.credits,
-            outOfCredit: true,
-          },
-          (err, html) => {
-            if (err) {
-              // eslint-disable-next-line no-console
-              console.log(`ERROR: ${err}`);
+          );
+        }
+        if (readerRow.credits < 1) {
+          res.render(
+            "reader-outOfCredit",
+            {
+              layout: "splash",
+              devPath: _NODE_ENV === "development",
+              readerCredits: readerRow.credits,
+              readerName: readerRow.first_name
+                ? readerRow.first_name.toUpperCase().toUpperCase()
+                : "",
+              bloggerName: bloggerRow.first_name,
+              articleCredits: articleRow.credits,
+              outOfCredit: true,
+            },
+            (err, html) => {
+              if (err) {
+                // eslint-disable-next-line no-console
+                console.log(`ERROR 184.68: ${err}`);
+              }
+              res.send({
+                html,
+                credits: articleRow.credits,
+                readerId: readerRow.id,
+                articleId: articleRow.id,
+              });
             }
-            res.send({
-              html,
-              credits: articleRow.credits,
-              readerId: readerRow.id,
-              articleId: articleRow.id,
-            });
-          }
-        );
+          );
+        }
       }
 
       // eslint-disable-next-line no-console
@@ -162,7 +163,7 @@ router.post("/check", async (req, res) => {
     }
   } catch (err) {
     // eslint-disable-next-line no-console
-    console.log(`ERROR: ${err}`);
+    console.log(`ERROR 456.328: ${err}`);
   }
 });
 

@@ -96,7 +96,7 @@ router.post("/prereg", async (req, res) => {
           (err, html) => {
             if (err) {
               // eslint-disable-next-line no-console
-              console.log(`ERROR: ${err}`);
+              console.log(`ERROR 247.986: ${err}`);
             }
             res.send({
               html,
@@ -118,7 +118,7 @@ router.post("/prereg", async (req, res) => {
           (err, html) => {
             if (err) {
               // eslint-disable-next-line no-console
-              console.log(`ERROR: ${err}`);
+              console.log(`ERROR 568.214: ${err}`);
             }
             res.send({
               html,
@@ -132,7 +132,7 @@ router.post("/prereg", async (req, res) => {
     }
   } catch (err) {
     // eslint-disable-next-line no-console
-    console.log(`ERROR: ${err}`);
+    console.log(`ERROR 246.32: ${err}`);
   }
 });
 router.post("/join", async (req, res) => {
