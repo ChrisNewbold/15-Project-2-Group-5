@@ -60,10 +60,13 @@ color: black;
 }
 textarea {
   display: block;
-  width: 800px;
+  width: 100%;
 }
 .codeArea {
   height: 400px;
+}
+.addUrlInput {
+  width: 100%;
 }
 .bloggerJoinFormInputWrapper,
 .loginFormInputWrapper,
