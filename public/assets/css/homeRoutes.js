@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Article } = require("../models");
+const { Article } = require("../../../models");
 
 router.get("/credit", (req, res) => {
   res.render("reader-credit", {

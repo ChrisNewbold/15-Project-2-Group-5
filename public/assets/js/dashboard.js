@@ -48,7 +48,7 @@ function dashboardHbrsCode() {
           })
             .then((response) => response.json())
             .then((data) => {
-              document.getElementById("urlList").append(data.html);
+              document.getElementById("urlList").innerHTML += data.html;
             });
         } catch (err) {
           // eslint-disable-next-line no-console
