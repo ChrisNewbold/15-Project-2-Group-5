@@ -45,6 +45,7 @@ function myInitCode() {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
           },
           body: JSON.stringify({
             email: data.formData.email,
@@ -74,6 +75,7 @@ function myInitCode() {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
           },
           body: JSON.stringify({
             readerId: readerId,
@@ -93,6 +95,7 @@ function myInitCode() {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
           },
           body: JSON.stringify({
             readerId: readerId,
@@ -154,6 +157,7 @@ function myInitCode() {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
     },
     body: JSON.stringify({
       url: window.location.href,
