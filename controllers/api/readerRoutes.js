@@ -28,7 +28,6 @@ router.post("/charge", async (req, res) => {
 
 router.post("/prereg", async (req, res) => {
   const { email, password, terms, privacy, articleId } = req.body;
-  console.log(req.body);
   try {
     const readerRow = await Reader.findOne({
       where: { email },
@@ -48,7 +47,7 @@ router.post("/prereg", async (req, res) => {
           const newReader = await Reader.create({
             email,
             password: encryptedPassword,
-            credits: 90,
+            credits: 500,
             terms,
             privacy,
           });
@@ -131,7 +130,7 @@ router.post("/prereg", async (req, res) => {
     }
   } catch (err) {
     // eslint-disable-next-line no-console
-    console.log(`ERROR 28.145: ${err}`);
+    console.log(`ERROR: ${err}`);
   }
 });
 router.post("/join", async (req, res) => {

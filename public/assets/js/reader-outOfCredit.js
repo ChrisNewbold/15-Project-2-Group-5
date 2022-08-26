@@ -1,12 +1,13 @@
 function outOfCredits() {
-  window.parent.postMessage({
-    splash: "reader-outOfCredit",
-  });
-  document.getElementById("getCredit").addEventListener("click", (e) => {
-    e.preventDefault();
+  setTimeout(() => {
     window.parent.postMessage({
-      splash: "reader-outOfCredit2",
+      splash: "reader-outOfCredit",
+      height: document.getElementById("wrapper").offsetHeight + 70,
     });
+  }, 1000);
+  document.getElementById("addCredit").addEventListener("click", (e) => {
+    e.preventDefault();
+    window.location.href = "/credit";
   });
 }
 if (document.readyState !== "loading") {
