@@ -41,7 +41,7 @@ router.post("/check", async (req, res) => {
           res.send({
             html,
             credits: articleRow.credits,
-            id: articleRow.id,
+            articleId: articleRow.id,
           });
         }
       );
@@ -80,7 +80,7 @@ router.post("/check", async (req, res) => {
             res.send({
               html,
               credits: articleRow.credits,
-              id: articleRow.id,
+              articleId: articleRow.id,
             });
           }
         );
@@ -107,7 +107,8 @@ router.post("/check", async (req, res) => {
             res.send({
               html,
               credits: articleRow.credits,
-              id: articleRow.id,
+              articleId: articleRow.id,
+              readerId: readerRow.id,
             });
           }
         );
@@ -118,7 +119,13 @@ router.post("/check", async (req, res) => {
           {
             layout: "splash",
             devPath: _NODE_ENV === "development",
-            credits: articleRow.credits,
+            readerCredits: readerRow.credits,
+            readerName: readerRow.first_name
+              ? readerRow.first_name.toUpperCase()
+              : "",
+            bloggerName: bloggerRow.first_name,
+            articleCredits: articleRow.credits,
+            outOfCredit: true,
           },
           (err, html) => {
             if (err) {
@@ -128,7 +135,7 @@ router.post("/check", async (req, res) => {
             res.send({
               html,
               credits: articleRow.credits,
-              id: articleRow.id,
+              articleId: articleRow.id,
             });
           }
         );
@@ -139,7 +146,7 @@ router.post("/check", async (req, res) => {
     }
   } catch (err) {
     // eslint-disable-next-line no-console
-    console.log(`ERROR: ${err}`);
+    console.log(`ERROR 52.681: ${err}`);
   }
 });
 
