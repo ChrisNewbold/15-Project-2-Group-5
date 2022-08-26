@@ -47,7 +47,7 @@ router.post("/prereg", async (req, res) => {
           const newReader = await Reader.create({
             email,
             password: encryptedPassword,
-            credits: 500,
+            credits: 90,
             terms,
             privacy,
           });
@@ -101,7 +101,8 @@ router.post("/prereg", async (req, res) => {
             res.send({
               html,
               credits: articleRow.credits,
-              id: articleRow.id,
+              readerId: readerRow.id,
+              articleId: articleRow.id,
             });
           }
         );
@@ -122,7 +123,8 @@ router.post("/prereg", async (req, res) => {
             res.send({
               html,
               credits: articleRow.credits,
-              id: articleRow.id,
+              readerId: readerRow.id,
+              articleId: articleRow.id,
             });
           }
         );
