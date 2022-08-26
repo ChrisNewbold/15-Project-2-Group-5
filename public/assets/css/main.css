@@ -1,25 +1,8 @@
-.navbar{
+.navbar {
   background-color: #ffb81d;
   color: black;
 }
-.nav-link{
-color: black;
-}
-.nav-link:hover{
-  color: white;
-  }
-  .dropdown-menu{
-    background-color: #ffb81d;
-    color: black;
-  }
-  .dropdown-item{
-    background-color: #ffb81d;
-    color: black;
-  }
-  .dropdown-link{
-    background-color: #ffb81d;
-  color: black;
-  }
+
 .gold-credit-header {
   background-color: gold;
   color: black;
@@ -31,11 +14,11 @@ color: black;
   font-weight: bolder;
 }
 .bronze-credit-header {
-  background-color: #CD7F32;
+  background-color: #cd7f32;
   color: black;
   font-weight: bolder;
 }
-.credit-title{
+.credit-title {
   font-size: 200%;
   font-weight: bolder;
 }
@@ -49,7 +32,7 @@ color: black;
   border-radius: 15px;
   font-weight: bolder;
 }
-#paypal-button-container{
+#paypal-button-container {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -88,25 +71,59 @@ textarea {
   right: 0;
   font-size: 10px;
 }
- 
+
 #logoutButton,
 #creditButton {
   cursor: pointer;
 }
-.col-form-label{
+.col-form-label {
   font-weight: bolder;
-
 }
-        /* Media query for mobile viewport */
-        @media screen and (max-width: 400px) {
-          #paypal-button-container {
-              width: 100%;
-          }
-      }
-      
-      /* Media query for desktop viewport */
-      @media screen and (min-width: 400px) {
-          #paypal-button-container {
-              width: 293px;
-          }
-      }
+/* Media query for mobile viewport */
+@media screen and (max-width: 400px) {
+  #paypal-button-container {
+    width: 100%;
+  }
+}
+
+/* Media query for desktop viewport */
+@media screen and (min-width: 400px) {
+  #paypal-button-container {
+    width: 293px;
+  }
+}
+a.nav-link:hover{
+ color: white !important; 
+}
+.navbar-toggler{
+  color:#ffb81d;
+}
+.navbar-toggler-icon{
+  color: white !important;
+}
+.dropdown-menu {
+  background: #ffb81d;
+  color: black;
+}
+.dropdown-item{
+  background: none !important;
+}
+.dropdown-item:hover{
+  color: white !important;
+}
+a:link {
+  background-color: none;
+  text-decoration: none;
+  color: black;
+}
+a:hover {
+  color: white !important;
+  background: none;
+}
+a:active{
+  color: white;
+}
+a:visited {
+  text-decoration: none !important;
+  color: black !important;
+}
