@@ -88,6 +88,12 @@ function myInitCode() {
         case "reader-hasCredit2":
           document.getElementById("overlay").style.opacity = "0";
           break;
+        case "reader-outOfCredit":
+          document.getElementById("overlay").style.opacity = "100";
+          break;
+        case "reader-outOfCredit2":
+          console.log(window.location.host);
+          break;
       default:
         break;
     }
