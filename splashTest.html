@@ -100,10 +100,19 @@ function myInitCode() {
           document.getElementById("overlay").style.opacity = "0";
           break;
         case "reader-outOfCredit":
+        document.getElementById(
+          "blogChargeIFrame"
+        ).style.height = `620px`;
           document.getElementById("overlay").style.opacity = "100";
           break;
         case "reader-outOfCredit2":
           console.log(window.location.host);
+          if (window.location.host.includes("localhost")) {
+            window.location.href = "/credit";
+          }
+          else {
+            window.location.href = "https://c15-project-2-group-5.herokuapp.com/credit";
+          }
           break;
       default:
         break;
