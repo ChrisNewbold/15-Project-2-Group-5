@@ -29,7 +29,7 @@
 function myInitCode() {
   let articleId = 0;
   let readerId = 0;
-  const fetchPath = "";
+  const fetchPath = "https://c15-project-2-group-5.herokuapp.com";
   window.addEventListener("message", ({data}) => {
     switch (data.splash) {
       case "pre-register":
@@ -54,11 +54,10 @@ function myInitCode() {
           }),
         })
           .then((response) => response.json())
-          .then((data) => {
-            document.getElementById("blogChargeIFrame").srcdoc = data.html;
-            console.log(data);
-            articleId = data.articleId;
-            readerId = data.readerId;
+          .then((data2) => {
+            document.getElementById("blogChargeIFrame").srcdoc = data2.html;
+            articleId = data2.articleId;
+            readerId = data2.readerId;
           })
           .catch(() => {});
         break;
@@ -69,7 +68,7 @@ function myInitCode() {
         break;
         case "readerRegistered2":
           document.getElementById("overlay").remove();
-          fetch("/api/reader/charge", {
+          fetch(`${fetchPath}/api/reader/charge`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -87,7 +86,7 @@ function myInitCode() {
           document.getElementById("overlay").style.opacity = "100";
           break;
         case "reader-hasCredit2":
-        fetch("/api/reader/charge", {
+        fetch(`${fetchPath}/api/reader/charge`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

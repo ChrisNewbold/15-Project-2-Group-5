@@ -1,18 +1,81 @@
-/* eslint-disable no-console */
 function myInitCode() {
+  let articleId = 0;
+  let readerId = 0;
+  const fetchPath = "https://c15-project-2-group-5.herokuapp.com";
   window.addEventListener("message", ({ data }) => {
-    console.log(data);
     switch (data.splash) {
-      case 1:
-        document.getElementById(
-          "blogChargeIFrame"
-        ).style.height = `${data.height}px`;
-
-        console.log(data.height);
+      case "pre-register":
+        document.getElementById("blogChargeIFrame").style.height = `755px`;
         document.getElementById("overlay").style.opacity = "100";
         break;
-      case 2:
-        console.log(data.formData);
+      case "pre-register2":
+        document.cookie = `onlyBlogEmail=${data.formData.email}`;
+        fetch(`${fetchPath}/api/reader/prereg`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: data.formData.email,
+            password: data.formData.password,
+            terms: data.formData.terms,
+            privacy: data.formData.privacy,
+            articleId,
+          }),
+        })
+          .then((response) => response.json())
+          .then((data2) => {
+            document.getElementById("blogChargeIFrame").srcdoc = data2.html;
+            articleId = data2.articleId;
+            readerId = data2.readerId;
+          })
+          .catch(() => {});
+        break;
+      case "readerRegistered":
+        document.getElementById("blogChargeIFrame").style.height = `720px`;
+        break;
+      case "readerRegistered2":
+        document.getElementById("overlay").remove();
+        fetch(`${fetchPath}/api/reader/charge`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            readerId,
+            articleId,
+          }),
+        });
+        break;
+      case "reader-hasCredit":
+        document.getElementById("blogChargeIFrame").style.height = `620px`;
+        document.getElementById("overlay").style.opacity = "100";
+        break;
+      case "reader-hasCredit2":
+        fetch(`${fetchPath}/api/reader/charge`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            readerId,
+            articleId,
+          }),
+        });
+        document.getElementById("overlay").style.opacity = "0";
+        break;
+      case "reader-outOfCredit":
+        document.getElementById("blogChargeIFrame").style.height = `620px`;
+        document.getElementById("overlay").style.opacity = "100";
+        break;
+      case "reader-outOfCredit2":
+        console.log(window.location.host);
+        if (window.location.host.includes("localhost")) {
+          window.location.href = "/credit";
+        } else {
+          window.location.href =
+            "https://c15-project-2-group-5.herokuapp.com/credit";
+        }
         break;
       default:
         break;
@@ -29,21 +92,23 @@ function myInitCode() {
 
   const elemIFrame = document.createElement("iFrame");
   elemIFrame.style.cssText =
-    "position:absolute; width: 500px; top: 50%; left: 50%; opacity:1; z-index:1000; background:#fff; margin: auto; transform: translate(-50%,-50%); overflow hidden;";
+    "position:absolute; width: 400px; top: 50%; left: 50%; opacity:1; z-index:1000; background:#fff; margin: auto; transform: translate(-50%,-50%); overflow hidden;";
 
   elemIFrame.setAttribute("id", "blogChargeIFrame");
 
   wrapperDiv.appendChild(elemIFrame);
   overlayDiv.appendChild(wrapperDiv);
 
+  // get cookie
   let userEmail = "";
   const value = `; ${document.cookie}`;
-  const parts = value.split(`; blogChargeEmail=`);
+  const parts = value.split(`; onlyBlogEmail=`);
   if (parts.length === 2) {
     userEmail = parts.pop().split(";").shift();
   }
+  console.log("email from cookie", userEmail);
 
-  fetch("https://c15-project-2-group-5.herokuapp.com/api/articleCheck", {
+  fetch(`${fetchPath}/api/article/check`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -55,27 +120,11 @@ function myInitCode() {
   })
     .then((response) => response.json())
     .then((data) => {
+      console.log(data);
       document.body.appendChild(overlayDiv);
       document.getElementById("blogChargeIFrame").srcdoc = data.html;
-
-      /*
-      if (data.status === "ok") {
-        switch (data.do) {
-          case "registered":
-            document.getElementById("blogChargeIFrame").src = data.html;
-            document.body.appendChild(overlayDiv);
-            break;
-          case "pre-register":
-            document.getElementById("blogChargeIFrame").src = data.html;
-            document.body.appendChild(overlayDiv);
-            break;
-          case "continue":
-            break;
-          default:
-            break;
-        }
-      }
-      */
+      articleId = data.articleId;
+      readerId = data.readerId;
     })
 
     .catch(() => {
