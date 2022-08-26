@@ -134,7 +134,13 @@ router.post("/check", async (req, res) => {
           {
             layout: "splash",
             devPath: _NODE_ENV === "development",
-            credits: articleRow.credits,
+            readerCredits: readerRow.credits,
+            readerName: readerRow.first_name
+              ? readerRow.first_name.toUpperCase().toUpperCase()
+              : "",
+            bloggerName: bloggerRow.first_name,
+            articleCredits: articleRow.credits,
+            outOfCredit: true,
           },
           (err, html) => {
             if (err) {
