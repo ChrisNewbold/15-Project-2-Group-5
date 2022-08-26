@@ -4,4 +4,10 @@
   class="ml-5 btn btnCustomisations"
   id="readArticle"
 >OK</button>
+
+{{!-- link to javaScript file --}}
+{{#if devPath}}
 <script src="/assets/js/reader-hasCredit.js"> </script>
+{{else}}
+<script src="https://c15-project-2-group-5.herokuapp.com/assets/js/reader-hasCredit.js"> </script>
+{{/if}}
