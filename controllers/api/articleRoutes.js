@@ -3,6 +3,21 @@ const { _NODE_ENV } = require("../../config/config");
 const { Article, Reader, Blogger } = require("../../models");
 require("body-parser");
 
+router.post("/addurl", async (req, res) => {
+  const { url, credits } = req.body;
+  const articleExists = await Article.findOne({ where: { url } });
+  if (!articleExists) {
+    const articleRow = await Article.create({
+      url,
+      credits,
+      blogger_id: req.session.userId,
+    });
+    res.status(200).send({
+      status: "success",
+      html: `<tr><td>${articleRow.url}</td><td>${articleRow.credits}</td></tr>`,
+    });
+  }
+});
 router.post("/check", async (req, res) => {
   const { url, email } = req.body;
   try {
@@ -41,7 +56,7 @@ router.post("/check", async (req, res) => {
           res.send({
             html,
             credits: articleRow.credits,
-            articleId: articleRow.id,
+            id: articleRow.id,
           });
         }
       );
@@ -80,7 +95,7 @@ router.post("/check", async (req, res) => {
             res.send({
               html,
               credits: articleRow.credits,
-              articleId: articleRow.id,
+              id: articleRow.id,
             });
           }
         );
@@ -107,8 +122,7 @@ router.post("/check", async (req, res) => {
             res.send({
               html,
               credits: articleRow.credits,
-              articleId: articleRow.id,
-              readerId: readerRow.id,
+              id: articleRow.id,
             });
           }
         );
@@ -119,13 +133,7 @@ router.post("/check", async (req, res) => {
           {
             layout: "splash",
             devPath: _NODE_ENV === "development",
-            readerCredits: readerRow.credits,
-            readerName: readerRow.first_name
-              ? readerRow.first_name.toUpperCase()
-              : "",
-            bloggerName: bloggerRow.first_name,
-            articleCredits: articleRow.credits,
-            outOfCredit: true,
+            credits: articleRow.credits,
           },
           (err, html) => {
             if (err) {
@@ -135,7 +143,7 @@ router.post("/check", async (req, res) => {
             res.send({
               html,
               credits: articleRow.credits,
-              articleId: articleRow.id,
+              id: articleRow.id,
             });
           }
         );
@@ -146,7 +154,7 @@ router.post("/check", async (req, res) => {
     }
   } catch (err) {
     // eslint-disable-next-line no-console
-    console.log(`ERROR 52.681: ${err}`);
+    console.log(`ERROR: ${err}`);
   }
 });
 

@@ -58,6 +58,13 @@ color: black;
 #wrapper {
   overflow: hidden;
 }
+textarea {
+  display: block;
+  width: 800px;
+}
+.codeArea {
+  height: 400px;
+}
 .bloggerJoinFormInputWrapper,
 .loginFormInputWrapper,
 .readerJoinFormInputWrapper,

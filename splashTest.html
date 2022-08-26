@@ -32,13 +32,13 @@ function myInitCode() {
   const fetchPath = "";
   window.addEventListener("message", ({data}) => {
     switch (data.splash) {
-      case "pre-register": // document loaded into iFrame
+      case "pre-register":
         document.getElementById(
           "blogChargeIFrame"
         ).style.height = `755px`;
         document.getElementById("overlay").style.opacity = "100";
         break;
-      case "pre-register2": // join button pressed
+      case "pre-register2":
         document.cookie = `onlyBlogEmail=${data.formData.email}`; 
         fetch(`${fetchPath}/api/reader/prereg`, {
           method: "POST",
@@ -61,21 +61,21 @@ function myInitCode() {
           })
           .catch(() => {});
         break;
-        case "readerRegistered": // content loaded into iFrame
+        case "readerRegistered":
         document.getElementById(
           "blogChargeIFrame"
         ).style.height = `720px`;
         break;
-        case "readerRegistered2": //read artile button pressed
+        case "readerRegistered2":
           document.getElementById("overlay").remove();
           fetch("/api/reader/charge", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              readerId: readerId,
-              articleId: articleId,
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            readerId: readerId,
+            articleId: articleId,
             }),
           });
           break;
@@ -83,45 +83,11 @@ function myInitCode() {
           document.getElementById(
           "blogChargeIFrame"
         ).style.height = `620px`;
-        
-        document.getElementById("overlay").style.opacity = "100";
-          break;
-        case "reader-hasCredit2":  // read article button pressed
-          fetch("/api/reader/charge", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                readerId: readerId,
-                articleId: articleId,
-            }),
-          });
-          document.getElementById("overlay").style.opacity = "0";
-          break;
-        case "reader-outOfCredit":
-          document.getElementById(
-          "blogChargeIFrame"
-        ).style.height = `620px`;
           document.getElementById("overlay").style.opacity = "100";
           break;
-        case "reader-outOfCredit2":
-          console.log(window.location.host);
-          if (window.location.host.includes("localhost")) {
-            window.location.href = "/credit";
-          } else {
-            window.location.href =
-              "https://c15-project-2-group-5.herokuapp.com/credit";
-          }
+        case "reader-hasCredit2":
+          document.getElementById("overlay").style.opacity = "0";
           break;
-
-
-
-
-
-
-
-
       default:
         break;
     }
@@ -170,8 +136,7 @@ function myInitCode() {
       console.log(data);
       document.body.appendChild(overlayDiv);
       document.getElementById("blogChargeIFrame").srcdoc = data.html;
-      articleId = data.articleId;
-      readerId = data.readerId;
+      articleId = data.id;
     })
 
     .catch(() => {
