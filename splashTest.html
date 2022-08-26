@@ -41,6 +41,7 @@ function myInitCode() {
       case "pre-register2":
         document.cookie = `onlyBlogEmail=${data.formData.email}`; 
         fetch(`${fetchPath}/api/reader/prereg`, {
+          mode: 'cors',
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -69,6 +70,7 @@ function myInitCode() {
         case "readerRegistered2":
           document.getElementById("overlay").remove();
           fetch(`${fetchPath}/api/reader/charge`, {
+          mode: 'cors',
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -87,6 +89,7 @@ function myInitCode() {
           break;
         case "reader-hasCredit2":
         fetch(`${fetchPath}/api/reader/charge`, {
+          mode: 'cors',
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -147,6 +150,7 @@ function myInitCode() {
   console.log("email from cookie",userEmail)
 
   fetch(`${fetchPath}/api/article/check`, {
+    mode: 'cors',
     method: "POST",
     headers: {
       "Content-Type": "application/json",
