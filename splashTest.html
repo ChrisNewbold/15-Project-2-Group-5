@@ -56,6 +56,7 @@ function myInitCode() {
           .then((response) => response.json())
           .then((data) => {
             document.getElementById("blogChargeIFrame").srcdoc = data.html;
+            console.log(data);
             articleId = data.articleId;
             readerId = data.readerId;
           })
@@ -86,6 +87,16 @@ function myInitCode() {
           document.getElementById("overlay").style.opacity = "100";
           break;
         case "reader-hasCredit2":
+        fetch("/api/reader/charge", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            readerId: readerId,
+            articleId: articleId,
+            }),
+          });
           document.getElementById("overlay").style.opacity = "0";
           break;
       default:
@@ -136,7 +147,8 @@ function myInitCode() {
       console.log(data);
       document.body.appendChild(overlayDiv);
       document.getElementById("blogChargeIFrame").srcdoc = data.html;
-      articleId = data.id;
+      articleId = data.articleId;
+      readerId = data.readerId;
     })
 
     .catch(() => {
