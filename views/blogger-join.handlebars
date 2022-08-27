@@ -1,76 +1,63 @@
 <div class="container">
   <img src="/assets/images/Credits-Page.png" class="img-fluid" alt="Typing on laptop">
   {{> menu}}
+  <div class="d-flex flex-wrap justify-content-center">  
+  <div class="form-wrap">
 <div id="bloggerJoinMessage"></div>
 <fieldset id="bloggerJoinForm">
   <!-- First Name -->
-  <label for="bloggerJoin-FirstName" id="bloggerJoin-FirstName-Label">First
-    Name:</label>
   <div class="bloggerJoinFormInputWrapper">
     <span id="bloggerJoin-FirstName-Error" class="bloggerJoinFormError"></span>
-    <input type="text" id="bloggerJoin-FirstName" />
+    <input class="form-control" placeholder="First Name" type="text" id="bloggerJoin-FirstName" />
   </div>
 
   <!-- Last Name -->
-  <label for="bloggerJoin-LastName" id="bloggerJoin-LastName-Label">Last Name:</label>
   <div class="bloggerJoinFormInputWrapper">
     <span id="bloggerJoin-LastName-Error" class="bloggerJoinFormError"></span>
-    <input type="text" id="bloggerJoin-LastName" />
+    <input class="form-control" placeholder="Last Name" type="text" id="bloggerJoin-LastName" />
   </div>
 
   <!-- Email -->
-  <label for="bloggerJoin-Email" id="bloggerJoin-Email-Label">Email:</label>
   <div class="bloggerJoinFormInputWrapper">
     <span id="bloggerJoin-Email-Error" class="bloggerJoinFormError"></span>
-    <input type="email" id="bloggerJoin-Email" />
+    <input class="form-control"  placeholder="Email" type="email" id="bloggerJoin-Email" />
   </div>
 
   <!-- Password -->
-  <label
-    for="bloggerJoin-Password"
-    id="bloggerJoin-Password-Label"
-  >Password:</label>
   <div class="bloggerJoinFormInputWrapper">
     <span id="bloggerJoin-Password-Error" class="bloggerJoinFormError"></span>
-    <input type="password" id="bloggerJoin-Password" />
+    <input class="form-control" placeholder="Password" type="password" id="bloggerJoin-Password" />
   </div>
 
   <!-- Confirm Password -->
-  <label
-    for="bloggerJoin-ConfirmPassword"
-    id="bloggerJoin-ConfirmPassword-Label"
-  >Confirm Password:</label>
   <div class="bloggerJoinFormInputWrapper">
     <span
       id="bloggerJoin-ConfirmPassword-Error"
       class="bloggerJoinFormError"
     ></span>
-    <input type="password" id="bloggerJoin-ConfirmPassword" />
+    <input class="form-control" placeholder="Confirm Password" type="password" id="bloggerJoin-ConfirmPassword" />
   </div>
 
   <!-- Description -->
-  <label for="bloggerJoin-Description" id="bloggerJoin-Description-Label">Blog
-    Description:</label>
   <div class="bloggerJoinFormInputWrapper">
     <span
       id="bloggerJoin-Description-Error"
       class="bloggerJoinFormError"
     ></span>
-    <textarea id="bloggerJoin-Description"></textarea>
+    <textarea class="form-control" placeholder="Blog Description" id="bloggerJoin-Description"></textarea>
   </div>
 
   <!-- URL -->
-  <label for="bloggerJoin-URL" id="bloggerJoin-URL-Label">Blog URL:</label>
   <div class="bloggerJoinFormInputWrapper">
     <span id="bloggerJoin-URL-Error" class="bloggerJoinFormError"></span>
-    <input type="text" id="bloggerJoin-URL" />
+    <input  class="form-control" placeholder="Blog URL" type="text" id="bloggerJoin-URL" />
   </div>
 <div class="d-grid gap-2 col-6 mx-auto"></div>
   <button class="btn btn-primary" id="bloggerJoin-submit">JOIN</button></div>
 </fieldset>
-
 </div>
-
+</div>
+</div>
 {{!-- link to javaScript file --}}
 {{#if devPath}}
 <script src="/assets/js/blogger-join.js"></script>

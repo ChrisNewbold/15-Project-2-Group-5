@@ -178,7 +178,7 @@ a:link {
   text-decoration: none;
   color: black;
 }
-a:hover {
+a:hover, li:hover{
   color: white !important;
   background: none;
 }
