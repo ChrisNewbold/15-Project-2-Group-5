@@ -13,6 +13,11 @@
   <div class="fire">
     <div class="before"></div>
     {{!-- thank you script image --}}
+      {{#if devPath}}
+        <img src="/assets/images/Thank-you-script.png" class="img-fluid" alt="Thank You!">
+{{else}}
+        <img src="{{prodPath}}/assets/images/Thank-you-script.png" class="img-fluid" alt="Thank You!">
+{{/if}}
     <img src="/assets/images/Thank-you-script.png" class="img-fluid" alt="Thank You!">
     {{!-- body copy --}}
       <div class="card-body">
