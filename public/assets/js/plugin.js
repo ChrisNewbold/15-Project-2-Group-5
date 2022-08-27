@@ -1,7 +1,8 @@
 function myInitCode() {
   let articleId = 0;
   let readerId = 0;
-  const fetchPath = "https://a15-onlyblogs.herokuapp.com";
+  // const fetchPath = "https://a15-onlyblogs.herokuapp.com";
+  const fetchPath = "https://c15-project-2-group-5.herokuapp.com";
   window.addEventListener("message", ({ data }) => {
     switch (data.splash) {
       case "pre-register":
