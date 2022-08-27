@@ -1,63 +1,92 @@
-<div class="container">
-  <img src="/assets/images/Credits-Page.png" class="img-fluid" alt="Typing on laptop">
-  {{> menu}}
-  <div class="d-flex flex-wrap justify-content-center">  
+<div class="d-flex col-10 justify-content-center flex-wrap m-auto">
+  <div class="d-flex col-12">
+    <div class="homepageMenu col-12 "> 
+      {{> menu}}
+    </div>
+  </div>
+  <div class="homepageContainer d-flex flex-wrap col-12">
+    <div class="homepageImageOne">
+      {{#if devPath}}
+        <img src="/assets/images/writer.png">
+      {{else}}
+        <img src="{{prodPath}}/assets/images/writer.png">
+      {{/if}}   
+    </div>
+    <div class="homepageImageTwo">
+      {{#if devPath}}
+        <img src="/assets/images/logo.png">
+      {{else}}
+        <img src="{{prodPath}}/assets/images/logo.png" >
+      {{/if}}
+    </div>
+    <div class="d-block col-12 homePageCTA p-5 text-wrap">
+      At only bloggers, we want to help our community of creators grow and continue to get paid for their content.
+    </div>
+  </div>
+</div>
+
+
+
+<div class="d-flex flex-wrap justify-content-center">  
   <div class="form-wrap">
-<div id="bloggerJoinMessage"></div>
-<fieldset id="bloggerJoinForm">
-  <!-- First Name -->
-  <div class="bloggerJoinFormInputWrapper">
-    <span id="bloggerJoin-FirstName-Error" class="bloggerJoinFormError"></span>
-    <input class="form-control" placeholder="First Name" type="text" id="bloggerJoin-FirstName" />
-  </div>
+    <div id="bloggerJoinMessage"></div>
+    <fieldset id="bloggerJoinForm">
+      <!-- First Name -->
+      <div class="bloggerJoinFormInputWrapper">
+        <span id="bloggerJoin-FirstName-Error" class="bloggerJoinFormError"></span>
+        <input class="form-control" placeholder="First Name" type="text" id="bloggerJoin-FirstName" />
+      </div>
 
-  <!-- Last Name -->
-  <div class="bloggerJoinFormInputWrapper">
-    <span id="bloggerJoin-LastName-Error" class="bloggerJoinFormError"></span>
-    <input class="form-control" placeholder="Last Name" type="text" id="bloggerJoin-LastName" />
-  </div>
+      <!-- Last Name -->
+      <div class="bloggerJoinFormInputWrapper">
+        <span id="bloggerJoin-LastName-Error" class="bloggerJoinFormError"></span>
+        <input class="form-control" placeholder="Last Name" type="text" id="bloggerJoin-LastName" />
+      </div>
 
-  <!-- Email -->
-  <div class="bloggerJoinFormInputWrapper">
-    <span id="bloggerJoin-Email-Error" class="bloggerJoinFormError"></span>
-    <input class="form-control"  placeholder="Email" type="email" id="bloggerJoin-Email" />
-  </div>
+      <!-- Email -->
+      <div class="bloggerJoinFormInputWrapper">
+        <span id="bloggerJoin-Email-Error" class="bloggerJoinFormError"></span>
+        <input class="form-control"  placeholder="Email" type="email" id="bloggerJoin-Email" />
+      </div>
 
-  <!-- Password -->
-  <div class="bloggerJoinFormInputWrapper">
-    <span id="bloggerJoin-Password-Error" class="bloggerJoinFormError"></span>
-    <input class="form-control" placeholder="Password" type="password" id="bloggerJoin-Password" />
-  </div>
+      <!-- Password -->
+      <div class="bloggerJoinFormInputWrapper">
+        <span id="bloggerJoin-Password-Error" class="bloggerJoinFormError"></span>
+        <input class="form-control" placeholder="Password" type="password" id="bloggerJoin-Password" />
+      </div>
 
-  <!-- Confirm Password -->
-  <div class="bloggerJoinFormInputWrapper">
-    <span
-      id="bloggerJoin-ConfirmPassword-Error"
-      class="bloggerJoinFormError"
-    ></span>
-    <input class="form-control" placeholder="Confirm Password" type="password" id="bloggerJoin-ConfirmPassword" />
-  </div>
+      <!-- Confirm Password -->
+      <div class="bloggerJoinFormInputWrapper">
+        <span
+          id="bloggerJoin-ConfirmPassword-Error"
+          class="bloggerJoinFormError"
+        ></span>
+        <input class="form-control" placeholder="Confirm Password" type="password" id="bloggerJoin-ConfirmPassword" />
+      </div>
 
-  <!-- Description -->
-  <div class="bloggerJoinFormInputWrapper">
-    <span
-      id="bloggerJoin-Description-Error"
-      class="bloggerJoinFormError"
-    ></span>
-    <textarea class="form-control" placeholder="Blog Description" id="bloggerJoin-Description"></textarea>
-  </div>
+      <!-- Description -->
+      <div class="bloggerJoinFormInputWrapper">
+        <span
+          id="bloggerJoin-Description-Error"
+          class="bloggerJoinFormError"
+        ></span>
+        <textarea class="form-control" placeholder="Blog Description" id="bloggerJoin-Description"></textarea>
+      </div>
 
-  <!-- URL -->
-  <div class="bloggerJoinFormInputWrapper">
-    <span id="bloggerJoin-URL-Error" class="bloggerJoinFormError"></span>
-    <input  class="form-control" placeholder="Blog URL" type="text" id="bloggerJoin-URL" />
+      <!-- URL -->
+      <div class="bloggerJoinFormInputWrapper">
+        <span id="bloggerJoin-URL-Error" class="bloggerJoinFormError"></span>
+        <input  class="form-control" placeholder="Blog URL" type="text" id="bloggerJoin-URL" />
+      </div>
+      <div class="d-grid gap-2 col-6 mx-auto"></div>
+      <button class="btn btnCustomisations" id="bloggerJoin-submit">JOIN</button> 
+    </fieldset>
   </div>
-<div class="d-grid gap-2 col-6 mx-auto"></div>
-  <button class="btn btn-primary" id="bloggerJoin-submit">JOIN</button></div>
-</fieldset>
 </div>
-</div>
-</div>
+<br><br><br>
+
+
+
 {{!-- link to javaScript file --}}
 {{#if devPath}}
 <script src="/assets/js/blogger-join.js"></script>
