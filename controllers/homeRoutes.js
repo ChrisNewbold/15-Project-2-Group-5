@@ -84,12 +84,14 @@ router.get("/", async (req, res) => {
     article.get({ plain: true })
   );
   res.render("homepage", {
-    userTypeReader: req.session.userTypeReader,
-    userTypeBlogger: req.session.userTypeBlogger,
-    userAuthenticated: req.session.userAuthenticated,
-    prodPath: _PROD_PATH,
-    devPath: _NODE_ENV === "development",
-    articleData: serializedArticleData,
+    data: {
+      userTypeReader: req.session.userTypeReader,
+      userTypeBlogger: req.session.userTypeBlogger,
+      userAuthenticated: req.session.userAuthenticated,
+      prodPath: _PROD_PATH,
+      devPath: _NODE_ENV === "development",
+      articleData: serializedArticleData,
+    },
   });
 });
 

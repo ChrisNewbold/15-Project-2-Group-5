@@ -7,10 +7,10 @@
 <div class="homepageContainer d-flex flex-wrap col-12">
 
   <div class="homepageImageOne">
-  {{#if devPath}}
+  {{#if data.devPath}}
   <img src="/assets/images/writer.png">
   {{else}}
-  <img src="{{prodPath}}/assets/images/writer.png">
+  <img src="{{data.prodPath}}/assets/images/writer.png">
   {{/if}}
     
   </div>
@@ -22,11 +22,11 @@
     </div>
   </div>
   <div class="homepageImageTwo">
-  {{#if devPath}}
+  {{#if data.devPath}}
   
   <img src="/assets/images/logo.png">
   {{else}}
-  <img src="{{prodPath}}/assets/images/logo.png" >
+  <img src="{{data.prodPath}}/assets/images/logo.png" >
   {{/if}}
   </div>
   
@@ -38,21 +38,21 @@
 </div>
     <table>
     <tr><td>Todays New Articles</td></tr>
-  {{#each articleData as |article|}}
+  {{#each data.articleData as |article|}}
     <tr><td>{{article.url}}</td></tr>
   {{/each}}
   </table>
-{{#if userTypeBlogger}}
+{{#if data.userTypeBlogger}}
   
 {{/if}}
 
-{{#if userTypeReader}}
+{{#if data.userTypeReader}}
 
 {{/if}}
 
 {{!-- link to javaScript file --}}
-{{#if devPath}}
+{{#if data.devPath}}
 <script src="/assets/js/homepage.js"></script>
 {{else}}
-<script src="{{prodPath}}/assets/js/homepage.js"></script>
+<script src="{{data.prodPath}}/assets/js/homepage.js"></script>
 {{/if}}
