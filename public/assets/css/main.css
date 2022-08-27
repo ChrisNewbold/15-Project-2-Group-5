@@ -194,3 +194,27 @@ a:visited {
 .form-wrap{
   width: 400px;
 }
+.homepageContainer {
+  position: relative;
+  background-color: rgb(49, 49, 49);
+  overflow: hidden;
+
+}
+.homepageMenu {
+}
+.homepageImageOne {
+  z-index: 500;
+}
+
+.homepageImageTwo {
+  z-index: 1000;
+  position: absolute;
+  right: 0;
+}
+.navbar {
+  background-color: #ffb81d;
+  color: black;
+}
+.homePageCTA {
+  color: rgb(255, 255, 255);
+}

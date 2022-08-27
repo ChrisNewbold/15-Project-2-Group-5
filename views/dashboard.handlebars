@@ -15,7 +15,7 @@
   <button id="bloggerAddUrlButton">SUBMIT</button>
   <br><br>Your Articles:<br>
   <table id="urlList">
-  {{#each data.articleData as |article|}}
+  {{#each articleData as |article|}}
     <tr><td>{{article.url}}</td></tr>
   {{/each}}
   </table>
