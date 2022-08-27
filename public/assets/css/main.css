@@ -232,9 +232,9 @@ a:visited {
   position: absolute;
   right: 0;
   z-index: 750;
-  height: 174px;
+  height: 220px;
   padding: 10px;
-  top: 10px;
+  top: 0;
   
   width: 700px;
 }
