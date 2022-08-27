@@ -7,4 +7,5 @@ module.exports = {
   _DB_PORT: process.env.DB_PORT,
   _DB_HOST: process.env.DB_HOST,
   _SESSION_SECRET: process.env.SESSION_SECRET,
+  _PROD_PATH: process.env.PROD_PATH,
 };

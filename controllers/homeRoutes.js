@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const { Article } = require("../models");
 
+const { _NODE_ENV, _PROD_PATH } = require("../config/config");
+
 router.get("/credit", (req, res) => {
   res.render("reader-credit", {
     data: {
@@ -68,6 +70,8 @@ router.get("/dashboard", async (req, res) => {
         userTypeBlogger: req.session.userTypeBlogger,
         userAuthenticated: req.session.userAuthenticated,
         articleData: serializedArticleData,
+        prodPath: _PROD_PATH,
+        devPath: _NODE_ENV === "development",
       },
       title: "OnlyBlogs",
     });
@@ -80,6 +84,8 @@ router.get("/", (req, res) => {
       userTypeReader: req.session.userTypeReader,
       userTypeBlogger: req.session.userTypeBlogger,
       userAuthenticated: req.session.userAuthenticated,
+      prodPath: _PROD_PATH,
+      devPath: _NODE_ENV === "development",
     },
   });
 });
