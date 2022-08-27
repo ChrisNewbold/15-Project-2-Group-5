@@ -1,4 +1,4 @@
-<div class="d-flex col-10 justify-content-center flex-wrap m-auto">
+<div class="d-flex col-12 justify-content-center flex-wrap m-auto">
   <div class="d-flex col-12">
     <div class="homepageMenu col-12 "> 
       {{> menu}}
@@ -43,7 +43,7 @@
   <button id="bloggerAddUrlButton">SUBMIT</button>
   <br><br>Your Articles:<br>
   <table id="urlList">
-  {{#each articleData as |article|}}
+  {{#each data.articleData as |article|}}
     <tr><td>{{article.url}}</td></tr>
   {{/each}}
   </table>
@@ -51,8 +51,47 @@
 <textarea>&lt;script src="https://c15-project-2-group-5.herokuapp.com/plugins/plugin.js"&gt;&lt;/script&gt;</textarea>
 
   {{/if}}
-{{#if userTypeReader}}
-
+{{#if data.userTypeReader}}
+  {{#each data.articleData as |article|}}
+   <div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col">
+    <div class="card h-100">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{article.url}}</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{article.url}}</h5>
+        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{article.url}}</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </div>
+    </div>
+  </div>
+</div>
+  {{/each}}
 {{/if}}
 
 {{!-- link to javaScript file --}}
