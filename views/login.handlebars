@@ -1,25 +1,24 @@
 <div class="container">
+  {{!-- hero image --}}
   <img src="/assets/images/Credits-Page.png" class="img-fluid" alt="Typing on laptop">
   {{> menu}}
 <ul>
 <div id="loginMessage"></div>
-<fieldset id="loginForm">
-  <!-- Email -->
-  <label for="loginEmail" id = "login-email-label">Email</label>
+<fieldset class="form-wrap" id="loginForm">
+  <!-- Email Form -->
   <div class="loginFormInputWrapper">
     <span id="login-Error" class = "loginFormError"></span>
-    <input type="email" id="loginEmail" />
+    <input class="form-control" placeholder="Email" type="email" id="loginEmail" />
   </div> 
 
-  <!-- Password -->
-  <label for="loginPassword" id ="login-Password-Label">Password</label>
-  
+  <!-- Password Form -->  
   <div class="loginFormInputWrapper">
-    <input type="password" id="loginPassword" />
+    <input class="form-control" placeholder="Password" type="password" id="loginPassword" />
     </div> 
-  <button id="login-login">Log In</button>
+    <div class="d-grid gap-2 col-6 mx-auto">
+  <button class= "btn" id="login-login">Log In</button>
+</div>
 </fieldset>
-
  </div>
 
 
