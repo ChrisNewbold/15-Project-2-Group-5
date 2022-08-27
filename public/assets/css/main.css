@@ -165,6 +165,7 @@ transform: rotate(135deg);
 .dropdown-menu {
   background: #ffb81d;
   color: black;
+  z-index: 9999;
 }
 .dropdown-item{
   background: none !important;
