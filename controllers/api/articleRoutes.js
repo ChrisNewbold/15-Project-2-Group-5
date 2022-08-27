@@ -57,7 +57,7 @@ router.post("/check", async (req, res) => {
           res.send({
             html,
             credits: articleRow.credits,
-            id: articleRow.id,
+            articleId: articleRow.id,
           });
         }
       );
