@@ -1,45 +1,45 @@
 <nav class="navbar navbar-expand-sm navbar-light dropstart">
-    <div class="container-fluid"></div>
-        <button class="navbar-toggler collapse d-flex d-sm-none flex-column justify-content-around" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="toggler-icon top-bar"></span>
-            <span class="toggler-icon middle-bar"></span>
-                        <span class="toggler-icon bottom-bar"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="container-fluid"></div>
+  <button class="navbar-toggler collapse d-flex d-sm-none flex-column justify-content-around" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="toggler-icon top-bar"></span>
+    <span class="toggler-icon middle-bar"></span>
+    <span class="toggler-icon bottom-bar"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-<li class="nav-item"><a class="nav-link" aria-current="page" href="/">HOME</a></li>
-{{#unless data.userAuthenticated}}
-{{!-- only menu items for not logged in users goes here --}}
-<li class="nav-item"><a class="nav-link" aria-current="page" href="/login">LOGIN</a></li>
-<li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <li class="nav-item"><a class="nav-link" aria-current="page" href="/">HOME</a></li>
+      {{#unless data.userAuthenticated}}
+        {{!-- only menu items for not logged in users goes here --}}
+        <li class="nav-item"><a class="nav-link" aria-current="page" href="/login">LOGIN</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             JOIN
           </a>
-  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-    <li class="dropdown-item"><a class="dropdown-item" href="/blogger-join">BLOGGER</a></li>
-    <li class="dropdown-item"><a class="dropdown-item" href="/reader-join">READER</a></li>
-  </ul></li>
-{{/unless}}
-{{#if data.userAuthenticated}}
-{{!-- only menu items for logged in users goes here --}}
-<li class="nav-item"><a class="nav-link" href="/dashboard">DASHBOARD</a></li>
-  {{#if data.userTypeReader}}
-  {{!-- only menu items for logged in reader go here --}}
-  <li class="nav-item nav-link" id="creditButton">CREDIT</li> 
-  {{/if}}
-  {{#if data.userTypeBlogger}}
-  {{!-- only menu items for logged in blogger go here --}}
-  {{/if}}
-  <li class="nav-item nav-link" id="logoutButton">LOGOUT</li>
-{{/if}}
-
-
-</ul></nav>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li class="dropdown-item"><a class="dropdown-item" href="/blogger-join">BLOGGER</a></li>
+            <li class="dropdown-item"><a class="dropdown-item" href="/reader-join">READER</a></li>
+          </ul>
+        </li>
+      {{/unless}}
+      {{#if data.userAuthenticated}}
+        {{!-- only menu items for logged in users goes here --}}
+        <li class="nav-item"><a class="nav-link" href="/dashboard">DASHBOARD</a></li>
+          {{#if data.userTypeReader}}
+            {{!-- only menu items for logged in reader go here --}}
+            <li class="nav-item nav-link" id="creditButton">CREDIT</li> 
+          {{/if}}
+          {{#if data.userTypeBlogger}}
+            {{!-- only menu items for logged in blogger go here --}}
+          {{/if}}
+        <li class="nav-item nav-link" id="logoutButton">LOGOUT</li>
+      {{/if}}
+    </ul>
+  </div>
+</nav>
 
 {{#if devPath}}
-
+  <script src="/assets/js/menu.js"></script>
 {{else}}
-
+  <script src="{{prodPath}}/assets/js/menu.js"></script>
 {{/if}}
-<script src="/assets/js/menu.js"></script>
