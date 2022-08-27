@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { _NODE_ENV } = require("../../config/config");
+const { _NODE_ENV, _PROD_PATH } = require("../../config/config");
 const { Article, Reader, Blogger } = require("../../models");
 require("body-parser");
 
@@ -46,6 +46,7 @@ router.post("/check", async (req, res) => {
           prereg: true,
           layout: "splash",
           devPath: _NODE_ENV === "development",
+          prodPath: _PROD_PATH,
           credits: articleRow.credits,
         },
         (err, html) => {
@@ -85,6 +86,7 @@ router.post("/check", async (req, res) => {
             prereg: true,
             layout: "splash",
             devPath: _NODE_ENV === "development",
+            prodPath: _PROD_PATH,
             credits: articleRow.credits,
           },
           (err, html) => {
@@ -106,6 +108,7 @@ router.post("/check", async (req, res) => {
             {
               layout: "splash",
               devPath: _NODE_ENV === "development",
+              prodPath: _PROD_PATH,
               readerCredits: readerRow.credits,
               readerName: readerRow.first_name
                 ? readerRow.first_name.toUpperCase().toUpperCase()
@@ -134,6 +137,7 @@ router.post("/check", async (req, res) => {
             {
               layout: "splash",
               devPath: _NODE_ENV === "development",
+              prodPath: _PROD_PATH,
               readerCredits: readerRow.credits,
               readerName: readerRow.first_name
                 ? readerRow.first_name.toUpperCase().toUpperCase()

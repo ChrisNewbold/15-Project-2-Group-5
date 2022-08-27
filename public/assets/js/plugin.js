@@ -1,7 +1,7 @@
 function myInitCode() {
   let articleId = 0;
   let readerId = 0;
-  const fetchPath = "https://c15-project-2-group-5.herokuapp.com";
+  const fetchPath = "https://a15-onlyblogs.herokuapp.com";
   window.addEventListener("message", ({ data }) => {
     switch (data.splash) {
       case "pre-register":
@@ -11,9 +11,11 @@ function myInitCode() {
       case "pre-register2":
         document.cookie = `onlyBlogEmail=${data.formData.email}`;
         fetch(`${fetchPath}/api/reader/prereg`, {
+          mode: "cors",
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
           },
           body: JSON.stringify({
             email: data.formData.email,
@@ -37,9 +39,11 @@ function myInitCode() {
       case "readerRegistered2":
         document.getElementById("overlay").remove();
         fetch(`${fetchPath}/api/reader/charge`, {
+          mode: "cors",
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
           },
           body: JSON.stringify({
             readerId,
@@ -53,9 +57,11 @@ function myInitCode() {
         break;
       case "reader-hasCredit2":
         fetch(`${fetchPath}/api/reader/charge`, {
+          mode: "cors",
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
           },
           body: JSON.stringify({
             readerId,
@@ -69,12 +75,10 @@ function myInitCode() {
         document.getElementById("overlay").style.opacity = "100";
         break;
       case "reader-outOfCredit2":
-        console.log(window.location.host);
         if (window.location.host.includes("localhost")) {
           window.location.href = "/credit";
         } else {
-          window.location.href =
-            "https://c15-project-2-group-5.herokuapp.com/credit";
+          window.location.href = `${fetchPath}/credit`;
         }
         break;
       default:
@@ -106,12 +110,13 @@ function myInitCode() {
   if (parts.length === 2) {
     userEmail = parts.pop().split(";").shift();
   }
-  console.log("email from cookie", userEmail);
 
   fetch(`${fetchPath}/api/article/check`, {
+    mode: "cors",
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
     },
     body: JSON.stringify({
       url: window.location.href,
@@ -120,11 +125,12 @@ function myInitCode() {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
-      document.body.appendChild(overlayDiv);
-      document.getElementById("blogChargeIFrame").srcdoc = data.html;
-      articleId = data.articleId;
-      readerId = data.readerId;
+      if (data.do !== "continue") {
+        document.body.appendChild(overlayDiv);
+        document.getElementById("blogChargeIFrame").srcdoc = data.html;
+        articleId = data.articleId;
+        readerId = data.readerId;
+      }
     })
 
     .catch(() => {

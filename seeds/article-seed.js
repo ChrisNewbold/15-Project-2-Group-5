@@ -2,7 +2,7 @@ const { Article } = require("../models");
 
 const articleData = [
   {
-    url: "http://nateloudon.com/fake-blog",
+    url: "http://blog.com",
     credits: 50,
     blogger_id: 1,
   },

@@ -2,9 +2,9 @@
 <button type="button" class="ml-5 btn btnCustomisations" id="readArticle">Read
   Article</button>
 
-  {{!-- link to javaScript file --}}
+{{! link to javaScript file }}
 {{#if devPath}}
-<script src="/assets/js/reader-registered.js"></script>
+  <script src="/assets/js/reader-registered.js"></script>
 {{else}}
-<script src="https://c15-project-2-group-5.herokuapp.com/assets/js/reader-registered.js"></script>
+  <script src="{{prodPath}}/assets/js/reader-registered.js"></script>
 {{/if}}

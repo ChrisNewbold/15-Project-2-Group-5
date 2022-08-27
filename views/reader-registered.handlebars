@@ -3,8 +3,12 @@
 <div class="card text-bg-primary m-4" style="max-width: 100%;">
   <div id="picHolder">
 {{!-- Hero image --}}
-  <img src="/assets/images/Blogger.png" class="card-img-top" alt="Blogger writting on laptop">
-  </div>
+  {{#if devPath}}
+        <img src="/assets/images/Blogger.png" class="card-img-top" alt="Blogger writting on laptop">
+{{else}}
+        <img src="{{prodPath}}/assets/images/Blogger.png" class="card-img-top" alt="Blogger writting on laptop">
+{{/if}}
+</div>
   {{!-- fire works --}}
   <div class="fire">
     <div class="before"></div>
