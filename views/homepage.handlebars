@@ -1,6 +1,31 @@
-<div class="container">
-  <img src="/assets/images/Credits-Page.png" class="img-fluid" alt="Typing on laptop">
-  {{> menu}}
+<div class="d-flex col-10 justify-content-center flex-wrap m-auto">
+  <div class="d-flex col-12">
+    <div class="homepageMenu col-12 "> 
+      {{> menu}}
+    </div>
+  </div>
+<div class="homepageContainer d-flex flex-wrap col-12">
+
+  <div class="homepageImageOne">
+  {{#if devPath}}
+  <img src="/assets/images/writer.png">
+  {{else}}
+  <img src="{{prodPath}}/assets/images/writer.png">
+  {{/if}}
+    
+  </div>
+
+  <div class="homepageImageTwo">
+  {{#if devPath}}
+  <img src="/assets/images/logo.png">
+  {{else}}
+  <img src="{{prodPath}}/assets/images/logo.png" >
+  {{/if}}
+  </div>
+  
+  <div class="d-block col-12 homePageCTA p-5 text-wrap">
+    At only bloggers, we want to help our community of creators grow and continue to get paid for their content.
+  </div>
 </div>
 {{#if userTypeBlogger}}
   
