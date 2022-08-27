@@ -1,6 +1,7 @@
 .navbar {
   background-color: #ffb81d;
   color: black;
+  padding-right: 25px;
 }
 
 .gold-credit-header {
@@ -53,9 +54,11 @@ textarea {
 }
 .bloggerJoinFormInputWrapper,
 .loginFormInputWrapper,
-.readerJoinFormInputWrapper,
 .bloggerAddURLFormWrapper {
   position: relative;
+}
+.readerJoinFormInputWrapper{
+  margin-top: 25px;
 }
 .bloggerJoinFormError,
 .loginFormError,
@@ -168,6 +171,9 @@ transform: rotate(135deg);
   color: black;
   z-index: 9999;
 }
+/* .dropdown-menu .show{
+  margin-right: 50px !important;
+} */
 .dropdown-item{
   background: none !important;
 }
@@ -209,7 +215,7 @@ a:visited {
 .homepageImageTwo {
   z-index: 1000;
   position: absolute;
-  right: 0;
+  right: 25px;
 }
 .navbar {
   background-color: #ffb81d;
@@ -218,7 +224,6 @@ a:visited {
 .homePageCTA {
   color: rgb(255, 255, 255);
 }
-
 
 .btnCustomisations {
   background-color: #ffb81d;
@@ -238,4 +243,9 @@ a:visited {
   background-color: #ffb81d;
   border-color: #ffb81d;
   color: #fff;
+}
+td{
+  vertical-align: top;
+  padding: 0 5px;
+  margin: 5px 0;
 }
