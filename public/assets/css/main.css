@@ -26,6 +26,12 @@
 .credit-body {
   border: rgb(81, 81, 81);
   color: black;
+  height: 300px;
+  position: relative;
+}
+.btnHolder {
+  position: absolute;
+  bottom: 5px;
 }
 .btn {
   background-color: #ffb81d;
@@ -221,8 +227,24 @@ a:visited {
   background-color: #ffb81d;
   color: black;
 }
+.homePageCTAHolder {
+  background-color: rgba(0,0,0,.5);
+  position: absolute;
+  right: 0;
+  z-index: 750;
+  height: 174px;
+  padding: 10px;
+  top: 10px;
+  
+  width: 700px;
+}
 .homePageCTA {
   color: rgb(255, 255, 255);
+}
+
+.homePageCTAAbsolute {
+  width: 400px;
+  right: 250px;
 }
 
 .btnCustomisations {
