@@ -78,15 +78,18 @@ router.get("/dashboard", async (req, res) => {
   }
 });
 
-router.get("/", (req, res) => {
+router.get("/", async (req, res) => {
+  const articleData = await Article.findAll();
+  const serializedArticleData = articleData.map((article) =>
+    article.get({ plain: true })
+  );
   res.render("homepage", {
-    data: {
-      userTypeReader: req.session.userTypeReader,
-      userTypeBlogger: req.session.userTypeBlogger,
-      userAuthenticated: req.session.userAuthenticated,
-      prodPath: _PROD_PATH,
-      devPath: _NODE_ENV === "development",
-    },
+    userTypeReader: req.session.userTypeReader,
+    userTypeBlogger: req.session.userTypeBlogger,
+    userAuthenticated: req.session.userAuthenticated,
+    prodPath: _PROD_PATH,
+    devPath: _NODE_ENV === "development",
+    articleData: serializedArticleData,
   });
 });
 

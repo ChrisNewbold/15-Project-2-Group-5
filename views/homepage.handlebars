@@ -27,6 +27,12 @@
     At only bloggers, we want to help our community of creators grow and continue to get paid for their content.
   </div>
 </div>
+    <table>
+    <tr><td>Today's New Articles</td></tr>
+  {{#each articleData as |article|}}
+    <tr><td>{{article.url}}</td></tr>
+  {{/each}}
+  </table>
 {{#if userTypeBlogger}}
   
 {{/if}}
