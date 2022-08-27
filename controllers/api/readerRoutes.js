@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const bcrypt = require("bcrypt");
 // eslint-disable-next-line no-unused-vars
-const { _NODE_ENV } = require("../../config/config");
+const { _NODE_ENV, _PROD_PATH } = require("../../config/config");
 const { Reader, Article, Blogger } = require("../../models");
 require("body-parser");
 
@@ -60,6 +60,7 @@ router.post("/prereg", async (req, res) => {
               justreg: true,
               layout: "splash",
               devPath: _NODE_ENV === "development",
+              prodPath: _PROD_PATH,
               credits: articleRow.credits,
             },
             (err3, html) => {
@@ -85,6 +86,7 @@ router.post("/prereg", async (req, res) => {
           {
             layout: "splash",
             devPath: _NODE_ENV === "development",
+            prodPath: _PROD_PATH,
             readerCredits: readerRow.credits,
             readerName: readerRow.first_name
               ? readerRow.first_name.toUpperCase().toUpperCase()
@@ -113,6 +115,7 @@ router.post("/prereg", async (req, res) => {
           {
             layout: "splash",
             devPath: _NODE_ENV === "development",
+            prodPath: _PROD_PATH,
             credits: articleRow.credits,
           },
           (err, html) => {
