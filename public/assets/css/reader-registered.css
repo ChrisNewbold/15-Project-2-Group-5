@@ -49,6 +49,9 @@
   color: white;
   font-size: 80%;
 }
+.thank-you-bg{
+  background:rgb(81, 81, 81);
+}
  
 .fire > .before,
 .fire > .after {
