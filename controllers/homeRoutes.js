@@ -92,6 +92,7 @@ router.get("/", async (req, res) => {
   const articleData = await Article.findAll();
   let serializedArticleData;
   if (articleData) {
+    // eslint-disable-next-line array-callback-return
     serializedArticleData = articleData.map((article) =>
       article.get({ plain: true })
     );
@@ -102,6 +103,7 @@ router.get("/", async (req, res) => {
       article.preview += "...";
     });
   }
+
   res.render("homepage", {
     data: {
       userTypeReader: req.session.userTypeReader,
