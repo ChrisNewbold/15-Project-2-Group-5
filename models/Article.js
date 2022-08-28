@@ -17,6 +17,14 @@ Article.init(
       type: DataTypes.STRING(255),
       allowNull: false,
     },
+    title: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+    },
+    preview: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+    },
     credits: {
       type: DataTypes.INTEGER(10),
       allowNull: false,
