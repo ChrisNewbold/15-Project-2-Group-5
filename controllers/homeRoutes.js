@@ -111,7 +111,6 @@ router.get("/", async (req, res) => {
       devPath: _NODE_ENV === "development",
       articleData: serializedArticleData,
     },
-    
   });
 });
 
