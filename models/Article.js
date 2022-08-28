@@ -19,15 +19,19 @@ Article.init(
     },
     title: {
       type: DataTypes.TEXT,
-      allowNull: true,
+      allowNull: false,
+      defaultValue: "",
     },
     preview: {
       type: DataTypes.TEXT,
-      allowNull: true,
+      allowNull: false,
+      defaultValue: "",
     },
     image_url: {
       type: DataTypes.TEXT,
-      allowNull: true,
+      allowNull: false,
+      defaultValue:
+        "https://st4.depositphotos.com/17828278/24401/v/600/depositphotos_244011872-stock-illustration-image-vector-symbol-missing-available.jpg",
     },
     credits: {
       type: DataTypes.INTEGER(10),

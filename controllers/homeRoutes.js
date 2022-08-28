@@ -103,6 +103,7 @@ router.get("/", async (req, res) => {
       article.preview += "...";
     });
   }
+  console.log("serializedArticleData", serializedArticleData);
 
   res.render("homepage", {
     data: {
