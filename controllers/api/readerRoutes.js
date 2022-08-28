@@ -47,7 +47,7 @@ router.post("/prereg", async (req, res) => {
           const newReader = await Reader.create({
             email,
             password: encryptedPassword,
-            credits: 90,
+            credits: 500,
             terms,
             privacy,
           });
