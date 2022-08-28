@@ -27,12 +27,12 @@
         <li class="nav-item"><a class="nav-link" href="/dashboard">DASHBOARD</a></li>
           {{#if data.userTypeReader}}
             {{!-- only menu items for logged in reader go here --}}
-            <li class="nav-item nav-link" id="creditButton">CREDIT</li> 
+            <li class="nav-item nav-link menuItem" id="creditButton">CREDIT</li> 
           {{/if}}
           {{#if data.userTypeBlogger}}
             {{!-- only menu items for logged in blogger go here --}}
           {{/if}}
-        <li class="nav-item nav-link" id="logoutButton">LOGOUT</li>
+        <li class="nav-item nav-link menuItem" id="logoutButton">LOGOUT</li>
       {{/if}}
     </ul>
   </div>
