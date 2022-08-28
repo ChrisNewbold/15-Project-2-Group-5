@@ -102,7 +102,7 @@ router.post("/check", async (req, res) => {
           }
         );
       } else {
-        if (readerRow.credits > 0) {
+        if (readerRow.credits > articleRow.credits) {
           res.render(
             "reader-hasCredit",
             {
@@ -131,7 +131,7 @@ router.post("/check", async (req, res) => {
             }
           );
         }
-        if (readerRow.credits < 1) {
+        if (readerRow.credits < articleRow.credits) {
           res.render(
             "reader-outOfCredit",
             {
