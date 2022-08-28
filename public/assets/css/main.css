@@ -82,6 +82,7 @@ textarea {
   width: 70%;
 }
 
+
 input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="email"]:focus,
@@ -299,4 +300,21 @@ td{
 }
 footer {
   min-height: 200px;
+}
+
+.bloggerJoinFormInputWrapper,
+.readerJoinFormInputWrapper,
+.loginFormInputWrapper,
+.bloggerAddURLFormWrapper {
+  position: relative;
+  text-decoration: none !important;
+  color: black !important;
+}
+.termsPrivacyA,
+.termsPrivacyA:hover,
+.termsPrivacyA:visited,
+.termsPrivacyA:active,
+.termsPrivacyA:link {
+  color: blue !important;
+  text-decoration: underline;
 }
