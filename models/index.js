@@ -12,10 +12,6 @@ Article.belongsTo(Blogger, {
   onDelete: "CASCADE",
 });
 
-// blogger has many article
-
-// articles has one blogger
-
 module.exports = {
   Article,
   Blogger,
