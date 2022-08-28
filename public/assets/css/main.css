@@ -59,6 +59,7 @@ textarea {
   width: 100%;
 }
 .bloggerJoinFormInputWrapper,
+.readerJoinFormInputWrapper,
 .loginFormInputWrapper,
 .bloggerAddURLFormWrapper {
   position: relative;
@@ -227,6 +228,14 @@ a:active{
 a:visited {
   text-decoration: none !important;
   color: black !important;
+}
+.termsPrivacyA,
+.termsPrivacyA:hover,
+.termsPrivacyA:visited,
+.termsPrivacyA:active,
+.termsPrivacyA:link {
+  color: blue !important;
+  text-decoration: underline;
 }
 .form-control{
   margin-top: 15px;
