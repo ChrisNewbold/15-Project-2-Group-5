@@ -35,7 +35,7 @@ function myInitCode() {
           .catch(() => {});
         break;
       case "readerRegistered":
-        document.getElementById("blogChargeIFrame").style.height = `720px`;
+        document.getElementById("blogChargeIFrame").style.height = `650px`;
         break;
       case "readerRegistered2":
         document.getElementById("overlay").remove();
