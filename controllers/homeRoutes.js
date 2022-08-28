@@ -58,9 +58,16 @@ router.get("/dashboard", async (req, res) => {
       articleData = await Article.findAll();
     }
 
-    const serializedArticleData = articleData.map((article) =>
-      article.get({ plain: true })
-    );
+    // eslint-disable-next-line array-callback-return
+    const serializedArticleData = articleData.map((article) => {
+      article.get({ plain: true });
+    });
+    serializedArticleData.forEach((article) => {
+      // eslint-disable-next-line no-param-reassign
+      article.preview = article.preview.substr(0, 200);
+      // eslint-disable-next-line no-param-reassign
+      article.preview += "...";
+    });
     // eslint-disable-next-line no-console
     res.render("dashboard", {
       layout: "main",
@@ -83,6 +90,12 @@ router.get("/", async (req, res) => {
   const serializedArticleData = articleData.map((article) =>
     article.get({ plain: true })
   );
+  serializedArticleData.forEach((article) => {
+    // eslint-disable-next-line no-param-reassign
+    article.preview = article.preview.substr(0, 200);
+    // eslint-disable-next-line no-param-reassign
+    article.preview += "...";
+  });
   res.render("homepage", {
     data: {
       userTypeReader: req.session.userTypeReader,
