@@ -25,6 +25,10 @@ Article.init(
       type: DataTypes.TEXT,
       allowNull: true,
     },
+    image_url: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+    },
     credits: {
       type: DataTypes.INTEGER(10),
       allowNull: false,
