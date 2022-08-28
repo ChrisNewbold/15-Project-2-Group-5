@@ -90,15 +90,18 @@ router.get("/dashboard", async (req, res) => {
 
 router.get("/", async (req, res) => {
   const articleData = await Article.findAll();
-  const serializedArticleData = articleData.map((article) =>
-    article.get({ plain: true })
-  );
-  serializedArticleData.forEach((article) => {
-    // eslint-disable-next-line no-param-reassign
-    article.preview = article.preview.substr(0, 200);
-    // eslint-disable-next-line no-param-reassign
-    article.preview += "...";
-  });
+  let serializedArticleData;
+  if (articleData) {
+    serializedArticleData = articleData.map((article) =>
+      article.get({ plain: true })
+    );
+    serializedArticleData.forEach((article) => {
+      // eslint-disable-next-line no-param-reassign
+      article.preview = article.preview.substr(0, 200);
+      // eslint-disable-next-line no-param-reassign
+      article.preview += "...";
+    });
+  }
   res.render("homepage", {
     data: {
       userTypeReader: req.session.userTypeReader,
@@ -108,6 +111,7 @@ router.get("/", async (req, res) => {
       devPath: _NODE_ENV === "development",
       articleData: serializedArticleData,
     },
+    
   });
 });
 
