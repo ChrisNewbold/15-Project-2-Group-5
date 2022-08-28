@@ -1,60 +1,60 @@
 {{!-- reader adds credit section --}}
-  {{!-- hero image --}}
+
+{{!-- hero image --}}
 <div class="d-flex col-12 justify-content-center flex-wrap m-auto">
-  
   {{> heroHeader }}
-  
-<div class="card-group justify-content-evenly">
-  {{!-- gold card and shadow --}}
-  <div class="card-xs m-3 shadow-sm p-3 mb-5 bg-body rounded">
-    {{!-- gold card tier header --}}
-    <div class="p-2 gold-credit-header">GOLD OFFER</div>
-    {{!-- gold card credit cost header --}}
-    <div class="p-1 credit-body">
-      <div class="fs-2 p-2 credit-title">500 CREDITS FOR $50</div>
-      {{!-- gold card body copy --}}
-      <p class="credit-text text-nowrap"><ul><li>500 credits</li><li>bonus 50 credits</li><li>blogger interactions</li><li>new blog notifications</li><li>blog recommendations</li></ul></p>
-      {{!-- gold card button --}}
-      <div class="btnHolder">
-        <button class="btn btnCustomisations" type="button">Select offer</button>
-      </div>
+  <div class="card-group justify-content-evenly">
+    {{!-- gold card and shadow --}}
+    <div class="card-xs m-3 shadow-sm p-3 mb-5 bg-body rounded">
+      {{!-- gold card tier header --}}
+      <div class="p-2 gold-credit-header">GOLD OFFER</div>
+      {{!-- gold card credit cost header --}}
+      <div class="p-1 credit-body">
+        <div class="fs-2 p-2 credit-title">500 CREDITS FOR $50</div>
+        {{!-- gold card body copy --}}
+        <p class="credit-text text-nowrap"><ul><li>500 credits</li><li>bonus 50 credits</li><li>blogger interactions</li><li>new blog notifications</li><li>blog recommendations</li></ul></p>
+        {{!-- gold card button --}}
+        <div class="btnHolder">
+          <button class="btn btnCustomisations" type="button">Select offer</button>
+        </div>
       </div>
     </div>
-  <div class="card-xs m-3 shadow-sm p-3 mb-5 bg-body rounded">
-    {{!-- silver card tier --}}
-       <div class="p-2 silver-credit-header">SILVER OFFER</div>
-       <div class="p-1 credit-body">
-{{!-- silver card credit cost header --}}
-         <div class="fs-2 p-1 credit-title">250 CREDITS FOR $25</div>
-         {{!-- silver card body copy --}}
-         <p class="credit-text text-nowrap"><ul><li>250 credits</li><li>bonus 25 credits</li><li>blog recommendations</li></ul></p>
-         {{!-- silver card button --}}
-<div class="btnHolder">
-  <button class="btn btnCustomisations" type="button">Select offer</button>
-</div>
-       </div>
-     </div>
-  <div class="card-xs m-3 shadow-sm p-3 mb-5 bg-body rounded">
-    {{!-- bronze card tier header --}}
-       <div class="p-2 bronze-credit-header">BRONZE OFFER</div>
-       <div class="p-1 credit-body">
-         {{!-- bronze card credit cost header --}}
-         <div class="fs-2 p-1 credit-title">150 CREDITS FOR $15</div>
-                {{!-- bronze card body copy --}}
-         <p class="credit-text text-nowrap"><ul><li>150 credits</li><li>bonus 10 credits</li></li></ul></p>
-        {{!-- bronze card button --}}
-<div class="btnHolder">
-  <button class="btn btnCustomisations" type="button">Select offer</button>
-</div>
-       </div>
-     </div>
-</div>
-{{!-- paypal button to pay with paypal --}}
-    <div id="paypal-button-container"></div>
-    {{!-- Buy Credits CTA (user will be taken to the article) --}}
-<div class="d-grid gap-2 col-6 mx-auto m-5">
-  <button class="btn btnCustomisations" type="button">Checkout</button>
-</div>
+    <div class="card-xs m-3 shadow-sm p-3 mb-5 bg-body rounded">
+      {{!-- silver card tier --}}
+      <div class="p-2 silver-credit-header">SILVER OFFER</div>
+      <div class="p-1 credit-body">
+        {{!-- silver card credit cost header --}}
+        <div class="fs-2 p-1 credit-title">250 CREDITS FOR $25</div>
+        {{!-- silver card body copy --}}
+        <p class="credit-text text-nowrap"><ul><li>250 credits</li><li>bonus 25 credits</li><li>blog recommendations</li></ul></p>
+        {{!-- silver card button --}}
+        <div class="btnHolder">
+          <button class="btn btnCustomisations" type="button">Select offer</button>
+        </div>
+      </div>
+    </div>
+    <div class="card-xs m-3 shadow-sm p-3 mb-5 bg-body rounded">
+      {{!-- bronze card tier header --}}
+      <div class="p-2 bronze-credit-header">BRONZE OFFER</div>
+      <div class="p-1 credit-body">
+        {{!-- bronze card credit cost header --}}
+        <div class="fs-2 p-1 credit-title">150 CREDITS FOR $15</div>
+          {{!-- bronze card body copy --}}
+          <p class="credit-text text-nowrap"><ul><li>150 credits</li><li>bonus 10 credits</li></li></ul></p>
+          {{!-- bronze card button --}}
+          <div class="btnHolder">
+            <button class="btn btnCustomisations" type="button">Select offer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{!-- paypal button to pay with paypal --}}
+  <div id="paypal-button-container"></div>
+  {{!-- Buy Credits CTA (user will be taken to the article) --}}
+  <div class="d-grid gap-2 col-6 mx-auto m-5">
+    <button class="btn btnCustomisations" type="button">Checkout</button>
+  </div>
 </div>
 
     <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
