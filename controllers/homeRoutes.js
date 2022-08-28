@@ -49,6 +49,7 @@ router.get("/dashboard", async (req, res) => {
     res.redirect("/");
   } else {
     let articleData;
+    let serializedArticleData;
     if (req.session.userTypeBlogger) {
       articleData = await Article.findAll({
         where: { blogger_id: req.session.userId },
@@ -58,16 +59,18 @@ router.get("/dashboard", async (req, res) => {
       articleData = await Article.findAll();
     }
 
-    // eslint-disable-next-line array-callback-return
-    const serializedArticleData = articleData.map((article) => {
-      article.get({ plain: true });
-    });
-    serializedArticleData.forEach((article) => {
-      // eslint-disable-next-line no-param-reassign
-      article.preview = article.preview.substr(0, 200);
-      // eslint-disable-next-line no-param-reassign
-      article.preview += "...";
-    });
+    if (articleData) {
+      // eslint-disable-next-line array-callback-return
+      serializedArticleData = articleData.map((article) =>
+        article.get({ plain: true })
+      );
+      serializedArticleData.forEach((article) => {
+        // eslint-disable-next-line no-param-reassign
+        article.preview = article.preview.substr(0, 200);
+        // eslint-disable-next-line no-param-reassign
+        article.preview += "...";
+      });
+    }
     // eslint-disable-next-line no-console
     res.render("dashboard", {
       layout: "main",

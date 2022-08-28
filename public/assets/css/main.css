@@ -218,7 +218,7 @@ a:link {
   text-decoration: none;
   color: black;
 }
-a:hover, li:hover{
+a:hover, li.menuItem:hover{
   color: white !important;
   background: none;
 }
