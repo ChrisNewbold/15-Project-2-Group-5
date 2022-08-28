@@ -1,11 +1,21 @@
 <div class="d-flex col-12 justify-content-center flex-wrap">
   {{> heroHeader }}
-  <table>
-    <tr><td>Todays New Articles</td></tr>
+<div class="row row-cols-1 row-cols-md-3 g-4">
       {{#each data.articleData as |article|}}
-        <tr><td>{{article.url}}</td></tr>
+        <div class="col">
+          <div class="card h-100 m-3">
+            <img src="{{image_url}}" class="card-img-top" alt="">
+            <div class="card-body">
+              <h5 class="card-title">{{article.title}}</h5>
+              <p class="card-text">{{article.preview}}</p>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">Last updated 3 mins ago</small>
+            </div>
+          </div>
+        </div>
       {{/each}}
-  </table>
+  </div>
 {{#if data.userTypeBlogger}}
   
 {{/if}}
