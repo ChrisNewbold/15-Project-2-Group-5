@@ -4,15 +4,16 @@
   
 
   {{#if data.userTypeBlogger}}
+  <div class="form-wrap">
   <div class="bloggerAddURLFormWrapper">
     <span class="bloggerAddFormError" id="bloggerAddFUrl-Error-Span"></span>
-    <input type="text"  class="addUrlInput" id="bloggerAddUrl-input" placeholder="URL:">
+    <input class="form-control" placeholder="BLOG URL:" type="text"  class="addUrlInput" id="bloggerAddUrl-input">
   </div>
   <div class="bloggerAddURLFormWrapper">
     <span class="bloggerAddUrlCredit-Error" id="bloggerAddUrlCredit-Error-Span"></span>
-    <input type="text" class="addUrlInput" id="bloggerAddUrlCredit-input" placeholder="CREDIT:">
+    <input type="text" class="form-control" placeholder="CREDIT VALUE:" id="bloggerAddUrlCredit-input">
   </div>
-  <button id="bloggerAddUrlButton">SUBMIT</button>
+  <button class="d-grid gap-2 col-6 mx-auto m-3 btn btnCustomisations btn-md" id="bloggerAddUrlButton">SUBMIT</button>
   <br><br>Your Articles:<br>
   <table id="urlList">
   {{#each data.articleData as |article|}}
@@ -21,7 +22,7 @@
   </table>
   <br><br>Link this file in you html header
 <textarea>&lt;script src="https://c15-project-2-group-5.herokuapp.com/plugins/plugin.js"&gt;&lt;/script&gt;</textarea>
-
+</div>
   {{/if}}
 {{#if data.userTypeReader}}
 <div class="row row-cols-1 row-cols-md-3 g-4">
