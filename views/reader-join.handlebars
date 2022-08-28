@@ -35,62 +35,64 @@
   </div>
 </div>
 
+<div class="d-flex flex-wrap justify-content-center"> 
+  <div class="form-wrap">
+    <div id="readerJoinMessage"></div>
+    <fieldset id="readerJoinForm">
+      <!-- First Name -->
+      <div class="readerJoinFormInputWrapper">
+        <span id="readerJoin-FirstName-Error" class="readerJoinFormError"></span>
+        <input class="form-control" placeholder="First Name" type="text" id="readerJoin-FirstName" />
+      </div>
 
-<div class="form-wrap">
- <div id="readerJoinMessage"></div>
-<fieldset id="readerJoinForm">
-  <!-- First Name -->
-  <div class="readerJoinFormInputWrapper">
-    <span id="readerJoin-FirstName-Error" class="readerJoinFormError"></span>
-    <input class="form-control" placeholder="First Name" type="text" id="readerJoin-FirstName" />
-  </div>
+      <!-- Last Name -->
+      <div class="readerJoinFormInputWrapper">
+        <span id="readerJoin-LastName-Error" class="readerJoinFormError"></span>
+        <input class="form-control" placeholder="Last Name" type="text" id="readerJoin-LastName" />
+      </div>
 
-  <!-- Last Name -->
-  <div class="readerJoinFormInputWrapper">
-    <span id="readerJoin-LastName-Error" class="readerJoinFormError"></span>
-    <input class="form-control" placeholder="Last Name" type="text" id="readerJoin-LastName" />
-  </div>
+      <!-- Email -->
+      <div class="readerJoinFormInputWrapper">
+        <span id="readerJoin-Email-Error" class="readerJoinFormError"></span>
+        <input class="form-control" placeholder="Email" type="email" id="readerJoin-Email" />
+      </div>
 
-  <!-- Email -->
-  <div class="readerJoinFormInputWrapper">
-    <span id="readerJoin-Email-Error" class="readerJoinFormError"></span>
-    <input class="form-control" placeholder="Email" type="email" id="readerJoin-Email" />
-  </div>
+      <!-- Password -->
+      <div class="readerJoinFormInputWrapper">
+        <span id="readerJoin-Password-Error" class="readerJoinFormError"></span>
+        <input class="form-control" placeholder="Password" type="password" id="readerJoin-Password" />
+      </div>
 
-  <!-- Password -->
-  <div class="readerJoinFormInputWrapper">
-    <span id="readerJoin-Password-Error" class="readerJoinFormError"></span>
-    <input class="form-control" placeholder="Password" type="password" id="readerJoin-Password" />
-  </div>
+      <!-- Confirm Password -->
+      <div class="readerJoinFormInputWrapper">
+        <span
+          id="readerJoin-ConfirmPassword-Error"
+          class="readerJoinFormError"
+        ></span>
+        <input class="form-control" placeholder="Confirm Password" type="password" id="readerJoin-ConfirmPassword" />
+      </div>
 
-  <!-- Confirm Password -->
-  <div class="readerJoinFormInputWrapper">
-    <span
-      id="readerJoin-ConfirmPassword-Error"
-      class="readerJoinFormError"
-    ></span>
-    <input class="form-control" placeholder="Confirm Password" type="password" id="readerJoin-ConfirmPassword" />
-  </div>
-  <div class="readerJoinFormInputWrapper">
-    <table>
-      <tr>
-        <td><input type="checkbox" id="readerJoin-Terms" class="form-check-input" /></td>
-        <td><label class="form-check-label" for="flexCheckDefault1" id="readerJoin-Terms-Label">I agree to the <a href="/terms">Terms & Conditions</a></label></td>
-      </tr>
-    </table>
-  </div>
-  <div>
-    <table>
-      <tr>
-        <td><input type="checkbox" id="readerJoin-Privacy" class="form-check-input" /></td>
-        <td><label class="form-check-label" for="flexCheckDefault2">I agree to receive the latest blog reviews, exclusive offers, updates and more from us.<a href="/privacy">Privacy Policy</a></label></td>
-      </tr>
-    </table>
-  </div>
-  <button id="readerJoin-submit" class="btn btnCustomisations">JOIN</button>
-</fieldset>
+      <!-- Checkboxes -->   
+      <div class="readerJoinFormInputWrapper">
+        <table>
+          <tr>
+            <td><input type="checkbox" id="readerJoin-Terms" class="form-check-input" /></td>
+            <td><label class="form-check-label" for="flexCheckDefault1" id="readerJoin-Terms-Label">I agree to the <a href="/terms" class="termsPrivacyA">Terms & Conditions</a></label></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table>
+          <tr>
+            <td><input type="checkbox" id="readerJoin-Privacy" class="form-check-input" /></td>
+            <td><label class="form-check-label" for="flexCheckDefault2">I agree to receive the latest blog reviews, exclusive offers, updates and more from us.&nbsp;<a href="/privacy" class="termsPrivacyA">Privacy Policy</a></label></td>
+          </tr>
+        </table>
+      </div>
+    <button id="readerJoin-submit" class="btn btnCustomisations">JOIN</button>
+  </fieldset>
 </div>
-<br><br><br>
+
 {{!-- link to javaScript file --}}
 {{#if devPath}}
 <script src="/assets/js/reader-join.js"></script>
