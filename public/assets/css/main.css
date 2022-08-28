@@ -82,6 +82,21 @@ textarea {
   width: 70%;
 }
 
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="checkbox"]:focus,
+textarea:focus,
+button:focus,
+button:active  {
+  border-color: #ffb81d !important;
+  box-shadow: none !important;
+  outline: 0 none !important;
+}
+input[type="checkbox"]:checked {
+  background-color: #ffb81d !important;
+  border-color: #ffb81d !important;
+}
 #logoutButton,
 #creditButton {
   cursor: pointer;
