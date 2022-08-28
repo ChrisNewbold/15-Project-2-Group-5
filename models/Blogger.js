@@ -20,26 +20,32 @@ Blogger.init(
     email: {
       type: DataTypes.CHAR(50),
       allowNull: false,
+      defaultValue: "",
     },
     first_name: {
       type: DataTypes.CHAR(50),
       allowNull: false,
+      defaultValue: "",
     },
     last_name: {
       type: DataTypes.CHAR(50),
       allowNull: false,
+      defaultValue: "",
     },
     password: {
       type: DataTypes.CHAR(255),
       allowNull: false,
+      defaultValue: "",
     },
     description: {
       type: DataTypes.TEXT,
       allowNull: false,
+      defaultValue: "",
     },
     url: {
       type: DataTypes.CHAR(100),
       allowNull: false,
+      defaultValue: "",
     },
     image: {
       type: DataTypes.CHAR(100),
