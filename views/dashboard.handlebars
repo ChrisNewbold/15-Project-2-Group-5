@@ -1,8 +1,9 @@
+{{!-- hero header --}}
 <div class="d-flex col-12 justify-content-center flex-wrap m-auto">
   
   {{> heroHeader }}
   
-
+{{!-- blogger blog entry form --}}
   {{#if data.userTypeBlogger}}
   <div class="form-wrap">
   <div class="bloggerAddURLFormWrapper">
@@ -14,6 +15,7 @@
     <input type="text" class="form-control" placeholder="CREDIT VALUE:" id="bloggerAddUrlCredit-input">
   </div>
   <button class="d-grid gap-2 col-6 mx-auto m-3 btn btnCustomisations btn-md" id="bloggerAddUrlButton">SUBMIT</button>
+  {{!-- blogger articles --}}
   <br><br>Your Articles:<br>
   <table id="urlList">
   {{#each data.articleData as |article|}}
