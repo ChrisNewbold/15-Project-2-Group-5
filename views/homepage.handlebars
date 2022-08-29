@@ -1,5 +1,8 @@
+{{!-- homepage --}}
+{{!-- hero page banner calling heroHeader partial--}}
 <div class="d-flex col-12 justify-content-center flex-wrap">
   {{> heroHeader }}
+  {{!-- homepage article loop --}}
 <div class="row row-cols-1 row-cols-md-3 g-4 p-5">
       {{#each data.articleData as |article|}}
         <div class="col">
@@ -16,13 +19,6 @@
         </div>
       {{/each}}
   </div>
-{{#if data.userTypeBlogger}}
-  
-{{/if}}
-
-{{#if data.userTypeReader}}
-
-{{/if}}
 
 {{!-- link to javaScript file --}}
 {{#if data.devPath}}
