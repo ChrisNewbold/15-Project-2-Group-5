@@ -10,25 +10,29 @@
 
 [4. USAGE](#USAGE)
 
-[5. CONTRIBUTE](#CONTRIBUTE)
+[5. TECHNOLOGIES USED](#TECHNOLOGIESUSED)
 
-[6. TESTS](#TESTS)
+[6. CONTRIBUTE](#CONTRIBUTE)
 
-[7. LICENCE](#LICENCE)
+[7. TESTS](#TESTS)
 
-[8. QUESTIONS](#QUESTIONS)
+[8. LICENCE](#LICENCE)
+
+[9. COLLABORATORS](#COLLABORATORS)
 
 <a id="DESCRIPTION"></a>
 
 ## DESCRIPTION
 
+    Change the way blogging is valued! Let your most passionate fans support your creative work via a credit system that, in exchange, allows you the freedom to do your best work and the stability you need to build an independent creative career.
+
 <a id="SCREENSHOTS"></a>
 
 ## SCREENSHOTS
 
-<img src="./assets/images/screenshots/Capture.JPG" width="500"/>
+![](public/assets/images/Splashtest.png)"
 
-<img src="./assets/images/screenshots/Capture2.JPG" width="500"/>
+![](public/assets/images/OnlyBlogs-Homepage.png)
 
 <a id="INSTALLATION"></a>
 
@@ -69,6 +73,19 @@
     Run the following command:
         npm start
 
+<a id="TECHNOLOGIESUSED"></a>
+
+## TECHNOLOGIES USED
+
+    NODE.JS
+    HTML
+    CSS
+    JAVASCRIPT
+    EXPRESS
+    HUSKY
+    MYSQL
+    SEQUELIZE
+
 <a id="CONTRIBUTE"></a>
 
 ## CONTRIBUTE
@@ -87,10 +104,11 @@
 
     Unlicenced
 
-<a id="QUESTIONS"></a>
+<a id="COLLABORATORS"></a>
 
-## QUESTIONS
+## COLLABORATORS
 
-    Please contact me at vesnathan@gmail.com for any questions.
-
-[My GitHub Profile](https://github.com/vesnathan)
+[Nathan's GitHub Profile](https://github.com/vesnathan) <br>
+[Chris's Profile](https://github.com/ChrisNewbold) <br>
+[Juan's Profile](https://github.com/juanmarquez4) <br>
+[Michael's Profile](https://github.com/michaelclancy90) <br>
