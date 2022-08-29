@@ -3,7 +3,9 @@
   color: black;
   padding-right: 25px;
 }
-
+h1 { 
+  font-size: 150%;
+}
 .gold-credit-header {
   background-color: gold;
   color: black;
@@ -260,13 +262,16 @@ a:visited {
   right: 0;
   z-index: 750;
   height: 220px;
-  padding: 10px;
+  padding: 30px;
   top: 0;
-  
-  width: 700px;
+  width: 750px;
 }
 .homePageCTA {
   color: rgb(255, 255, 255);
+}
+.homePageCTA p {
+  margin-left: 10px;
+  margin-top: 10px;
 }
 
 .homePageCTAAbsolute {
