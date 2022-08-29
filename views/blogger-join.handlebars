@@ -1,37 +1,7 @@
 {{!-- hero header --}}
 <div class="d-flex col-12 justify-content-center flex-wrap m-auto">
-  <div class="d-flex col-12">
-    <div class="homepageMenu col-12 "> 
-      {{> menu}}
-    </div>
-  </div>
-<div class="homepageContainer d-flex flex-wrap col-12">
 
-  <div class="homepageImageOne">
-  {{#if devPath}}
-  <img src="/assets/images/writer.png">
-  {{else}}
-  <img src="{{prodPath}}/assets/images/writer.png">
-  {{/if}}
-    
-  </div>
-  <div class="homePageCTAHolder d-none d-md-block ">
-    <div class="col-12 homePageCTA homePageCTAAbsolute text-wrap">
-    {{> header-cta}}
-    </div>
-  </div>
-  <div class="homepageImageTwo">
-  {{#if devPath}}
-  
-  <img src="/assets/images/logo.png">
-  {{else}}
-  <img src="{{prodPath}}/assets/images/logo.png" >
-  {{/if}}
-  </div>
-  
-  <div class="d-block d-md-none col-12 homePageCTA p-5 text-wrap">
-    {{> header-cta}}</div>
-</div>
+  {{> heroHeader }}
 
 {{!-- blogger sign up form --}}
 <div class="d-flex flex-wrap justify-content-center">  

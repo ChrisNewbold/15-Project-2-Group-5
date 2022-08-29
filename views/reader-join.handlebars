@@ -1,39 +1,8 @@
 {{!-- form for reader sign up --}}
 <div class="d-flex col-12 justify-content-center flex-wrap m-auto">
-  <div class="d-flex col-12">
-    <div class="homepageMenu col-12 "> 
-      {{> menu}}
-    </div>
-  </div>
-<div class="homepageContainer d-flex flex-wrap col-12">
-{{!-- hero homepage image --}}
-  <div class="homepageImageOne">
-  {{#if devPath}}
-  <img src="/assets/images/writer.png">
-  {{else}}
-  <img src="{{prodPath}}/assets/images/writer.png">
-  {{/if}}
-    
-  </div>
-  {{!-- big screen CTA wrapper --}}
-  <div class="homePageCTAHolder d-none d-md-block ">
-    <div class="col-12 homePageCTA homePageCTAAbsolute text-wrap">
-    {{> header-cta}}
-    </div>
-  </div>
-  <div class="homepageImageTwo">
-  {{#if devPath}}
-  {{!-- OB logo --}}
-  <img src="/assets/images/logo.png">
-  {{else}}
-  <img src="{{prodPath}}/assets/images/logo.png" >
-  {{/if}}
-  </div>
-  {{!-- small screen CTA wrapper --}}
-  <div class="d-block d-md-none col-12 homePageCTA p-5 text-wrap">
-  {{> header-cta}}
-  </div>
-</div>
+
+{{> heroHeader }}
+
 {{!-- reader join forms --}}
 <div class="d-flex flex-wrap justify-content-center"> 
   <div class="form-wrap">
