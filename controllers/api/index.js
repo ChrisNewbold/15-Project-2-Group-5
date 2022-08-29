@@ -56,7 +56,7 @@ router.post("/login", async (req, res) => {
       }
     }
   } else {
-    // if no hits on either DB Table return error
+    // if no details provided send error
     res.status(200).send({
       status: "error",
       message: "LOGIN DETAILS INCORRECT",
