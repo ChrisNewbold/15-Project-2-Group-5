@@ -16,14 +16,17 @@ Reader.init(
     email: {
       type: DataTypes.CHAR(255),
       allowNull: false,
+      defaultValue: "",
     },
     first_name: {
       type: DataTypes.CHAR(255),
-      allowNull: true,
+      allowNull: false,
+      defaultValue: "",
     },
     last_name: {
       type: DataTypes.CHAR(255),
-      allowNull: true,
+      allowNull: false,
+      defaultValue: "",
     },
     password: {
       type: DataTypes.CHAR(255),
@@ -32,6 +35,7 @@ Reader.init(
     credits: {
       type: DataTypes.INTEGER(10),
       allowNull: false,
+      defaultValue: 0,
     },
     terms: {
       type: DataTypes.BOOLEAN,
