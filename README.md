@@ -1,4 +1,4 @@
-# Project 2
+# OnlyBlogs - Micro-billing for Bloggers and Content Creators
 
 ## CONTENTS
 
@@ -24,7 +24,7 @@
 
 ## DESCRIPTION
 
-    Change the way blogging is valued! Let your most passionate fans support your creative work via a credit system that, in exchange, allows you the freedom to do your best work and the stability you need to build an independent creative career.
+Change the way blogging is valued! Let your most passionate fans support your creative work via a credit system that, in exchange, allows you the freedom to do your best work and the stability you need to build an independent creative career.
 
 <a id="SCREENSHOTS"></a>
 
@@ -39,18 +39,19 @@
 ## INSTALLATION
 
     In your projects folder, run the following commands:
-        git clone ...
-        cd ...
+        git clone git@github.com:ChrisNewbold/15-Project-2-Group-5.git
+        cd 15-Project-2-Group-5
 
     Create a file called .env in the project root, and set the following vars:
         NODE_ENV="development"
         PORT=3001
         DB_USER="yourDbUserName"
         DB_PASSWORD="yourDbPassword"
-        DB_NAME="app_techblog"
+        DB_NAME="yourDbName"
         DB_PORT=3306
         DB_HOST="localhost"
         SESSION_SECRET="yourSecretKey"
+        PROD_PATH="https://url.com"
 
     ASSUMES MYSQL_SERVER IS INSTALLED!
     Start MySql Server
@@ -59,19 +60,22 @@
     If necessary, sign in to mysql as root and create and grant priveledges to your user
         sudo mysql -u root -p
         CREATE USER 'yourDbUserName'@'localhost' IDENTIFIED BY "yourDbPassword";
-        GRANT ALL PRIVILEGES ON app_techblog. * TO 'yourDbUserName'@'localhost';
+        GRANT ALL PRIVILEGES ON yourDbName. * TO 'yourDbUserName'@'localhost';
 
     Run the following commands:
         npm install
-        npm run create_db
         npm run seed
+
+    If npm run seed crashes, run it again...
 
 <a id="USAGE"></a>
 
 ## USAGE
 
     Run the following command:
-        npm start
+        "npm start"
+        or
+        "npm run watch" for nodemon
 
 <a id="TECHNOLOGIESUSED"></a>
 
