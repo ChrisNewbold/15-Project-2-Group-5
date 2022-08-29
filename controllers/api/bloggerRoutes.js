@@ -29,14 +29,16 @@ router.post("/join", async (req, res) => {
   bloggerData.credits = 0;
 
   try {
+    // check if the blogger is already in the db
     const bloggerEmailCheck = await Blogger.count({
       where: { email: bloggerData.email },
     });
     if (bloggerEmailCheck !== 0) {
       res
-        .status(200)
+        .status(400)
         .send({ status: "error", message: "User already exists." });
     } else {
+      // if not encrypt the password and add blogger details to DB
       bcrypt.genSalt(saltRounds, async (err, salt) => {
         bcrypt.hash(bloggerData.password, salt, async (_err, hash) => {
           bloggerData.password = hash;
@@ -49,8 +51,7 @@ router.post("/join", async (req, res) => {
           req.session.userTypeBlogger = true;
           res.status(200).send({
             status: "success",
-            message:
-              "You have successfully joined.<br>Please log in to continue.",
+            message: "Blogger successfully registered",
           });
         });
       });

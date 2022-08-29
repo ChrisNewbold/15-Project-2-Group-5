@@ -14,42 +14,47 @@ router.get("/credit", (req, res) => {
 });
 
 router.get("/login", (req, res) => {
-  res.render("login");
+  res.render("login", {
+    title: "OnlyBlogs - Login",
+  });
 });
 
 router.get("/blogger-join", (req, res) => {
   res.render("blogger-join", {
     layout: "main",
-    title: "OnlyBlogs",
+    title: "Join OnlyBlogs",
   });
 });
 router.get("/reader-join", (req, res) => {
   res.render("reader-join", {
     layout: "main",
-    title: "OnlyBlogs",
+    title: "Join OnlyBlogs",
   });
 });
 
 router.get("/terms", (req, res) => {
   res.render("terms-and-conditions", {
     layout: "main",
-    title: "OnlyBlogs",
+    title: "OnlyBlogs - Terms and Conditions",
   });
 });
 
 router.get("/privacy", (req, res) => {
   res.render("privacy", {
     layout: "main",
-    title: "OnlyBlogs",
+    title: "OnlyBlogs - Privacy Policy",
   });
 });
 
 router.get("/dashboard", async (req, res) => {
+  // if user isn't logged in, send to homepage
   if (!req.session.userAuthenticated) {
     res.redirect("/");
   } else {
     let articleData;
     let serializedArticleData;
+
+    // If a blogger logged in, return just their articles, if a reader, return all articles.
     if (req.session.userTypeBlogger) {
       articleData = await Article.findAll({
         where: { blogger_id: req.session.userId },
@@ -59,6 +64,7 @@ router.get("/dashboard", async (req, res) => {
       articleData = await Article.findAll();
     }
 
+    // serialize article data, and limit returned chars in preview to 200
     if (articleData) {
       // eslint-disable-next-line array-callback-return
       serializedArticleData = articleData.map((article) =>
@@ -88,8 +94,12 @@ router.get("/dashboard", async (req, res) => {
   }
 });
 
+// homepage
 router.get("/", async (req, res) => {
+  // return all articles, TODO: prob limit amount returned
   const articleData = await Article.findAll();
+
+  // serialize the article data and limit text strings to 200 chars
   let serializedArticleData;
   if (articleData) {
     // eslint-disable-next-line array-callback-return
@@ -103,7 +113,6 @@ router.get("/", async (req, res) => {
       article.preview += "...";
     });
   }
-  console.log("serializedArticleData", serializedArticleData);
 
   res.render("homepage", {
     data: {
@@ -117,6 +126,7 @@ router.get("/", async (req, res) => {
   });
 });
 
+// catch any routes we haven't set up.
 router.use("/", (req, res) => {
   res.send("403: Forbidden");
 });

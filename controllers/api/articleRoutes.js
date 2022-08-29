@@ -5,19 +5,30 @@ require("body-parser");
 
 router.post("/addurl", async (req, res) => {
   const { url, credits } = req.body;
+
+  // check if the article link is already in the db. If not, add it, if so, send error back
   const articleExists = await Article.findOne({ where: { url } });
   if (!articleExists) {
-    const articleRow = await Article.create({
-      url,
-      credits,
-      blogger_id: req.session.userId,
-    });
-    res.status(200).send({
-      status: "success",
-      html: `<tr><td>${articleRow.url}</td><td>${articleRow.credits}</td></tr>`,
-    });
+    try {
+      const articleRow = await Article.create({
+        url,
+        credits,
+        blogger_id: req.session.userId,
+      });
+      res.status(200).send({
+        status: "success",
+        html: `<tr><td>${articleRow.url}</td><td>${articleRow.credits}</td></tr>`,
+      });
+    } catch (err) {
+      res.status(400).send({
+        status: "error",
+        message: `ERROR 112.546: ${err}`,
+      });
+    }
   }
 });
+
+// this will come from the bloggers site to see if the article is in our db
 router.post("/check", async (req, res) => {
   const { url, email } = req.body;
   try {
@@ -29,8 +40,6 @@ router.post("/check", async (req, res) => {
       if req.body.url isn't in our article table:
       -> send back a message to continue: { status: "ok", do: "continue" }
       */
-      // eslint-disable-next-line no-console
-      // console.log("not found");
       res.send({ status: "ok", do: "continue" });
     }
     if (articleRow && !email) {
@@ -38,8 +47,6 @@ router.post("/check", async (req, res) => {
       If req.body doesn't include an email, then the reader has never seen this before
       -> send them the pre-register splash
       */
-      // eslint-disable-next-line no-console
-      // console.log("url found, no email");
       res.render(
         "pre-register",
         {
@@ -64,21 +71,15 @@ router.post("/check", async (req, res) => {
     }
 
     if (articleRow && email) {
-      // if req.body does include an email, this reader probably knows what this is about. Check that this reader is in the DB
-
-      // Check if the user has credit
-
-      // if user does have credit:
-      // -> send back splash with thank you message, cost to read article, and button
-
-      // If user does not have credit:
-      // -> send back splash with paypal link to top-up their credit.
-
+      /*
+      if req.body does include an email, this reader probably knows what this is about. Check that this reader is in the DB
+     */
       const readerRow = await Reader.findOne({
         where: { email },
       });
       const bloggerRow = await Blogger.findByPk(articleRow.blogger_id);
 
+      // if reader is not in the db send back reg form
       if (!readerRow) {
         res.render(
           "pre-register",
@@ -102,7 +103,15 @@ router.post("/check", async (req, res) => {
           }
         );
       } else {
+        /*
+        If the reader is in the DB
+        Check if the user has enough credit to read the article
+        */
         if (readerRow.credits > articleRow.credits) {
+          /*
+          if user does have enough credit:
+          -> send back splash with thank you message, cost to read article, and button
+          */
           res.render(
             "reader-hasCredit",
             {
@@ -132,6 +141,10 @@ router.post("/check", async (req, res) => {
           );
         }
         if (readerRow.credits < articleRow.credits) {
+          /*
+          If user does not have enough credit:
+          -> send back splash with paypal link to top-up their credit.
+          */
           res.render(
             "reader-outOfCredit",
             {
@@ -161,9 +174,6 @@ router.post("/check", async (req, res) => {
           );
         }
       }
-
-      // eslint-disable-next-line no-console
-      // console.log(readerRow);
     }
   } catch (err) {
     // eslint-disable-next-line no-console

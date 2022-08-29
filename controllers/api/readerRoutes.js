@@ -7,6 +7,7 @@ require("body-parser");
 
 const saltRounds = 10;
 
+// sent from bloggers website to actually charge reader
 router.post("/charge", async (req, res) => {
   const { articleId, readerId } = req.body;
   const articleRow = await Article.findByPk(articleId);
@@ -26,6 +27,7 @@ router.post("/charge", async (req, res) => {
   res.status(200).send({ status: "success" });
 });
 
+// processing the registration form from the bloggers site
 router.post("/prereg", async (req, res) => {
   const { email, password, terms, privacy, articleId } = req.body;
   try {
@@ -39,7 +41,7 @@ router.post("/prereg", async (req, res) => {
     if (!readerRow) {
       /*
         if req.body.email isn't in our reader table:
-        -> add user to database, then send back : { status: "ok", do: "continue" }
+        -> add user to database, then send back thank you message
         */
       bcrypt.genSalt(saltRounds, async (err, salt) => {
         bcrypt.hash(password, salt, async (err2, hash) => {
@@ -78,9 +80,11 @@ router.post("/prereg", async (req, res) => {
         });
       });
     }
+
+    // if the readers is already in our system (maybe they deleted cookies) check how much credit they have
     if (readerRow) {
-      // eslint-disable-next-line no-console
-      if (readerRow.credits > 0) {
+      // If they have enough credit, send confirm splash
+      if (readerRow.credits >= articleRow.credits) {
         res.render(
           "reader-hasCredit",
           {
@@ -109,7 +113,8 @@ router.post("/prereg", async (req, res) => {
           }
         );
       }
-      if (readerRow.credits < 1) {
+      // if they don't have enough credit, send back link to get credit
+      if (readerRow.credits < articleRow.credits) {
         res.render(
           "reader-outOfCredit",
           {
@@ -138,6 +143,8 @@ router.post("/prereg", async (req, res) => {
     console.log(`ERROR 246.32: ${err}`);
   }
 });
+
+// this is if the reader joins via the main webpage
 router.post("/join", async (req, res) => {
   const { email, firstName, lastName, password, terms, privacy } = req.body;
   bcrypt.genSalt(saltRounds, async (err, salt) => {
