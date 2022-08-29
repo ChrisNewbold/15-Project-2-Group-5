@@ -3,6 +3,7 @@
     color: white !important;
     font-weight: bolder;
     line-height: 100%;
+    text-align: center;
   }
   .card-title{
     font-weight: bolder;
@@ -62,3 +63,13 @@
     max-width: 80%;
     font-size: 10px;
   }
+
+  .signUpFor{
+    font-size: 80%;
+    display: block;
+  }
+  .freeCredits{
+    font-size: 100%;
+    display: block;
+  }
+  
